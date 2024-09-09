@@ -5,6 +5,7 @@ import ChatStartPage from "./page/Main/ChatPage/ChatStartPage"
 import ChatRoom from "./page/Main/ChatPage/ChatRoom/ChatRoom"
 import ChatRoomInformation from "./page/Main/ChatPage/ChatRoom/ChatRoomInformation/ChatRoomInformation"
 
+import Mypage from "./page/Mypage/Mypage"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route path="/mypage" element={<Mypage />} />
         <Route path="/ChatStartPage" element={<ChatStartPage />} />
         {/* <Route path="/chat/:roomId" element={<ChatRoom />} /> */}
         <Route path="/chat/0" element={<ChatRoom />} />
@@ -20,6 +22,7 @@ function App() {
         <Route path="/goChatRoomInformation/0" element={<ChatRoomInformation />} />
       </Routes>
     </Router>
+
   );
 }
 
