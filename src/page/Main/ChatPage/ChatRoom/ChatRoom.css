@@ -1,0 +1,237 @@
+.chatRoom {
+
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .margin-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 0 16px;
+    }
+
+    .title {
+        width: 100%;
+        height: 46px;
+        margin-top: 50px;
+        background: #ffffff;
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+    }
+
+    .title-name {
+        /* 채팅방 이름 */
+
+        padding-top: 15px;
+        width: 90px;
+        height: 18px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        /* identical to box height, or 112% */
+        display: flex;
+        align-items: center;
+
+        color: #3D3D3D;
+    }
+
+
+    .bar {
+        width: 343px;
+        height: 6px;
+
+
+
+        background-color: #F5F6F7;
+
+    }
+
+
+    .dialog-icon-container {
+        margin-top: 15px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /*원이 3개이상*/
+    .profile-icon-0 {
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: relative;
+        background-color: #A0A0A0;
+        left: 37px;
+        top: 0;
+        z-index: 0;
+    }
+
+    .profile-icon-1 {
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: relative;
+        background-color: #BBBBBB;
+        left: 27px;
+        top: 0;
+        z-index: 1;
+    }
+
+    .profile-icon-2 {
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: relative;
+        background-color: #F5F5F5;
+        left: 17px;
+        top: 0;
+        z-index: 2;
+    }
+
+    /*원이 2개*/
+    .profile-icon-0.member-length-2 {
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: relative;
+        background-color: #A0A0A0;
+        left: 10px;
+        top: 0;
+        z-index: 0;
+    }
+
+    .profile-icon-1.member-length-2 {
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: relative;
+        background-color: #BBBBBB;
+        left: 0px;
+        top: 0;
+        z-index: 1;
+    }
+
+    /*원이 1개*/
+    .profile-icon-0.member-length-1 {
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+        background-position: center;
+        border-radius: 50%;
+        position: relative;
+        background-color: #A0A0A0;
+        left: 0px;
+        top: 0;
+        z-index: 0;
+    }
+
+
+    .extra-profile-count {
+
+        /* +2 */
+
+        position: relative;
+        width: 17px;
+        height: 16px;
+        left: 2px;
+        top: 2px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #606060;
+        z-index: 3;
+
+    }
+
+
+
+    .text-bar {
+        position: relative;
+        width: 343px;
+        height: 40px;
+        top: 500px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .text-container {
+        /* Rectangle 3470037 */
+        width: 299px;
+        height: 40px;
+        background: #F5F5F5;
+        border-radius: 42px;
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .send-container {
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        border-radius: 50%;
+        background: #F5F5F5;
+    }
+
+    .text {
+        /* Text... */
+        border: none;
+
+        /* 기본 배경 제거 */
+        background: none;
+
+        /* 기본 그림자 제거 */
+        box-shadow: none;
+
+        /* 기본 외곽선(focus 시 생기는 테두리) 제거 */
+        outline: none;
+
+        /* 기본 여백 제거 */
+        padding: 0;
+        margin: 0;
+        /* 텍스트 선택 시 색상 초기화 (선택 사항) */
+        user-select: text;
+
+        /* 모양을 네이티브 스타일로 초기화 (iOS, Android 등) */
+        appearance: none;
+
+        margin-left: 20px;
+        height: 20px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        border-radius: 42px;
+        color: #000000;
+        z-index: 1000;
+    }
+
+}
