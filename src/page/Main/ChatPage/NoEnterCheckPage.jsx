@@ -164,8 +164,11 @@ function NoEnterCheckPage(props) {
                                                 <h4 className="gender-text">남자</h4>
                                                 <ul>
                                                     {room.members.filter(member => member.gender === "Male").map((member, index) => (
-                                                        <li key={index}>
-                                                            <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
+                                                        <li key={index} className="user-list">
+                                                            <img src="" alt="zz" />
+                                                            <div className="user-container">
+                                                                <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
+                                                            </div>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -174,8 +177,11 @@ function NoEnterCheckPage(props) {
                                                 <h4 className="gender-text">여자</h4>
                                                 <ul>
                                                     {room.members.filter(member => member.gender === "Female").map((member, index) => (
-                                                        <li key={index}>
-                                                            <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
+                                                        <li key={index} className="user-list">
+                                                            <img src="" alt="zz" />
+                                                            <div className="user-container">
+                                                                <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
+                                                            </div>
                                                         </li>
                                                     ))}
                                                 </ul>
