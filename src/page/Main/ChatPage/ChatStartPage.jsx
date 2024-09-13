@@ -3,15 +3,18 @@ import './ChatPage.css'
 import EnterCheckPage from './EnterCheckPage'
 import NoEnterCheckPage from './NoEnterCheckPage'
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 function ChatStartPage() {
 
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
     const [isEnterCheck, setIsEnterClick] = useState(false);
     //유저의 정보를 가져와 성별,입장참여 횟수를 가져온다
     const [possibleEnterNumber, setPossibleEnterNumber] = useState(3);
     const [gender, setGender] = useState("male");
+
 
 
     useEffect(() => {
@@ -41,7 +44,7 @@ function ChatStartPage() {
 
                 const data = await response.json();
                 setGender(data.gender);
-                setPossibleEnterNumber(data.ticket)
+                setPossibleEnterNumber(data.ticket);
             } catch (error) {
                 console.log(error);
             } finally {
@@ -72,7 +75,7 @@ function ChatStartPage() {
             //제목 길이 20자 제한
             title: "채팅방 메인 타이틀아아아아f",
             //서브제목 길이 30자 제한
-            subTitle: "sdafasdfadsfjlsadflㅁㄴ어ㅣㄹㄴㅁ이ㅓ리너아리ㅁㄴㅇㄻㄴㅇㄹ",
+            subTitle: "dddddddddddddddddddddddddddddddddddddddddddddddddd",
 
             //방아이디로 조회한다.
             members: [
@@ -128,6 +131,7 @@ function ChatStartPage() {
 
     const makeChatRoom = () => {
         //챗룸 만들기로 이동
+        navigate('/makeChatRoom')
     }
 
 
@@ -138,37 +142,35 @@ function ChatStartPage() {
 
     return (
         <div className="chatStartPage">
-            <img className="logo" src="" alt="logo" />
+            <div className="margin-container">
+                <img className="logo" src="" alt="logo" />
 
-            <div className="title">
-                <div className="title-name">
-                    <span className={`enter ${isEnterCheck ? 'one-click' : 'two-click'}`} onClick={() => setIsEnterClick(true)} >참여중</span>
-                    <span className={`no-enter ${isEnterCheck ? 'two-click' : 'one-click'}`} onClick={() => setIsEnterClick(false)}>모집중</span>
-                </div>
-                {isEnterCheck ? <span className="title-span">최대 {possibleEnterNumber}개 방까지 참여 가능합니다</span> : <span></span>}
-
-            </div>
-
-            <div className="chatRoomLists">
-                {isEnterCheck ? <EnterCheckPage chatRooms={chatRooms} /> : <NoEnterCheckPage chatRooms={chatRooms} possibleEnterNumber={possibleEnterNumber} gender={gender} />}
-            </div>
-
-            <button className="make-chatRoom-button" onClick={() => makeChatRoom()}>
-                <span >채팅방 만들기</span>
-            </button>
-            <div>
-                네비바
-                <div className="play-nav">
+                <div className="title">
+                    <div className="title-name">
+                        <span className={`enter ${isEnterCheck ? 'one-click' : 'two-click'}`} onClick={() => setIsEnterClick(true)} >참여중</span>
+                        <span className={`no-enter ${isEnterCheck ? 'two-click' : 'one-click'}`} onClick={() => setIsEnterClick(false)}>모집중</span>
+                    </div>
+                    {isEnterCheck ? <span className="title-span">최대 {possibleEnterNumber}개 방까지 참여 가능합니다</span> : <span></span>}
 
                 </div>
-                <div className="talk-nav">
 
+                <div className="chatRoomLists">
+                    {isEnterCheck ? <EnterCheckPage chatRooms={chatRooms} /> : <NoEnterCheckPage chatRooms={chatRooms} possibleEnterNumber={possibleEnterNumber} gender={gender} />}
                 </div>
-                <div className="my-nav">
 
+                <button className="make-chatRoom-button" onClick={() => makeChatRoom()}>
+                    <span >채팅방 만들기</span>
+                </button>
+
+            </div >
+            <div id="navi-con">
+                <div id="navi">
+                    <div id="play"></div>
+                    <div id="talk"></div>
+                    <div id="my"></div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 }
 

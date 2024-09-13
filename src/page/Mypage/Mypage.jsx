@@ -1,8 +1,8 @@
 import React from "react";
 import Tabs from "./Tabs";
 import "./Mypage.css";
-function Mypage(){
-    return(
+function Mypage() {
+    return (
         <div className="mypage">
             <div id="title">
                 마이페이지
@@ -26,10 +26,12 @@ function Mypage(){
                     </div>
                 </Tabs>
             </div>
-            <div id="navi">
-                <div id="play"></div>
-                <div id="talk"></div>
-                <div id="my"></div>
+            <div id="navi-con">
+                <div id="navi">
+                    <div id="play"></div>
+                    <div id="talk"></div>
+                    <div id="my"></div>
+                </div>
             </div>
         </div>
     )
