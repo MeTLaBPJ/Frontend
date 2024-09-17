@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './dialog.css'
 
-function MaxChanceDialog({ isOpen, onClose }) {
+function MaxChanceDialog({ isOpen, onClose, possibleEnterNumber }) {
     if (!isOpen) return null;
 
     return (
@@ -19,7 +19,7 @@ function MaxChanceDialog({ isOpen, onClose }) {
                     <h2 className="dialog-title">최대 참여 가능한 채팅방 수가 초과되었습니다</h2>
                     <p className="dialog-message">
                         {/* 로직구현 */}
-                        현재 나의 채팅방 입장 참여 횟수 <span className="highlight-text">0개</span>
+                        현재 나의 채팅방 입장 잔여 횟수 <span className="highlight-text">{possibleEnterNumber}개</span>
                     </p>
                     <button className="dialog-button" onClick={onClose}>
                         뒤로가기

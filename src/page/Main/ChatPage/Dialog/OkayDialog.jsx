@@ -18,7 +18,7 @@ function OkayDialog({ isOpen, onClose, selectChatRoom, possibleEnterNumber }) {
 
 
     const goChatRoom = () => {
-        navigate(`/chat/0`); // 원하는 경로로 이동
+        navigate(`/chat/${selectChatRoom.id}`); // 원하는 경로로 이동
         //소켓으로 업그레이드 하고 방으로 이동
         onClose();
     }
@@ -30,7 +30,13 @@ function OkayDialog({ isOpen, onClose, selectChatRoom, possibleEnterNumber }) {
                     <h2 className="dialog-okay-title">채팅방 메인 타이틀에 입장하시겠습니까?</h2>
                     <div className="dialog-icon-container">
                         {members.map((member, index) => (
-                            <div key={index} className={`profile-icon-${index} ${memberLengthClassName}`} />//멤버의 프로필 사진 스타일 설정
+                            <div
+                                key={index}
+                                className={`profile-icon-${index} ${memberLengthClassName}`}
+                                style={{
+                                    backgroundImage: (index === 2 && extraProfilesCount > 0) ? '' : `url(${member.profileImage})`
+                                }}
+                            />
                         ))}
                         {extraProfilesCount > 0 && (
                             <div className="extra-profile-count" >
