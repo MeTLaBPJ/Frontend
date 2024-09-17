@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import './ChatPage.css'
 import EnterCheckPage from './EnterCheckPage'
 import NoEnterCheckPage from './NoEnterCheckPage'
-import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import api from '../../../utils/api'
+
+
 
 function ChatStartPage() {
 
@@ -17,37 +19,105 @@ function ChatStartPage() {
 
 
 
+
+    // 채팅방 정보를 저장하는 state(예시 백에서 받아와야함)
+    //나중에 역순으로 할거?
+    const [chatRooms, setChatRooms] = useState([
+        {
+            id: 1,
+            //제목 길이 20자 제한
+            title: "채팅방 메인 타이틀아아아아f",
+            //서브제목 길이 30자 제한
+            subTitle: "dddddddddddddddddddddddddddddddddddddddddddddddddd",
+
+            //방아이디로 조회한다.
+
+            //나중에 서버로 부터 바는 member이기 때문에 삭제!
+            members: [
+                { gender: "Male", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "../../../../asset/ChatRoomPic1.png" },
+                { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "../../../../asset/ChatRoomPic2.png" }
+            ],
+            maxMembers: 2,
+            //입장체크
+            enterCheck: false,
+            host: "asdfasdf1234346",
+            maleCount: 1,
+            femaleCount: 1,
+            profileImage: '../../../../asset/ChatRoomPic1.png',
+            hasStarted: false
+        },
+        {
+            id: 2,
+            title: "프로그래밍 기초",
+            subTitle: "프로그래밍의 기초를 배워봅시다",
+            members: [
+                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
+                { gender: "Female", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+                { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+                { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
+            ],
+            maxMembers: 4,
+            enterCheck: true,
+            host: "asdfasdf1234346",
+            maleCount: 2,
+            femaleCount: 2,
+            profileImage: '../../../../asset/ChatRoomPic1.png',
+            hasStarted: false
+        },
+        {
+            id: 3,
+            title: "프로그래밍 기초",
+            subTitle: "프로그래밍의 기초를 배워봅시다",
+            members: [
+                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic4.png" },
+                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic5.png" },
+                { gender: "Male", major: "asd", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
+
+            ],
+            maxMembers: 6,
+            enterCheck: false,
+            host: "asdfasdf1234346",
+            maleCount: 2,
+            femaleCount: 1,
+            profileImage: '../../../../asset/ChatRoomPic1.png',
+            hasStarted: false
+        },
+        {
+            id: 4,
+            title: "프로그래밍 기초",
+            subTitle: "프로그래밍의 기초를 배워봅시다",
+            //사진경로 절대경로로 수정
+            members: [
+                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
+                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic2.png" },
+                { gender: "Female", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
+                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic1.png" },
+                { gender: "Female", major: "asd", studentId: "20210004", nickname: "한준서", profileImage: "../../../../asset/ChatRoomPic5.png" }
+            ],
+            maxMembers: 6,
+            enterCheck: false,
+            host: "asdfasdf1234346",
+            maleCount: 2,
+            femaleCount: 3,
+            profileImage: '../../../../asset/ChatRoomPic1.png',
+            hasStarted: false
+        }
+    ]);
+
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const token = localStorage.getItem('token');
-
-                if (!token) {
-                    throw new Error('No token found');
+                const response = await api.get(`/api/chat-rooms`);
+                if (response.status === 200) {
+                    setChatRooms(response.data.rooms);
+                    setPossibleEnterNumber(response.data.possibleEnterNumber);
+                    setGender(response.data.gender)
                 }
-
-                // JWT 디코딩
-                const decodedToken = jwtDecode(token);
-                const email = decodedToken.email; // 토큰에서 이메일 추출
-
-                const response = await fetch(`/api/user/${email}`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data = await response.json();
-                setGender(data.gender);
-                setPossibleEnterNumber(data.ticket);
             } catch (error) {
-                console.log(error);
-            } finally {
+                console.error('Error fetching diary:', error);
+            }
+            finally {
                 setLoading(false);
             }
         };
@@ -67,64 +137,7 @@ function ChatStartPage() {
 
 
 
-    // 채팅방 정보를 저장하는 state(예시 백에서 받아와야함)
-    //나중에 역순으로 할거?
-    const [chatRooms, setChatRooms] = useState([
-        {
-            id: 1,
-            //제목 길이 20자 제한
-            title: "채팅방 메인 타이틀아아아아f",
-            //서브제목 길이 30자 제한
-            subTitle: "dddddddddddddddddddddddddddddddddddddddddddddddddd",
 
-            //방아이디로 조회한다.
-            members: [
-                { gender: "Male", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "sd" },
-                { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "sd" }
-            ],
-            maxMembers: 2,
-            //입장체크
-            enterCheck: false,
-        },
-        {
-            id: 2,
-            title: "프로그래밍 기초",
-            subTitle: "프로그래밍의 기초를 배워봅시다",
-            members: [
-                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "sd" },
-                { gender: "Female", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "sd" }
-            ],
-            maxMembers: 4,
-            enterCheck: true,
-        },
-        {
-            id: 3,
-            title: "프로그래밍 기초",
-            subTitle: "프로그래밍의 기초를 배워봅시다",
-            members: [
-                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "sd" },
-                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "sd" },
-                { gender: "Male", major: "asd", studentId: "20210004", nickname: "Bob", profileImage: "sd" },
-
-            ],
-            maxMembers: 6,
-            enterCheck: false,
-        },
-        {
-            id: 4,
-            title: "프로그래밍 기초",
-            subTitle: "프로그래밍의 기초를 배워봅시다",
-            members: [
-                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "sd" },
-                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "sd" },
-                { gender: "Female", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "sd" },
-                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "sd" },
-                { gender: "Female", major: "asd", studentId: "20210004", nickname: "한준서", profileImage: "sd" }
-            ],
-            maxMembers: 6,
-            enterCheck: false,
-        }
-    ]);
 
 
 

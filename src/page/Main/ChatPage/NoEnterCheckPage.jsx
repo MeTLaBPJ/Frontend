@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './ChatPage.css'
 import OkayDialog from './Dialog/OkayDialog'
 import MaxMemberDialog from './Dialog/MaxMemberDialog'
 import MaxChanceDialog from './Dialog/MaxChanceDialog'
-
+import api from '../../../utils/api'
 
 function NoEnterCheckPage(props) {
     const { chatRooms, possibleEnterNumber, gender } = props;
@@ -14,11 +14,19 @@ function NoEnterCheckPage(props) {
     const [selectChatRoom, setSelectChatRoom] = useState(false);
 
 
+    const [updatedChatRooms, setUpdatedChatRooms] = useState(
+        chatRooms.filter(room => room.enterCheck === false)
+    );
+
+
+
 
     //새로고침
     const [startY, setStartY] = useState(0);
     const [translateY, setTranslateY] = useState(0);
     const [isRefreshing, setIsRefreshing] = useState(false);
+
+    const [reload, setReload] = useState(false);
 
     const threshold = 80; // 새로고침을 트리거하는 기준 거리
 
@@ -27,6 +35,7 @@ function NoEnterCheckPage(props) {
         setIsRefreshing(true);
         setTimeout(() => {
             setIsRefreshing(false);
+            setReload(true)
             window.location.reload(); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
         }, 1500);
     };
@@ -60,6 +69,45 @@ function NoEnterCheckPage(props) {
 
 
 
+    //나중에 활성화
+    // // expandedRoomIds가 변경될 때마다 서버에서 members를 가져와 업데이트하는 useEffect
+    // useEffect(() => {
+    //     if (expandedRoomIds.length > 0) {
+    //         const fetchRoomDetails = async (roomId) => {
+    //             try {
+    //                 const response = await api.get(`/api/chat-room/detail/${roomId}`);
+    //                 return response.data; // 서버로부터 members를 받아옴
+    //             } catch (error) {
+    //                 console.error(`Error fetching room details for roomId: ${roomId}`, error);
+    //                 return [];
+    //             }
+    //         };
+
+    //         const updateMembers = async () => {
+    //             const updatedRooms = await Promise.all(
+    //                 chatRooms.map(async (room) => {
+    //                     if (room.id === expandedRoomIds[expandedRoomIds.length - 1]) {
+    //                         const updatedMembers = await fetchRoomDetails(room.id);
+    //                         return { ...room, members: updatedMembers };
+    //                     }
+    //                     console.log(updatedChatRooms);
+    //                     return room;
+    //                 })
+    //             );
+
+    //             setUpdatedChatRooms(updatedRooms);
+    //         };
+
+    //         updateMembers();
+    //     }
+    // }, [expandedRoomIds,reload]); // expandedRoomIds가 변경될 때마다
+
+
+
+
+
+
+
     const toggleExpand = (roomId) => {
         setExpandedRoomIds(prevState =>
             prevState.includes(roomId)
@@ -70,17 +118,9 @@ function NoEnterCheckPage(props) {
 
     const enterCheckMessage = (chatRoom) => {
         const halfMaxMembers = Math.floor(chatRoom.maxMembers / 2);  // 최대 인원의 절반 계산
-        let maleCount = 0;
-        let femaleCount = 0;
+        let maleCount = chatRoom.maleCount;
+        let femaleCount = chatRoom.femaleCount;
 
-        // 방에 있는 멤버 중 남성과 여성 인원 카운트
-        chatRoom.members.forEach(member => {
-            if (member.gender === "Male") {
-                maleCount++;
-            } else if (member.gender === "Female") {
-                femaleCount++;
-            }
-        });
 
         // 유저가 남성일 때: 남성 인원이 절반보다 적으면 true
         if (gender === "male" && maleCount < halfMaxMembers) {
@@ -109,12 +149,17 @@ function NoEnterCheckPage(props) {
 
 
 
+
+
+
+
+
     return (
         <>
             {/* 다이얼로그 컴포넌트들 */}
             <OkayDialog selectChatRoom={selectChatRoom} possibleEnterNumber={possibleEnterNumber} isOpen={okayDialog} onClose={() => setOkayDialog(false)} />
             <MaxMemberDialog isOpen={maxMemberDialog} onClose={() => setMaxMemberDialog(false)} />
-            <MaxChanceDialog isOpen={maxChanceDialog} onClose={() => setMaxChanceDialog(false)} />
+            <MaxChanceDialog possibleEnterNumber={possibleEnterNumber} isOpen={maxChanceDialog} onClose={() => setMaxChanceDialog(false)} />
 
             <div className={`NoEnterCheckPage ${isRefreshing ? "refreshing" : ""}`}
                 onTouchStart={handleTouchStart}
@@ -127,11 +172,10 @@ function NoEnterCheckPage(props) {
             >
                 {isRefreshing && <div className="refresh-indicator"><svg class="refresh-icon" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#3D3D3D" d="M12 20q-3.35 0-5.675-2.325T4 12t2.325-5.675T12 4q1.725 0 3.3.712T18 6.75V5q0-.425.288-.712T19 4t.713.288T20 5v5q0 .425-.288.713T19 11h-5q-.425 0-.712-.288T13 10t.288-.712T14 9h3.2q-.8-1.4-2.187-2.2T12 6Q9.5 6 7.75 7.75T6 12t1.75 4.25T12 18q1.7 0 3.113-.862t2.187-2.313q.2-.35.563-.487t.737-.013q.4.125.575.525t-.025.75q-1.025 2-2.925 3.2T12 20" /></svg></div>}
 
-                {chatRooms
-                    .filter(room => room.enterCheck === false)  // isEnterCheck 상태에 따라 필터링
+                {updatedChatRooms
                     .map(room => {
-                        const maleCount = room.members.filter(member => member.gender === "Male").length;
-                        const femaleCount = room.members.filter(member => member.gender === "Female").length;
+                        const maleCount = room.maleCount;
+                        const femaleCount = room.femaleCount;
 
                         const isExpanded = expandedRoomIds.includes(room.id); // 현재 방이 확장되었는지 확인
                         return (
@@ -165,7 +209,8 @@ function NoEnterCheckPage(props) {
                                                 <ul>
                                                     {room.members.filter(member => member.gender === "Male").map((member, index) => (
                                                         <li key={index} className="user-list">
-                                                            <img src="" alt="zz" />
+                                                            <img alt=""
+                                                                src={member.profileImage} />
                                                             <div className="user-container">
                                                                 <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
                                                             </div>
@@ -178,7 +223,8 @@ function NoEnterCheckPage(props) {
                                                 <ul>
                                                     {room.members.filter(member => member.gender === "Female").map((member, index) => (
                                                         <li key={index} className="user-list">
-                                                            <img src="" alt="zz" />
+                                                            <img alt=""
+                                                                src={member.profileImage} />
                                                             <div className="user-container">
                                                                 <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
                                                             </div>

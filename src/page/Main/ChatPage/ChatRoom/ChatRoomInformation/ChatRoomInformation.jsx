@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UNSAFE_DataRouterStateContext, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../ChatRoomInformation/ChatRoomInformation.css'
 import ExitDialog from '../../Dialog/ExitDialog'
 import UserIntroduceDialog from '../../Dialog/UserIntroduceDialog'
@@ -83,9 +83,9 @@ function ChatRoomInformation() {
         ]
     })
 
-    const dialogOpen = (user) => {
+    const dialogOpen = (nickname) => {
         setUserIntroduceDialog(true);
-        setClickUser(user);
+        setClickUser(nickname);
     }
 
 
@@ -93,7 +93,7 @@ function ChatRoomInformation() {
 
     return (
         <div className="chatRoomInformation">
-            <UserIntroduceDialog clickUser={clickUser} isOpen={userIntroduceDialog} onClose={() => setUserIntroduceDialog(false)} />
+            <UserIntroduceDialog nickname={clickUser} isOpen={userIntroduceDialog} onClose={() => setUserIntroduceDialog(false)} />
             <ExitDialog isOpen={exitDialog} onClose={() => setExitDialog(false)} />
             <div className="margin-container">
                 <div className="title">
@@ -171,7 +171,7 @@ function ChatRoomInformation() {
                         <div className="gender">남자</div>
                         <ul>
                             {room.members.filter(member => member.gender === "Male").map((member, index) => (
-                                <li key={index} className="user-list" onClick={() => dialogOpen()}>
+                                <li key={index} className="user-list" onClick={() => dialogOpen(member.nickname)}>
                                     <img src="" alt="zz" />
                                     <div className="user-container">
                                         <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
@@ -184,7 +184,7 @@ function ChatRoomInformation() {
                         <div className="gender">여자</div>
                         <ul>
                             {room.members.filter(member => member.gender === "Female").map((member, index) => (
-                                <li key={index} className="user-list" onClick={() => dialogOpen()}>
+                                <li key={index} className="user-list" onClick={() => dialogOpen(member.nickname)}>
                                     <img src="" alt="zz" />
                                     <div className="user-container">
                                         <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>

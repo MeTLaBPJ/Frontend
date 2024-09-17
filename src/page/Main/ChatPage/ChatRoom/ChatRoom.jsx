@@ -1,13 +1,65 @@
 import React, { useState, useRef, useEffect } from "react";
 import '../ChatRoom/ChatRoom.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Stomp } from '@stomp/stompjs';
+import SockJS from 'sockjs-client';
+import api from '../../../../utils/api'
+
+
 
 function ChatRoom() {
     const navigate = useNavigate();
 
     const chatContainerRef = useRef(null);
     const [inputValue, setInputValue] = useState(''); // 입력된 메시지 저장
-    const [messages, setMessages] = useState([]);     // 메시지 리스트 저장
+    const [messages, setMessages] = useState([]);  // 메시지 리스트 저장
+    const stompClientRef = useRef(null);
+    const { chatroomId } = useParams();
+
+
+    useEffect(() => {
+        const fetchMessages = async () => {
+            try {
+                const response = await api.get(`/chatroom/${chatroomId}/messages`);
+                setMessages(response.data);
+            } catch (error) {
+                console.error("Failed to load previous messages", error);
+            }
+        };
+
+        fetchMessages();
+
+        const socket = new SockJS('/ws');
+        const stompClient = Stomp.over(socket);
+        stompClientRef.current = stompClient;
+
+        stompClient.connect({}, (frame) => {
+            console.log('Connected: ' + frame);
+            stompClient.subscribe(`/sub/${chatroomId}`, (message) => {
+                const newMessage = JSON.parse(message.body);
+                setMessages((prevMessages) => [...prevMessages, newMessage]);
+            });
+
+            const joinMessage = {
+                content: 'User has joined the chat',
+                type: 'JOIN',
+            };
+            stompClient.send(`/chat.join/${chatroomId}`, {}, JSON.stringify(joinMessage));
+        });
+
+        return () => {
+            if (stompClientRef.current !== null) {
+                stompClientRef.current.disconnect(() => {
+                    console.log('Disconnected');
+                });
+            }
+        };
+    }, [chatroomId]);
+
+
+
+
+
 
 
     const [selectChatRoom, setSelectChatRoom] = useState({
@@ -15,9 +67,10 @@ function ChatRoom() {
         //제목 길이 20자 제한
         title: "채팅방 메인 타이틀아아아아f",
         //서브제목 길이 30자 제한
-        subTitle: "sdafasdfadsfjlsadflㅁㄴ어ㅣㄹㄴㅁ이ㅓ리너아리ㅁㄴㅇㄻㄴㅇㄹ",
+        //subTitle: "sdafasdfadsfjlsadflㅁㄴ어ㅣㄹㄴㅁ이ㅓ리너아리ㅁㄴㅇㄻㄴㅇㄹ",
 
         //방아이디로 조회한다.
+        //멤버의 길이 profileImage
         members: [
             { gender: "Male", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "sd" },
             { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "sd" }
@@ -25,25 +78,24 @@ function ChatRoom() {
             , { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "sd" }
 
         ],
-        maxMembers: 6,
-        //입장체크
-        enterCheck: false,
+        //maxMembers: 6,
+
 
         // 메시지 데이터
         messages: [
-            { sender: "John", text: "안녕하세요, 모두들!", time: "13:57", profileImage: "https://example.com/profile1.png" },
-            { sender: "Jane", text: "안녕하세요, John!", time: "13:58", profileImage: "https://example.com/profile2.png" },
-            { sender: "Emma", text: "모두들 잘 지내시나요?", time: "13:59", profileImage: "https://example.com/profile3.png" },
-            { sender: "John", text: "네, 저희 프로젝트가 잘 진행되고 있어요.", time: "14:00", profileImage: "https://example.com/profile1.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:01", profileImage: "https://example.com/profile4.png" },
-            { sender: "Jane", text: "좋아요! 저는 디자인을 거의 완료했어요.", time: "14:02", profileImage: "https://example.com/profile2.png" },
-            { sender: "Jane", text: "좋아요! 저는 디ㄹㅇ.", time: "14:02", profileImage: "https://example.com/profile2.png" },
-            { sender: "John", text: "완성된 디자인을 빨리 보고 싶네요.", time: "14:03", profileImage: "https://example.com/profile1.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:06", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:06", profileImage: "https://example.com/profile4.png" },
+            { nickname: "John", text: "안녕하세요, 모두들!", time: "13:57", profileImage: "https://example.com/profile1.png" },
+            { nickname: "Jane", text: "안녕하세요, John!", time: "13:58", profileImage: "https://example.com/profile2.png" },
+            { nickname: "Emma", text: "모두들 잘 지내시나요?", time: "13:59", profileImage: "https://example.com/profile3.png" },
+            { nickname: "John", text: "네, 저희 프로젝트가 잘 진행되고 있어요.", time: "14:00", profileImage: "https://example.com/profile1.png" },
+            { nickname: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:01", profileImage: "https://example.com/profile4.png" },
+            { nickname: "Jane", text: "좋아요! 저는 디자인을 거의 완료했어요.", time: "14:02", profileImage: "https://example.com/profile2.png" },
+            { nickname: "Jane", text: "좋아요! 저는 디ㄹㅇ.", time: "14:02", profileImage: "https://example.com/profile2.png" },
+            { nickname: "John", text: "완성된 디자인을 빨리 보고 싶네요.", time: "14:03", profileImage: "https://example.com/profile1.png" },
+            { nickname: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
+            { nickname: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
+            { nickname: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
+            { nickname: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:06", profileImage: "https://example.com/profile4.png" },
+            { nickname: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:06", profileImage: "https://example.com/profile4.png" },
 
 
         ]
@@ -76,13 +128,28 @@ function ChatRoom() {
     const sendMessage = () => {
         if (inputValue.trim()) {
             const newMessage = {
-                sender: "John", // 현재 사용자
+                nickname: "John", // 현재 사용자
                 text: inputValue,
                 time: new Date().toLocaleTimeString(), // 현재 시간
             };
 
-            setMessages([...messages, newMessage]); // 메시지 리스트에 새 메시지 추가
-            setInputValue(''); // 입력 필드 비우기
+
+            // setMessages([...messages, newMessage]); // 메시지 리스트에 새 메시지 추가
+            // setInputValue(''); // 입력 필드 비우기
+
+
+            // WebSocket을 통해 메시지 전송
+            if (stompClientRef.current && stompClientRef.current.connected) {
+                stompClientRef.current.send(
+                    `/app/chat.send/${chatroomId}`, // 백엔드의 @MessageMapping에 매핑된 URL
+                    {},
+                    JSON.stringify(newMessage) // 메시지 객체를 JSON으로 변환
+                );
+                setInputValue(''); // 입력 필드 비우기
+            } else {
+                setInputValue(''); // 입력 필드 비우기
+                console.error("WebSocket is not connected");
+            }
         }
     };
 
@@ -97,29 +164,29 @@ function ChatRoom() {
     const formatMessages = (messages) => {
         return messages.map((message, index) => {
             // 현재 유저를 받는 로직 추가 해야됨
-            const isCurrentUser = message.sender === "John";
+            const isCurrentUser = message.nickname === "John";
 
             // 프로필 이미지와 닉네임을 표시할지 여부 결정
             const showProfile = !isCurrentUser &&
-                (index === 0 || messages[index - 1].sender !== message.sender || messages[index - 1].time !== message.time);
+                (index === 0 || messages[index - 1].nickname !== message.nickname || messages[index - 1].time !== message.time);
 
             // 시간 표시할지 여부 결정
             const isLastMessage = index === messages.length - 1;
-            const isNextSenderDifferent = !isLastMessage && messages[index + 1].sender !== message.sender;
+            const isNextnicknameDifferent = !isLastMessage && messages[index + 1].nickname !== message.nickname;
             const isNextTimeDifferent = !isLastMessage && messages[index + 1].time !== message.time;
-            const showTime = isLastMessage || isNextSenderDifferent || isNextTimeDifferent;
+            const showTime = isLastMessage || isNextnicknameDifferent || isNextTimeDifferent;
 
             return (
                 <div className={`message-group ${isCurrentUser ? 'sent' : 'noSent'}`} key={index}>
                     {showProfile ?
                         <img
                             src={message.profileImage}
-                            alt={`${message.sender}'s profile`}
+                            alt={`${message.nickname}'s profile`}
                             className="profile-icon"
                         /> : <div className="no-see"></div>
                     }
                     <div className={`message-box ${isCurrentUser ? 'sent' : 'noSent'}  ${!showProfile ? 'no-see-box' : null}`}>
-                        {showProfile && (<span className="chat-nickName">{message.sender}</span>)}
+                        {showProfile && (<span className="chat-nickName">{message.nickname}</span>)}
                         <div className="message-time-box">
                             <div className={`message ${isCurrentUser ? 'sent' : 'noSent'}`}>
                                 {message.text}
@@ -141,14 +208,20 @@ function ChatRoom() {
             <div className="margin-container">
                 <div className="title">
                     <div className="title-name" onClick={() => goChatRoomInformation()}>
-                        채팅방이름 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        {selectChatRoom.title} <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6.54541 4.09082L11.4545 8.99991L6.54541 13.909" stroke="#3D3D3D" stroke-width="1.5" stroke-linecap="round" />
                         </svg>
 
                     </div>
                     <div className="dialog-icon-container" onClick={() => goChatRoomInformation()}>
                         {members.map((member, index) => (
-                            <div key={index} className={`profile-icon-${index} ${memberLengthClassName}`} />//멤버의 프로필 사진 스타일 설정
+                            <div
+                                key={index}
+                                className={`profile-icon-${index} ${memberLengthClassName}`}
+                                style={{
+                                    backgroundImage: (index === 2 && extraProfilesCount > 0) ? '' : `url(${member.profileImage})`
+                                }}
+                            />
                         ))}
                         {extraProfilesCount > 0 && (
                             <div className="extra-profile-count" >

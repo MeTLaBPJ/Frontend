@@ -1,15 +1,33 @@
 import React, { useState, useRef } from "react";
 import '../MakeChatRoom/MakeChatRoom.css'
 import { useNavigate } from 'react-router-dom';
+import Pic1 from '../../../../asset/ChatRoomPic1.png'
+import Pic2 from '../../../../asset/ChatRoomPic2.png'
+import Pic3 from '../../../../asset/ChatRoomPic3.png'
+import Pic4 from '../../../../asset/ChatRoomPic4.png'
+import Pic5 from '../../../../asset/ChatRoomPic5.png'
+import Pic6 from '../../../../asset/ChatRoomPic6.png'
+import api from '../../../../utils/api'
+
+
 
 function MakeChatRoom() {
+
+    const profileImages = [
+        Pic1, Pic2, Pic3, Pic4, Pic5, Pic6
+    ]
+    const getRandomImage = () => {
+        return profileImages[Math.floor(Math.random() * profileImages.length)];
+    };
+
     const navigate = useNavigate();
 
     const [count, setCount] = useState(3);
     const [roomTitle, setRoomTitle] = useState('');
     const [subTitle, setSubTitle] = useState('');//30자 이내로 제한
-    const [profileImage, setProfileImage] = useState('https://mblogthumb-phinf.pstatic.net/MjAyMzA2MjdfMjgx/MDAxNjg3ODM1MzE3NjQ5.oBDtVqa7bFScuJ308FzHAdmRtABmaL1_SXK17n0-ndQg.KzZ6AcPYVQvHqB_vw4dZp8FG97HJp6bUS4QOU5RatRsg.JPEG.dream_we/IMG_7305.JPG?type=w800');
+    const [profileImage, setProfileImage] = useState(getRandomImage());
     const [error, setError] = useState('');
+
 
     const fileInputRef = useRef(null);
 
@@ -41,15 +59,35 @@ function MakeChatRoom() {
         }
     };
 
-    const makeRoom = () => {
+    const makeRoom = async () => {
         if (roomTitle === '' || subTitle === '') {
             setError('모든 필드를 입력해 주세요.');
             return;
         }
-        // Logic for making the chat room
-        console.log("Room Created");
-        // Clear error if successful
-        setError('');
+
+        try {
+            // Calculate the number of members
+            const numberOfMembers = count * 2;
+
+            // Send the POST request using axios
+            const response = await api.post('/api/chat-room', {
+                title: roomTitle,
+                subTitle: subTitle,
+                profileImage: profileImage,
+                membersCount: numberOfMembers,
+            });
+
+            if (response.status !== 200) {
+                throw new Error('채팅방 생성 실패');
+            }
+
+            // 성공적으로 채팅방이 생성되면 다음 페이지로 이동하거나 추가 작업 수행
+            console.log("Room Created");
+            navigate('/ChatStartPage');
+            setError('');
+        } catch (error) {
+            setError('채팅방 생성 중 오류가 발생했습니다.');
+        }
     };
 
 
@@ -130,7 +168,7 @@ function MakeChatRoom() {
 
                     <p className="note">
                         {/* 로직추가 */}
-                        - 생성된 채팅방은 {0}일 후에 자동으로 종료됩니다.
+                        - 생성된 채팅방은 30일 후에 자동으로 종료됩니다.
                     </p>
 
                     {/* Display error message if needed */}
