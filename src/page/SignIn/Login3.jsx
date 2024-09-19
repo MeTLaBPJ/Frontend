@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5"; // react-icons에서 아이콘 import
+import axios from "axios"; // axios import for API request
 import '../LoginPage/Main.css';
 
 
@@ -55,10 +56,18 @@ const Login3 = () => {
   };
 
   // 제출 처리
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!passwordError && !confirmPasswordError && password && confirmPassword) {
-      console.log("비밀번호 설정 완료:", password);
-      navigate("/Login4"); // Login4 페이지로 이동
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/set-password`, {
+          password: password
+        });
+        console.log("비밀번호 설정 완료:", response.data);
+        navigate("/Login4"); // Login4 페이지로 이동
+      } catch (error) {
+        console.error("비밀번호 설정 오류:", error);
+        // 에러 처리 로직 추가 (예: 사용자에게 오류 메시지 표시)
+      }
     } else {
       console.log("비밀번호 설정 오류");
     }
@@ -105,7 +114,6 @@ const Login3 = () => {
             <p className="error-message1">{confirmPasswordError}</p>
           )}
         </div>
-
         <button
           className="bottom-Button"
           onClick={handleSubmit}
