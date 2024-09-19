@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams } from 'react-router-dom';
 import '../ChatRoomInformation/ChatRoomInformation.css'
 import ExitDialog from '../../Dialog/ExitDialog'
 import UserIntroduceDialog from '../../Dialog/UserIntroduceDialog'
+import api from '../../../../../utils/api'
+import { format, parseISO, differenceInDays } from 'date-fns';
 
 
-function ChatRoomInformation() {
+function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
     const navigate = useNavigate();
     const [exitDialog, setExitDialog] = useState(false);
 
-
     const goChatRoom = () => {
-        navigate('/chat/0');
+        chatRoomInformation(false);
     };
 
     const [activeItemPromise, setActiveItemPromise] = useState(null);
@@ -45,43 +46,48 @@ function ChatRoomInformation() {
 
 
     const [room, setRoom] = useState({
-        id: 1,
-        //제목 길이 20자 제한
-        title: "채팅방 메인 타이틀아아아아f",
-        //서브제목 길이 30자 제한
-        subTitle: "sdafasdfadsfjlsadflㅁㄴ어ㅣㄹㄴㅁ이ㅓ리너아리ㅁㄴㅇㄻㄴㅇㄹ",
-
-        //방아이디로 조회한다.
+        //id: 2,
+        title: "프로그래밍 기초",
         members: [
-            { gender: "Male", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "sd" },
-            { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "sd" }
-            , { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "sd" }
-            , { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "sd" }
-
+            { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
+            { gender: "Female", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
         ],
-        maxMembers: 6,
-        //입장체크
-        enterCheck: false,
-
-        // 메시지 데이터
-        messages: [
-            { sender: "John", text: "안녕하세요, 모두들!", time: "13:57", profileImage: "https://example.com/profile1.png" },
-            { sender: "Jane", text: "안녕하세요, John!", time: "13:58", profileImage: "https://example.com/profile2.png" },
-            { sender: "Emma", text: "모두들 잘 지내시나요?", time: "13:59", profileImage: "https://example.com/profile3.png" },
-            { sender: "John", text: "네, 저희 프로젝트가 잘 진행되고 있어요.", time: "14:00", profileImage: "https://example.com/profile1.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:01", profileImage: "https://example.com/profile4.png" },
-            { sender: "Jane", text: "좋아요! 저는 디자인을 거의 완료했어요.", time: "14:02", profileImage: "https://example.com/profile2.png" },
-            { sender: "Jane", text: "좋아요! 저는 디ㄹㅇ.", time: "14:02", profileImage: "https://example.com/profile2.png" },
-            { sender: "John", text: "완성된 디자인을 빨리 보고 싶네요.", time: "14:03", profileImage: "https://example.com/profile1.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:05", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:06", profileImage: "https://example.com/profile4.png" },
-            { sender: "Mike", text: "다들 프로젝트 진행 상황 공유할까요?", time: "14:06", profileImage: "https://example.com/profile4.png" },
-
-
-        ]
+        profileImage: '../../../../asset/ChatRoomPic1.png',
     })
+
+    const [possibleEnterNumber, setPossibleEnterNumber] = useState(3);
+    const [remainingTime, setRemainingTime] = useState('');
+    const [dDay, setDDay] = useState(0);
+
+    useEffect(() => {
+        const fetchRoomData = async () => {
+            try {
+                const response = await api.get(`/api/chat-room/${roomId}`);
+                setRoom(response.data.room);
+                setPossibleEnterNumber(response.data.possibleEnterNumber);
+
+                // Parse the LOCALDATETIME and format it
+                const endDate = parseISO(response.data.remainingTime);
+                const formattedDate = format(endDate, 'yyyy년 MM월 dd일');
+                setRemainingTime(formattedDate);
+
+                // Calculate D-day
+                const today = new Date();
+                const daysLeft = differenceInDays(endDate, today);
+                setDDay(daysLeft);
+
+            } catch (error) {
+                console.error("Error fetching room data:", error);
+            }
+        };
+
+        fetchRoomData();
+    }, [roomId]);
+
+
+
 
     const dialogOpen = (nickname) => {
         setUserIntroduceDialog(true);
@@ -94,7 +100,7 @@ function ChatRoomInformation() {
     return (
         <div className="chatRoomInformation">
             <UserIntroduceDialog nickname={clickUser} isOpen={userIntroduceDialog} onClose={() => setUserIntroduceDialog(false)} />
-            <ExitDialog isOpen={exitDialog} onClose={() => setExitDialog(false)} />
+            <ExitDialog isOpen={exitDialog} onClose={() => setExitDialog(false)} possibleEnterNumber={possibleEnterNumber} roomId={roomId} socket={socket} />
             <div className="margin-container">
                 <div className="title">
                     <div className="title-name" onClick={() => goChatRoom()}>
@@ -105,8 +111,8 @@ function ChatRoomInformation() {
                 </div>
                 {/* 이미지와 채팅방 이름 */}
                 <div className="chat-room-header">
-                    <img src="/path/to/profile-image.png" alt="Chat Room" className="chat-room-image" />
-                    <span className="chat-room-name">채팅방 이름</span>
+                    <img src={room.profileImage} alt="Chat Room" className="chat-room-image" />
+                    <span className="chat-room-name">{room.title}</span>
                 </div>
 
                 {/* 버튼들 */}
@@ -159,7 +165,9 @@ function ChatRoomInformation() {
 
                 {/* 채팅방 종료 시간 */}
                 <div className="chat-room-timer">
-                    <span>0일 00시간 00분 후에 채팅방이 종료됩니다</span>
+                    <span>
+                        {remainingTime}에 채팅방이 종료됩니다 <span style={{ fontWeight: 'bold' }}>D-{dDay}</span>
+                    </span>
                 </div>
 
                 <div className="bar"></div>
@@ -172,7 +180,11 @@ function ChatRoomInformation() {
                         <ul>
                             {room.members.filter(member => member.gender === "Male").map((member, index) => (
                                 <li key={index} className="user-list" onClick={() => dialogOpen(member.nickname)}>
-                                    <img src="" alt="zz" />
+                                    <img
+                                        src={member.profileImage}
+                                        alt={`${member.nickname}'s profile`}
+                                        className="profile-icon"
+                                    />
                                     <div className="user-container">
                                         <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
                                     </div>
@@ -185,7 +197,11 @@ function ChatRoomInformation() {
                         <ul>
                             {room.members.filter(member => member.gender === "Female").map((member, index) => (
                                 <li key={index} className="user-list" onClick={() => dialogOpen(member.nickname)}>
-                                    <img src="" alt="zz" />
+                                    <img
+                                        src={member.profileImage}
+                                        alt={`${member.nickname}'s profile`}
+                                        className="profile-icon"
+                                    />
                                     <div className="user-container">
                                         <span className="major">{member.major}{member.studentId[0] + member.studentId[1]}</span> <span className="nickName">{member.nickname}</span>
                                     </div>

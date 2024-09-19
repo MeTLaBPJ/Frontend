@@ -19,9 +19,7 @@ function App() {
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/ChatStartPage" element={<ChatStartPage />} />
         {/* <Route path="/chat/:roomId" element={<ChatRoom />} /> */}
-        <Route path="/chat/0" element={<ChatRoom />} />
-        {/* <Route path="/goChatRoomInformation/:roomId" element={<ChatRoomInformation />} /> */}
-        <Route path="/goChatRoomInformation/0" element={<ChatRoomInformation />} />
+        <Route path="/chat/2" element={<ChatRoom />} />
         <Route path="/makeChatRoom" element={<MakeChatRoom />} />
       </Routes>
     </Router>
