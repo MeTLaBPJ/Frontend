@@ -80,7 +80,7 @@ const Login3 = () => {
           <IoChevronBack />
         </button>
         <div className="progress-bar">
-          <div className="progress" style={{ width: "15%" }}></div>
+          <div className="progress" style={{ width: "20%" }}></div>
         </div>
       </header>
 

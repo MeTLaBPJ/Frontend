@@ -10,7 +10,12 @@ function Main() {
   const navigate = useNavigate();  // useNavigate 훅 사용
 
   const handleButtonClick = () => {
-    navigate('../Login1');  // '/next' 경로로 이동
+    const userNickname = localStorage.getItem('userNickname');
+    if (userNickname) {
+      navigate('../Login');  // 닉네임이 있으면 Login으로 이동
+    } else {
+      navigate('../Login1');  // 닉네임이 없으면 Login1으로 이동
+    }
   };
 
 

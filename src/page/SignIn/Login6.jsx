@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
 import '../LoginPage/Main.css';
-
+import axios from "axios";
 
 // 학번, 학과 입력
 const Login6 = () => {
@@ -28,10 +28,23 @@ const Login6 = () => {
     "법학부": ["법학부"]
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (studentNumber && division && department) {
-      navigate("/Login7");
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-student-info`, {
+          studentNumber,
+          department
+        });
+        if (response.data.success) {
+          navigate("/Login7");
+        } else {
+          alert("학생 정보 저장에 실패했습니다. 다시 시도해주세요.");
+        }
+      } catch (error) {
+        console.error("학생 정보 저장 중 오류 발생:", error);
+        alert("학생 정보 저장 중 오류가 발생했습니다. 다시 시도해주세요.");
+      }
     } else {
       alert("모든 항목을 입력해 주세요.");
     }
@@ -41,6 +54,11 @@ const Login6 = () => {
     navigate(-1); // 이전 페이지로 이동
   };
 
+  // 모든 필드가 입력되었는지 확인하는 함수
+  const isFormValid = () => {
+    return studentNumber.length === 9 && division !== "" && department !== "";
+  };
+
   return (
     <div className="start-page">
       <header className="header">
@@ -48,11 +66,11 @@ const Login6 = () => {
           <IoChevronBack />
         </button>
         <div className="progress-bar">
-          <div className="progress" style={{ width: "60%" }}></div>
+          <div className="progress" style={{ width: "80%" }}></div>
         </div>
       </header>
 
-      <h2 className="login-heading">춘식이님에 대해 알려주세요</h2>
+      <h2 className="login-heading">당신에 대해 알려주세요</h2>
       <p className="login-subtext">학번 9자리를 입력해주세요</p>
 
       <form onSubmit={handleSubmit}>
@@ -104,7 +122,11 @@ const Login6 = () => {
           </div>
         )}
 
-        <button type="submit" className="bottom-Button">
+        <button
+          type="submit"
+          className={`bottom-Button ${!isFormValid() ? 'disabled' : ''}`}
+          disabled={!isFormValid()}
+        >
           다음
         </button>
       </form>

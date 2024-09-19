@@ -57,20 +57,13 @@ const Login4 = () => {
 
   return (
     <div className="start-page">
+
       <header>
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />
         </button>
         <div className="progress-bar">
-          <div className="progress" style={{ width: "35%" }}></div>
-        </div>
-      </header>
-      <header>
-        <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />
-        </button>
-        <div className="progress-bar">
-          <div className="progress" style={{ width: "30%" }}></div>
+          <div className="progress" style={{ width: "40%" }}></div>
         </div>
       </header>
 
