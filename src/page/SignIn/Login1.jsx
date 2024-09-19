@@ -1,19 +1,18 @@
-import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
-import '../LoginPage/Main.css';
 import axios from 'axios';
-
+import React, { useState } from "react";
+import { IoChevronBack } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+import '../LoginPage/Main.css';
 
 const Login1 = () => {
   const [email, setEmail] = useState("");
-  const [error, setError] = useState(""); // 에러 메시지를 위한 상태 추가
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setEmail(e.target.value);
-    setError(""); // 입력이 변경될 때마다 에러 메시지 초기화
+    setError("");
   };
 
   const handleSubmit = async (e) => {
@@ -21,17 +20,23 @@ const Login1 = () => {
     if (email.endsWith("@inu.ac.kr")) {
       setIsLoading(true);
       try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { email });
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/sign-up/email`, null, {
+          params: { email: email }
+        });
+        sessionStorage.setItem('userEmail', email);
+        console.log("Email stored in session storage:", sessionStorage.getItem('userEmail'));
+        navigate('/Login2');
         if (response.data.success) {
           console.log(`Verification code sent to: ${email}`);
-          sessionStorage.setItem('userEmail', email);
-          navigate('/Login2');
+          
+           // 저장 확인
+          
         } else {
           setError("서버에 문제가 발생했습니다. 다시 시도해주세요.");
         }
       } catch (error) {
-        setError("서버와의 통신 중 오류가 발생했습니다.");
         console.error("Error sending email:", error);
+        setError("서버와의 통신 중 오류가 발생했습니다.");
       } finally {
         setIsLoading(false);
       }
@@ -41,7 +46,7 @@ const Login1 = () => {
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    navigate(-1);
   };
 
   return (
@@ -63,9 +68,9 @@ const Login1 = () => {
             value={email}
             onChange={handleInputChange}
             className="email-input"
-            required // 이메일 입력 필수
+            required
           />
-          {error && <p className="error-message">{error}</p>} {/* 에러 메시지 표시 */}
+          {error && <p className="error-message">{error}</p>}
           <button className="bottom-Button" type="submit" disabled={isLoading}>
             {isLoading ? "전송 중..." : "인증번호 보내기"}
           </button>
