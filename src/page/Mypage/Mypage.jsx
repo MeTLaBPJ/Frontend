@@ -10,6 +10,39 @@ function Mypage(){
         smoking:"비흡연자"
     };
 
+    const dummyBanList = [
+        {
+          nickname:"귀여운 횃불이1",
+          userinfo:"컴퓨터공학부 22학번"
+        },
+        {
+          nickname:"귀여운 횃불이2",
+          userinfo:"컴퓨터공학부 23학번"
+        },
+        {
+          nickname:"귀여운 횃불이3",
+          userinfo:"컴퓨터공학부 24학번"
+        }
+      ]
+    
+    const BanUserList=({banUserList})=>{
+        return (
+            <div className="banUserList">
+            차단 목록
+            <div id="banUser">
+                {banUserList.map((user)=>(
+                    <div id="listForm" key={user.nickname}>
+                        <div id="ban_profile"></div>
+                        <div id="banUserInfo">
+                            <div id="ban_nickname">{user.nickname}</div>
+                            <div id="ban_userinfo">{user.userinfo}</div>
+                        </div>
+
+                    </div>
+                ))}
+            </div>
+        </div>)
+    }
     return(
         <div className="mypage">
             <div id="title">
@@ -83,7 +116,7 @@ function Mypage(){
                         
                     </div>
                     <div label="차단 관리">
-
+                        <BanUserList banUserList={dummyBanList}/>
                     </div>
                 </Tabs>
             </div>

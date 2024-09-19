@@ -159,6 +159,11 @@
 
     }
 
+    #ment_cont{
+        display: flex;
+        flex-direction: column;
+    }
+
     #ment_title{
                 /* 나의 한 마디 */
 
@@ -172,7 +177,6 @@
         line-height: 16px;
         /* identical to box height, or 114% */
         display: flex;
-        align-items: center;
 
         color: #3D3D3D;
 
@@ -183,20 +187,12 @@
         width: 343px;
         height: auto;
         display: flex;
-        align-items: center;
+        flex-direction: row;
         margin-top: 6px;
+        justify-content: flex-start;
     }
 
-    #ment{
-           
-        width: 297px;
-        height: 46px;
-        border: none;
-        
-        background: #F5F5F5;
-        border-radius: 10px;
-
-    }
+   
 
     #ment_btn{
        
@@ -267,7 +263,7 @@
         display: flex;
         align-items: center;
         position: absolute;
-        left: 88px;
+        margin-left: 68px;
         color: #3D3D3D;
 
 
@@ -331,8 +327,7 @@
         /* or 114% */
         display: flex;
         align-items: center;
-        position: absolute;
-        left: 88px;
+        margin-left: 10px;
         color: #3D3D3D;
 
     }
@@ -352,6 +347,18 @@
 
 
     }
+     #ment{
+           
+        width: 278px;
+        height: 46px;
+        border: none;
+        display: flex;
+        background: #F5F5F5;
+        border-radius: 10px;
+        padding-left: 15px;
+        margin: 0;
+    }
+    
     #submit{
          
         display: flex;
@@ -376,6 +383,25 @@
         border-radius: 16px;
 
     }
+    .banUserList{
+        
+    }
+    #banUser{
+
+    }
+    #listForm{
+
+    }
+    #ban_profile{
+
+    }
+    #ban_nickname{
+
+    }
+    #ban_userinfo{
+        
+    }
+
 }
 
 #navi{
