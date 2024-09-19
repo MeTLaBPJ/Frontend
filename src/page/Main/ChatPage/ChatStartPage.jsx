@@ -4,7 +4,7 @@ import EnterCheckPage from './EnterCheckPage'
 import NoEnterCheckPage from './NoEnterCheckPage'
 import { useNavigate } from 'react-router-dom';
 import api from '../../../utils/api'
-
+import logo from '../../LoginPage/logo.png'
 
 
 function ChatStartPage() {
@@ -173,7 +173,15 @@ function ChatStartPage() {
     return (
         <div className="chatStartPage">
             <div className="margin-container">
-                <img className="logo" src="" alt="logo" />
+                <div
+                    className="logo"
+                    style={{
+                        backgroundImage: `url(${logo})`,
+                        backgroundSize: 'contain',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'center'
+                    }}
+                />
 
                 <div className="title">
                     <div className="title-name">
