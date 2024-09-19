@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
-import '../LoginPage/Main.css';  
+import '../LoginPage/Main.css';
 
 // 메일 인증 / 인증번호 입력 
 const Login2 = () => {
   const [code, setCode] = useState(new Array(6).fill("")); // 6자리 코드 입력 관리
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleInputChange = (element, index) => {
     if (isNaN(element.value)) return; // 숫자가 아닌 경우 무시
@@ -27,8 +27,8 @@ const Login2 = () => {
   const handleSubmit = () => {
     const enteredCode = code.join("");
     console.log(`Entered code: ${enteredCode}`);
-    
-    navigate("/Login3"); 
+
+    navigate("/Login3");
   };
 
   const handleBack = () => {
@@ -36,12 +36,12 @@ const Login2 = () => {
   };
 
   return (
-    <div>
+    <div className="start-page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />  
+          <IoChevronBack />
         </button>
-      </header>  
+      </header>
 
       <div>
         <h2 className="login-heading">인증 메일이 보내졌습니다</h2>
@@ -56,7 +56,7 @@ const Login2 = () => {
               className="code-input"
               value={digit}
               onChange={(e) => handleInputChange(e.target, index)}
-              onFocus={(e) => e.target.select()} 
+              onFocus={(e) => e.target.select()}
             />
           ))}
         </div>

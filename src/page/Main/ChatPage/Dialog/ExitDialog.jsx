@@ -1,12 +1,26 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import './dialog.css'
 
-function ExitDialog({ isOpen, onClose }) {
+function ExitDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
+    const navigate = useNavigate();
     if (!isOpen) return null;
 
     const exitRoom = () => {
-        //로직구현
+        // 웹소켓을 통해 서버에 채팅방 나가기 메시지 전송
+        const leaveMessage = {
+            type: 'LEAVE',
+            chatroomId: roomId,
+        };
+        socket.send(`/pub/chat.leave/${roomId}`, {}, JSON.stringify(leaveMessage));
+
+        // 구독 해제
+        socket.unsubscribe(`/sub/${roomId}`);
+        // chatStartPage로 이동
+        navigate('/chatStartPage');
         onClose();
+
+
     }
 
     return (
@@ -23,8 +37,7 @@ function ExitDialog({ isOpen, onClose }) {
                     </div>
                     <h2 className="dialog-title">정말로 채팅방을 나가시겠어요?</h2>
                     <p className="dialog-message">
-                        {/* 로직구현 */}
-                        현재 나의 채팅방 입장 참여 횟수 <span className="highlight-text">0개</span>
+                        현재 나의 채팅방 입장 참여 횟수 <span className="highlight-text">{possibleEnterNumber}개</span>
                     </p>
                     <div className="button-container">
                         <button className="dialog-button-cancle" onClick={onClose}>

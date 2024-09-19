@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
-import '../LoginPage/Main.css';  
+import '../LoginPage/Main.css';
 
 // 메일 인증 / 작성
 const Login1 = () => {
   const [email, setEmail] = useState("");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setEmail(e.target.value);
@@ -27,28 +27,28 @@ const Login1 = () => {
   };
 
   return (
-    <div>
+    <div className="start-page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />  
+          <IoChevronBack />
         </button>
-      </header>  
+      </header>
 
       <div className="container">
         <h2 className="login-heading">학교 이메일을 입력해 주세요</h2>
         <p className="login-subtext">안전한 인피 활동을 위해 학교 인증이 필요해요</p>
 
         <form className="login-form" onSubmit={handleButtonClick}>
-          <input 
-            type="email" 
-            placeholder="inu@inu.ac.kr" 
-            value={email} 
-            onChange={handleInputChange} 
+          <input
+            type="email"
+            placeholder="inu@inu.ac.kr"
+            value={email}
+            onChange={handleInputChange}
             className="email-input"
             required // 이메일 입력 필수
           />
           <button className="bottom-Button" type="submit">
-            인증번호 보내기 
+            인증번호 보내기
           </button>
         </form>
       </div>

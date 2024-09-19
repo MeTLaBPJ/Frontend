@@ -6,7 +6,7 @@ import MaxChanceDialog from './Dialog/MaxChanceDialog'
 import api from '../../../utils/api'
 
 function NoEnterCheckPage(props) {
-    const { chatRooms, possibleEnterNumber, gender } = props;
+    const { chatRooms, possibleEnterNumber, gender, isEnterCheck } = props;
     const [expandedRoomIds, setExpandedRoomIds] = useState([]);
     const [okayDialog, setOkayDialog] = useState(false);
     const [maxMemberDialog, setMaxMemberDialog] = useState(false);
@@ -35,8 +35,7 @@ function NoEnterCheckPage(props) {
         setIsRefreshing(true);
         setTimeout(() => {
             setIsRefreshing(false);
-            setReload(true)
-            window.location.reload(); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
+            isEnterCheck(false); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
         }, 1500);
     };
 
@@ -100,7 +99,7 @@ function NoEnterCheckPage(props) {
 
     //         updateMembers();
     //     }
-    // }, [expandedRoomIds,reload]); // expandedRoomIds가 변경될 때마다
+    // }, [expandedRoomIds,isEnterCheck]); // expandedRoomIds가 변경될 때마다
 
 
 

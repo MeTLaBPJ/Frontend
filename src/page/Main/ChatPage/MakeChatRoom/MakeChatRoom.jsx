@@ -28,6 +28,21 @@ function MakeChatRoom() {
     const [profileImage, setProfileImage] = useState(getRandomImage());
     const [error, setError] = useState('');
 
+    const handleNavigation = (destination) => {
+        switch (destination) {
+            case 'play':
+                window.location.reload();
+                break;
+            case 'talk':
+                navigate('/ChatStartPage'); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
+                break;
+            case 'my':
+                navigate('/myPage');
+                break;
+            default:
+                break;
+        }
+    };
 
     const fileInputRef = useRef(null);
 
@@ -193,9 +208,9 @@ function MakeChatRoom() {
 
             <div id="navi-con">
                 <div id="navi">
-                    <div id="play"></div>
-                    <div id="talk"></div>
-                    <div id="my"></div>
+                    <div id="play" onClick={() => handleNavigation('play')}></div>
+                    <div id="talk" onClick={() => handleNavigation('talk')}></div>
+                    <div id="my" onClick={() => handleNavigation('my')}></div>
                 </div>
             </div>
 

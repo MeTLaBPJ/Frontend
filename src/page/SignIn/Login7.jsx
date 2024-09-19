@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; 
+import { useLocation, useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import '../LoginPage/Main.css';  
+import '../LoginPage/Main.css';
 
 // 생년월일 입력
 const Login7 = () => {
@@ -30,10 +30,10 @@ const Login7 = () => {
   };
 
   return (
-    <div>
+    <div className="start-page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />  
+          <IoChevronBack />
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "80%" }}></div>
@@ -41,31 +41,31 @@ const Login7 = () => {
       </header>
       <h2 className="login-heading">춘식이님의 생일을 알려주세요</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-            <input
-              type="text"
-              maxLength="4"
-              placeholder="YYYY"
-              value={year}
-              onChange={(e) => setYear(e.target.value)}
-              className="year-input"
-            />
-            <input
-              type="text"
-              maxLength="2"
-              placeholder="MM"
-              value={month}
-              onChange={(e) => setMonth(e.target.value)}
-              className="month-input"
-            />
-            <input
-              type="text"
-              maxLength="2"
-              placeholder="DD"
-              value={day}
-              onChange={(e) => setDay(e.target.value)}
-              className="day-input"
-            />
+        <div className="year-month-day-container">
+          <input
+            type="text"
+            maxLength="4"
+            placeholder="YYYY"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
+            className="year-input"
+          />
+          <input
+            type="text"
+            maxLength="2"
+            placeholder="MM"
+            value={month}
+            onChange={(e) => setMonth(e.target.value)}
+            className="month-input"
+          />
+          <input
+            type="text"
+            maxLength="2"
+            placeholder="DD"
+            value={day}
+            onChange={(e) => setDay(e.target.value)}
+            className="day-input"
+          />
         </div>
 
         <button type="submit" className="bottom-Button">

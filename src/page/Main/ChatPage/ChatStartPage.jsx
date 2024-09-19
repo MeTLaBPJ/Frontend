@@ -12,12 +12,29 @@ function ChatStartPage() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
+    const [reload, setReload] = useState(false);
+
     const [isEnterCheck, setIsEnterClick] = useState(false);
     //유저의 정보를 가져와 성별,입장참여 횟수를 가져온다
     const [possibleEnterNumber, setPossibleEnterNumber] = useState(3);
     const [gender, setGender] = useState("male");
 
 
+    const handleNavigation = (destination) => {
+        switch (destination) {
+            case 'play':
+                navigate('/makeChatRoom');
+                break;
+            case 'talk':
+                window.location.reload(); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
+                break;
+            case 'my':
+                navigate('/myPage');
+                break;
+            default:
+                break;
+        }
+    };
 
 
     // 채팅방 정보를 저장하는 state(예시 백에서 받아와야함)
@@ -168,19 +185,35 @@ function ChatStartPage() {
                 </div>
 
                 <div className="chatRoomLists">
-                    {isEnterCheck ? <EnterCheckPage chatRooms={chatRooms} /> : <NoEnterCheckPage chatRooms={chatRooms} possibleEnterNumber={possibleEnterNumber} gender={gender} />}
+                    {isEnterCheck ? (
+                        <EnterCheckPage
+                            chatRooms={chatRooms}
+                            isEnterCheck={(value) => setIsEnterClick(value)}
+                        />
+                    ) : (
+                        <NoEnterCheckPage
+                            chatRooms={chatRooms}
+                            possibleEnterNumber={possibleEnterNumber}
+                            gender={gender}
+                            isEnterCheck={(value) => setIsEnterClick(value)}
+                        />
+                    )}
                 </div>
 
-                <button className="make-chatRoom-button" onClick={() => makeChatRoom()}>
-                    <span >채팅방 만들기</span>
+                <button
+                    className={`make-chatRoom-button ${possibleEnterNumber === 0 ? 'disabled' : ''}`}
+                    onClick={() => possibleEnterNumber > 0 && makeChatRoom()}
+                    disabled={possibleEnterNumber === 0}
+                >
+                    <span>채팅방 만들기</span>
                 </button>
 
             </div >
             <div id="navi-con">
                 <div id="navi">
-                    <div id="play"></div>
-                    <div id="talk"></div>
-                    <div id="my"></div>
+                    <div id="play" onClick={() => handleNavigation('play')}></div>
+                    <div id="talk" onClick={() => handleNavigation('talk')}></div>
+                    <div id="my" onClick={() => handleNavigation('my')}></div>
                 </div>
             </div>
         </div>

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5"; // react-icons에서 아이콘 import
-import '../LoginPage/Main.css';  
+import '../LoginPage/Main.css';
 
 
 // 비밀번호 설정
 const Login3 = () => {
-  const [password, setPassword] = useState(""); 
-  const [confirmPassword, setConfirmPassword] = useState(""); 
-  const [passwordError, setPasswordError] = useState(""); 
-  const [confirmPasswordError, setConfirmPasswordError] = useState(""); 
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
   const navigate = useNavigate(); // 페이지 이동을 위한 navigate 
 
@@ -65,15 +65,15 @@ const Login3 = () => {
   };
 
   return (
-    <div>
+    <div className="start-page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />  
+          <IoChevronBack />
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "15%" }}></div>
         </div>
-      </header>  
+      </header>
 
       <div className="password-container">
         <h2 className="login-heading">비밀번호를 설정해주세요</h2>

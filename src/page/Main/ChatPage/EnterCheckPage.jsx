@@ -5,7 +5,7 @@ import api from '../../../utils/api'
 
 
 function EnterCheckPage(props) {
-    const { chatRooms } = props;
+    const { chatRooms, isEnterCheck } = props;
     const [expandedRoomIds, setExpandedRoomIds] = useState([]);
     const [updatedChatRooms, setUpdatedChatRooms] = useState(
         chatRooms.filter(room => room.enterCheck === true)
@@ -13,20 +13,10 @@ function EnterCheckPage(props) {
 
     const navigate = useNavigate();
 
-
-
-    //알림용뱃지(브로드캐스트를 받아와야함)
-    const [alarm, setAlarm] = useState(false);
-
-
     //새로고침
     const [startY, setStartY] = useState(0);
     const [translateY, setTranslateY] = useState(0);
     const [isRefreshing, setIsRefreshing] = useState(false);
-
-
-    const [reload, setReload] = useState(false);
-
 
     const threshold = 80; // 새로고침을 트리거하는 기준 거리
 
@@ -35,8 +25,7 @@ function EnterCheckPage(props) {
         setIsRefreshing(true);
         setTimeout(() => {
             setIsRefreshing(false);
-            setReload(true)
-            window.location.reload(); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
+            isEnterCheck(true); // enterCheck를 true로 설정
         }, 1500);
     };
 
@@ -79,13 +68,10 @@ function EnterCheckPage(props) {
         console.log(expandedRoomIds)
     };
 
-    const checkAlarm = () => {
-        setAlarm(true);
-    }
 
 
     const goChatRoom = () => {
-        navigate(`/chat/0`); // 원하는 경로로 이동
+        navigate(`/chat/2`); // 원하는 경로로 이동
     }
 
     // 시작하기 활성활 될때 클릭가능하게
@@ -96,7 +82,7 @@ function EnterCheckPage(props) {
         else {
             //서버에서 hasStarted true로 설정(api새로 써야됨)
 
-            goChatRoom();
+            goChatRoom(room);
         }
 
     };
@@ -134,7 +120,7 @@ function EnterCheckPage(props) {
 
     //         updateMembers();
     //     }
-    // }, [expandedRoomIds,reload]); // expandedRoomIds가 변경될 때 reload될 때 마다
+    // }, [expandedRoomIds,isEnterCheck]); // expandedRoomIds가 변경될 때 reload될 때 마다
 
 
     return (
@@ -157,24 +143,11 @@ function EnterCheckPage(props) {
                     return (
                         <div key={room.id} className="chatRoomList">
                             <div className="chatRoomList-up" onClick={goChatRoom}>
-                                {room.hasStarted && room.members.length === room.maxMembers ? (
-                                    <div className="smallCircle">
-                                        <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            {alarm ? <circle cx="4" cy="4" r="4" fill="#FF7898" /> : <circle cx="4" cy="4" r="4" fill="#ccc" />}
-                                        </svg>
-                                    </div>
-                                ) : (
-                                    <div className="startButton">
-                                        <button
-                                            className={` ${room.members.length === room.maxMembers ? 'active' : ''}`}
-                                            //채팅을 칠수있게 기능도 활성화 해줌
-                                            onClick={(e) => handleButtonClick(e, room)}
-                                            disabled={room.members.length < room.maxMembers}
-                                        >
-                                            <span>시작하기</span>
-                                        </button>
-                                    </div>
-                                )}
+                                <div className="smallCircle">
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="4" cy="4" r="4" fill={room.members.length === room.maxMembers ? "#FF7898" : "#D9D9D9"} />
+                                    </svg>
+                                </div>
 
 
                                 {/* /사진수정/ */}
@@ -224,6 +197,18 @@ function EnterCheckPage(props) {
                                                     </li>
                                                 ))}
                                             </ul>
+                                        </div>
+                                    </div>
+                                    <div className="startButton-container">
+                                        <div className="startButton">
+                                            <button
+                                                className={` ${room.members.length === room.maxMembers ? 'active' : ''}`}
+                                                //채팅을 칠수있게 기능도 활성화 해줌
+                                                onClick={(e) => handleButtonClick(e, room)}
+                                                disabled={room.members.length < room.maxMembers}
+                                            >
+                                                <span>시작하기</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

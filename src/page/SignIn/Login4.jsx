@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import '../LoginPage/Main.css';  
+import { useNavigate } from "react-router-dom";
+import '../LoginPage/Main.css';
 import { IoChevronBack } from "react-icons/io5";
 
 // 닉네임 설정 
 const Login4 = () => {
   const [nickname, setNickname] = useState("");
   const [isNicknameChecked, setIsNicknameChecked] = useState(false); // 중복 확인 완료 상태
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleCheckNickname = () => {
     if (nickname.length >= 2 && nickname.length <= 20) {
@@ -33,18 +33,18 @@ const Login4 = () => {
   };
 
   return (
-    <div>
-        <header>
+    <div className="start-page">
+      <header>
         <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />  
+          <IoChevronBack />
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "35%" }}></div>
         </div>
-      </header>  
+      </header>
       <header>
-        <button className="back-button" onClick={handleBack}> 
-          <IoChevronBack />  
+        <button className="back-button" onClick={handleBack}>
+          <IoChevronBack />
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "30%" }}></div>
@@ -54,7 +54,7 @@ const Login4 = () => {
       <div>
         <h2 className="login-heading">닉네임을 입력해주세요</h2>
         <p className="login-subtext">한글로만 2자 이상, 20자 이하로 가능해요</p>
-        
+
         <input
           className="login4-input"
           type="text"
@@ -70,10 +70,10 @@ const Login4 = () => {
           중복 확인하기
         </button>
 
-        <button 
-          className="bottom-Button" 
+        <button
+          className="bottom-Button"
           disabled={nickname.length < 2 || !isNicknameChecked} // 중복 확인 완료 상태를 확인
-          onClick={handleNext} 
+          onClick={handleNext}
         >
           다음
         </button>
