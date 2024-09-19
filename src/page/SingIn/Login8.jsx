@@ -7,7 +7,7 @@ const Login8 = () => {
   const navigate = useNavigate();
 
   const handleStartTest = () => {
-    navigate('/'); // 다음 페이지로 이동
+    navigate('/Mbti1'); // 다음 페이지로 이동
   };
 
   const handleBack = () => {
