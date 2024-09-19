@@ -1,7 +1,7 @@
 .mypage {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-color: #FFFFFF;
     width: 375px;
     height: 100vh;
@@ -10,7 +10,7 @@
 .mypage {
     #title {
 
-        width: 100%;
+        width: auto;
         height: 18px;
         margin-top: 58px;
         margin-left: 16px;
@@ -29,6 +29,8 @@
 
     #profile {
         margin-top: 14px;
+        width: 100%;
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -48,7 +50,7 @@
 
     #nickname {
 
-        width: 76px;
+        width: auto;
         height: 16px;
         margin-top: 10px;
         font-family: 'Pretendard';
@@ -63,7 +65,7 @@
 
     #etc {
 
-        width: 117px;
+        width: auto;
         height: 16px;
         margin-top: 4px;
         font-family: 'Pretendard';
@@ -86,17 +88,35 @@
         margin-bottom: 12px;
     }
 
+    .tab-content {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        margin-top: 8px;
+
+        padding-right: 16px;
+    }
+
     #tabCont {
         display: flex;
-        width: 100%;
-        margin-left: 30px;
+        flex-direction: row;
+        justify-content: center;
+        justify-self: flex-start;
+        width: 339px;
+        padding-left: 16px;
     }
 
     .tabs {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: flex-start;
         width: 100%;
+    }
+
+    #tabs_divider {
+        display: flex;
+        flex-direction: row;
     }
 
     .tab {
@@ -130,10 +150,319 @@
         border-bottom: 2px solid #FF7898;
     }
 
+    #profile_info {
+        /* 키워드 사이엔 쉼표(,)로 구분해주세요 */
 
+
+        width: auto;
+        height: 14px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+        display: flex;
+        align-items: center;
+
+        color: #777777;
+
+
+    }
+
+    #ment_cont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #ment_title {
+        /* 나의 한 마디 */
+
+        width: auto;
+        height: 16px;
+        margin-top: 22px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+        display: flex;
+
+        color: #3D3D3D;
+
+
+    }
+
+    #ment_input {
+        width: 343px;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        margin-top: 6px;
+        justify-content: flex-start;
+    }
+
+
+
+    #ment_btn {
+
+        width: 42px;
+        height: 46px;
+        border: none;
+        margin-left: 4px;
+        background: #F5F5F5;
+        border-radius: 10px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+
+
+        color: #3D3D3D;
+
+
+
+    }
+
+    #others {
+        margin-top: 31px;
+        width: 321px;
+        height: 127px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        background: #F5F5F5;
+        border-radius: 10px;
+        padding: 11px;
+
+    }
+
+    .option {
+        display: flex;
+        /* text-align: center; */
+        justify-content: start;
+
+        width: auto;
+        height: 16px;
+
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+        display: flex;
+        align-items: center;
+
+        color: #3D3D3D;
+
+
+    }
+
+    .mbti-test {
+        position: relative;
+        left: 79px;
+        height: 22px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -1.5px;
+        text-align: center;
+        border: none;
+        color: #FFFFFF;
+        background: #FF7898;
+        border-radius: 16px;
+    }
+
+    .mbti_input {
+        width: 150px;
+    }
+
+    #others .empty {
+        font-weight: 300;
+        color: #999;
+    }
+
+    .option_info {
+
+        width: auto;
+        height: 18px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        /* or 114% */
+        display: flex;
+        align-items: center;
+        position: absolute;
+        margin-left: 68px;
+        color: #3D3D3D;
+
+
+    }
+
+    .top {
+        height: 74px;
+    }
+
+    .edit-avatar {
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        left: 50px;
+        top: -25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #F5F5F5;
+    }
+
+    #email {
+        margin-top: 14px;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+        margin-left: 11px;
+    }
+
+    #email_info {
+        margin-top: 4px;
+        margin-left: 11px;
+        width: auto;
+        height: 18px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        /* or 114% */
+        display: flex;
+        align-items: center;
+        color: #3D3D3D;
+
+    }
+
+    #secession {
+
+
+        width: auto;
+        height: 30px;
+        margin-top: 21px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+        display: flex;
+        align-items: center;
+        text-align: center;
+        border: none;
+        color: #777777;
+        background-color: #FFFFFF;
+
+    }
+
+    input {
+        background-color: #F5F5F5;
+        border: none;
+        width: auto;
+        height: 18px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        /* or 114% */
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        color: #3D3D3D;
+
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .mTitle {
+        display: flex;
+        justify-content: space-between;
+
+        font-family: 'Pretendard';
+        font-weight: 900;
+        font-size: 14px;
+        line-height: 16px;
+
+        color: #3D3D3D;
+
+
+    }
+
+    #shortIntroduce {
+
+        width: 278px;
+        height: 46px;
+        border: none;
+        display: flex;
+        background: #F5F5F5;
+        border-radius: 10px;
+        padding-left: 15px;
+        margin: 0;
+    }
+
+    #submit {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 37px;
+        height: 22px;
+
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -1.5px;
+        text-align: center;
+
+        color: #FFFFFF;
+
+        background: #3D3D3D;
+        border-radius: 16px;
+
+    }
+
+    .banUserList {}
+
+    #banUser {}
+
+    #listForm {}
+
+    #ban_profile {}
+
+    #ban_nickname {}
+
+    #ban_userinfo {}
 
 }
-
 
 /* Rectangle 5199 */
 
