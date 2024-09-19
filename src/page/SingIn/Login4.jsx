@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import '../Main/Main.css'; 
+import '../LoginPage/SignIn.css';   
 import { IoChevronBack } from "react-icons/io5";
 
 // 닉네임 설정 
@@ -33,7 +33,7 @@ const Login4 = () => {
   };
 
   return (
-    <div>
+    <div className = "Login4Page">
         <header>
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  

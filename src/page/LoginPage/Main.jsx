@@ -1,5 +1,5 @@
 import React from "react";
-import './Main.css'
+import './SignIn.css'
 import { useNavigate } from 'react-router-dom';
 import mainImage from './main.png';
 import mainLogo from './logo.png';
@@ -15,7 +15,7 @@ function Main(){
 
 
     return(
-        <div>
+        <div className = "MainPage">
           <div>
             <img className = "img-subtitle" src={subLogo}/>
           </div>

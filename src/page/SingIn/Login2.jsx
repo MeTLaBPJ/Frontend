@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
-import '../Main/Main.css'; 
+import { IoChevronBack } from "react-icons/io5"; 
+import '../LoginPage/SignIn.css';   
 
 // 메일 인증 / 인증번호 입력 
 const Login2 = () => {
@@ -36,7 +36,7 @@ const Login2 = () => {
   };
 
   return (
-    <div>
+    <div className = "Login2Page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -63,7 +63,7 @@ const Login2 = () => {
 
         <p className="resend">
           메일을 못받으셨나요? &nbsp;
-          <span className="resend-link" onClick={handleResend}>다시 받기</span>
+          <span onClick={handleResend}>다시 받기</span>
         </p>
 
         <button className="bottom-Button" onClick={handleSubmit}>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import { IoChevronBack } from "react-icons/io5"; // react-icons에서 아이콘 import
-import '../Main/Main.css'; // CSS 파일 import
+import { IoChevronBack } from "react-icons/io5"; 
+import '../LoginPage/SignIn.css';  
 
 // 비밀번호 설정
 const Login3 = () => {
@@ -64,7 +64,7 @@ const Login3 = () => {
   };
 
   return (
-    <div>
+    <div className = "Login3Page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -74,7 +74,7 @@ const Login3 = () => {
         </div>
       </header>  
 
-      <div className="password-container">
+      <div>
         <h2 className="login-heading">비밀번호를 설정해주세요</h2>
         <p className="login-subtext1">영문, 숫자, 특수문자를 조합하여 8자 이상으로 설정해주세요</p>
 

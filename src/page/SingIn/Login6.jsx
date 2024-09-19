@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import '../Main/Main.css'; // 메인 CSS 파일 import
+import '../LoginPage/SignIn.css';   
 
 // 학번, 학과 입력
 const Login6 = () => {
@@ -41,7 +41,7 @@ const Login6 = () => {
   };
 
   return (
-    <div>
+    <div className = "Login6Page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />

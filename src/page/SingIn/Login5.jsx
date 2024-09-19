@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5";
-import '../Main/Main.css'; 
-import boyImage from '../Main/boy.png';
-import girlImage from '../Main/girl.png';
+import '../LoginPage/SignIn.css';  
+import boyImage from '../LoginPage/boy.png';
+import girlImage from '../LoginPage/girl.png';
 
 // 성별 입력
 const Login5 = () => {
@@ -26,7 +26,7 @@ const Login5 = () => {
   };
 
   return (
-    <div>
+    <div className="Login5Page">
       <header>
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -37,20 +37,20 @@ const Login5 = () => {
       </header>  
       <h2 className="login-heading">춘식이님의 성별을 알려주세요</h2>
       <div className="gender-options">
-        <div className="rectangle"> 
-          <div
-            className={`gender-option ${selectedGender === '남성' ? 'selected' : ''}`}
-            onClick={() => handleGenderSelect('남성')}
-          >
+        <div
+          className={`rectangle ${selectedGender === '남성' ? 'selected' : ''}`} 
+          onClick={() => handleGenderSelect('남성')}
+        >
+          <div className="gender-option">
             <img className="boy-image" src={boyImage} alt="Boy-Gender" />
             <p className="boyplace">남성</p>
           </div>
         </div>
-        <div className="rectangle1">
-          <div
-            className={`gender-option ${selectedGender === '여성' ? 'selected' : ''}`}
-            onClick={() => handleGenderSelect('여성')}
-          >
+        <div
+          className={`rectangle1 ${selectedGender === '여성' ? 'selected' : ''}`} 
+          onClick={() => handleGenderSelect('여성')}
+        >
+          <div className="gender-option">
             <img className="girl-image" src={girlImage} alt="Girl-Gender" />
             <p className="girlplace">여성</p>
           </div>
