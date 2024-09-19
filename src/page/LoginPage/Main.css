@@ -35,6 +35,9 @@
     width: 280px;
   }
 
+
+
+
   .nickname-status.available {
     color: #4CAF50;
   }
@@ -510,6 +513,53 @@
 
     width: 80px;
     height: 46px;
-
   }
+
+  .img-con {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .img-con-1 {
+    width: 120px;
+    height: 100%;
+
+    /* Rectangle 27 */
+
+    box-sizing: border-box;
+
+    background: #FFFFFF;
+    border: 2px solid #DADADA;
+    border-radius: 5px;
+  }
+
+  .img-con-1 .img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-con-2 {
+    width: 120px;
+    height: 100%;
+    box-sizing: border-box;
+
+    border: 2px solid #DADADA;
+    border-radius: 5px;
+  }
+
+  .img-con-2 .img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-con-1:hover {
+    background-color: #EAF0FF;
+  }
+
+  .img-con-2:hover {
+    background-color: #FFF0EF;
+  }
+
 }

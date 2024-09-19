@@ -48,7 +48,7 @@ function LeaveDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
                             취소하기
                         </button>
                         <button className="dialog-button-pink" onClick={() => exitRoom()}>
-                            나가기
+                            탈퇴하기
                         </button>
 
                     </div>

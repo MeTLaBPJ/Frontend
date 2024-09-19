@@ -9,6 +9,7 @@ import Login4 from './page/SignIn/Login4';
 import Login5 from './page/SignIn/Login5';
 import Login6 from './page/SignIn/Login6';
 import Login7 from './page/SignIn/Login7';
+import Login from './page/SignIn/Login';
 
 import ChatStartPage from "./page/Main/ChatPage/ChatStartPage"
 import ChatRoom from "./page/Main/ChatPage/ChatRoom/ChatRoom"
@@ -26,6 +27,7 @@ function App() {
         {/* <Route path="/chat/:roomId" element={<ChatRoom />} /> */}
         <Route path="/chat/2" element={<ChatRoom />} />
         <Route path="/makeChatRoom" element={<MakeChatRoom />} />
+        <Route path="/Login" element={<Login />} />
         <Route path="/Login1" element={<Login1 />} />
         <Route path="/Login2" element={<Login2 />} />
         <Route path="/Login3" element={<Login3 />} />
