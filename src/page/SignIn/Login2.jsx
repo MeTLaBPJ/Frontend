@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
 import '../LoginPage/Main.css';
+import axios from 'axios';
 
 // 메일 인증 / 인증번호 입력 
 const Login2 = () => {
   const [code, setCode] = useState(new Array(6).fill("")); // 6자리 코드 입력 관리
+  const [error, setError] = useState(""); // 에러 상태 추가
   const navigate = useNavigate();
+  const userEmail = sessionStorage.getItem('userEmail');
 
   const handleInputChange = (element, index) => {
     if (isNaN(element.value)) return; // 숫자가 아닌 경우 무시
@@ -20,15 +23,41 @@ const Login2 = () => {
     }
   };
 
-  const handleResend = () => {
-    console.log("Verification code resent!");
+  const handleResend = async () => {
+    try {
+      // 서버에 인증번호 재전송 요청
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { userEmail });
+      if (response.ok) {
+        setError(""); // 성공 시 에러 메시지 초기화
+      } else {
+        setError("인증번호 재전송에 실패했습니다. 다시 시도해주세요.");
+      }
+    } catch (error) {
+      console.error("Error resending verification code:", error);
+      setError("오류가 발생했습니다. 다시 시도해주세요.");
+    }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const enteredCode = code.join("");
-    console.log(`Entered code: ${enteredCode}`);
+    if (enteredCode.length !== 6) {
+      setError("인증번호 6자리를 모두 입력해주세요.");
+      return;
+    }
 
-    navigate("/Login3");
+    try {
+      // 서버에 인증번호 검증 요청
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { code });
+
+      if (response.ok) {
+        navigate("/Login3");
+      } else {
+        setError("잘못된 인증번호입니다. 다시 확인해주세요.");
+      }
+    } catch (error) {
+      console.error("Error verifying code:", error);
+      setError("오류가 발생했습니다. 다시 시도해주세요.");
+    }
   };
 
   const handleBack = () => {
@@ -60,6 +89,7 @@ const Login2 = () => {
             />
           ))}
         </div>
+        {error && <p className="error-message">{error}</p>} {/* 에러 메시지 표시 */}
 
         <p className="resend">
           메일을 못받으셨나요? &nbsp;

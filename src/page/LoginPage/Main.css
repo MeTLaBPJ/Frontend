@@ -25,6 +25,24 @@
     background: url('logo.png');
   }
 
+  .nickname-status {
+    font-size: 0.8em;
+    margin-top: 5px;
+    position: relative;
+    top: 350px;
+    ;
+    left: calc(50% - 140px);
+    width: 280px;
+  }
+
+  .nickname-status.available {
+    color: #4CAF50;
+  }
+
+  .nickname-status.unavailable {
+    color: #F44336;
+  }
+
   .img-bg {
     /* 대학생활상담소 횃불이_5 1 */
     position: absolute;

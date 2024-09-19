@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import '../LoginPage/Main.css';
 import { IoChevronBack } from "react-icons/io5";
 
@@ -7,22 +8,44 @@ import { IoChevronBack } from "react-icons/io5";
 const Login4 = () => {
   const [nickname, setNickname] = useState("");
   const [isNicknameChecked, setIsNicknameChecked] = useState(false); // 중복 확인 완료 상태
+  const [nicknameStatus, setNicknameStatus] = useState("");
   const navigate = useNavigate();
 
-  const handleCheckNickname = () => {
+  const handleCheckNickname = async () => {
     if (nickname.length >= 2 && nickname.length <= 20) {
-      // 닉네임 중복 확인 로직이 들어가는 부분
-      setIsNicknameChecked(true); // 중복 확인 완료
-      alert("닉네임 확인 완료");
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/check-nickname`, { nickname });
+        if (response.data.available) {
+          setIsNicknameChecked(true);
+          setNicknameStatus("사용 가능한 닉네임입니다.");
+        } else {
+          setIsNicknameChecked(false);
+          setNicknameStatus("이미 사용 중인 닉네임입니다.");
+        }
+      } catch (error) {
+        console.error("닉네임 중복 확인 중 오류 발생:", error);
+        setIsNicknameChecked(false);
+        setNicknameStatus("중복 확인 중 오류가 발생했습니다.");
+      }
     } else {
-      setIsNicknameChecked(false); // 중복 확인 실패 시 버튼 비활성화 유지
-      alert("닉네임은 2자 이상, 20자 이하로 입력해주세요.");
+      setIsNicknameChecked(false);
+      setNicknameStatus("닉네임은 2자 이상, 20자 이하로 입력해주세요.");
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (nickname.length >= 2 && nickname.length <= 20 && isNicknameChecked) {
-      navigate("/Login5", { state: { nickname } });
+      try {
+        const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-nickname`, { nickname });
+        if (response.data.success) {
+          navigate("/Login5", { state: { nickname } });
+        } else {
+          alert("닉네임 저장에 실패했습니다. 다시 시도해주세요.");
+        }
+      } catch (error) {
+        console.error("닉네임 저장 중 오류 발생:", error);
+        alert("닉네임 저장 중 오류가 발생했습니다. 다시 시도해주세요.");
+      }
     } else {
       alert("닉네임을 다시 확인해주세요.");
     }
@@ -63,12 +86,19 @@ const Login4 = () => {
           onChange={(e) => {
             setNickname(e.target.value);
             setIsNicknameChecked(false); // 닉네임이 변경될 때마다 중복 확인 초기화
+            setNicknameStatus("");
           }}
         />
 
         <button className="check-button" onClick={handleCheckNickname}>
           중복 확인하기
         </button>
+
+        {nicknameStatus && (
+          <p className={`nickname-status  ${isNicknameChecked ? 'available' : 'unavailable'}`}>
+            {nicknameStatus}
+          </p>
+        )}
 
         <button
           className="bottom-Button"
