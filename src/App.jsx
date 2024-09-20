@@ -9,8 +9,7 @@ import Login5 from './page/SingIn/Login5.jsx';
 import Login6 from './page/SingIn/Login6.jsx';
 import Login7 from './page/SingIn/Login7.jsx';
 import Login8 from './page/SingIn/Login8.jsx';
-import Mbti1 from './page/Mbti/Mbti1.jsx'
-import Mbti2 from './page/Mbti/Mbti2.jsx'
+
 
 function App() {
  
@@ -28,8 +27,6 @@ function App() {
           <Route path="/Login6" element={<Login6 />} />
           <Route path="/Login7" element={<Login7 />} />
           <Route path="/Login8" element={<Login8 />} />
-          <Route path="/Mbti1" element={<Mbti1 />} />
-          <Route path="/Mbti2" element={<Mbti2 />} />
         </Routes>
       </Router>
   );
