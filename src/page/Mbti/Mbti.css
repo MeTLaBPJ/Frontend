@@ -105,6 +105,33 @@
         margin-bottom: 20px;
 
       }
+
+      .answerselected{
+        box-sizing: border-box;
+
+      
+        width: 343px;
+        height: 68px;
+
+        background: #FF7898;
+        border: 2px solid #FF7898;
+        border-radius: 49px;
+
+
+        white-space: pre-wrap;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        /* identical to box height, or 88% */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+      }
       #Q{
         white-space: pre-wrap;
         width: auto;
