@@ -554,11 +554,11 @@
     height: 100%;
   }
 
-  .img-con-1:hover {
+  .img-con-1.selected {
     background-color: #EAF0FF;
   }
 
-  .img-con-2:hover {
+  .img-con-2.selected {
     background-color: #FFF0EF;
   }
 

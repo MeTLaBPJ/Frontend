@@ -24,16 +24,18 @@ const Login2 = ({ nextStep, prevStep, userData }) => {
   const handleResend = async () => {
     try {
       // 서버에 인증번호 재전송 요청
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { userEmail });
-      if (response.ok) {
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/sign-up/email?email=${userEmail}`);
+      if (response.status === 200) {
+        alert("인증번호가 재전송되었습니다."); // 알림창 표시
         setError(""); // 성공 시 에러 메시지 초기화
       } else {
         setError("인증번호 재전송에 실패했습니다. 다시 시도해주세요.");
       }
     } catch (error) {
       console.error("Error resending verification code:", error);
-      setError("오류가 발생했습니다. 다시 시도해주세요.");
+      alert("오류가 발생했습니다. 다시 시도해주세요."); // 알림창 표시
     }
+
   };
 
   const handleSubmit = async () => {
@@ -45,10 +47,13 @@ const Login2 = ({ nextStep, prevStep, userData }) => {
 
     try {
       // 서버에 인증번호 검증 요청
-      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { code });
+      const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/sign-up/email/check`, {
+        email: userEmail,
+        key: enteredCode
+      });
 
-      if (response.ok) {
-        nextStep();
+      if (response.status === 200) {
+        nextStep()
       } else {
         setError("잘못된 인증번호입니다. 다시 확인해주세요.");
       }
@@ -56,6 +61,7 @@ const Login2 = ({ nextStep, prevStep, userData }) => {
       console.error("Error verifying code:", error);
       setError("오류가 발생했습니다. 다시 시도해주세요.");
     }
+
   };
 
   const handleBack = () => {

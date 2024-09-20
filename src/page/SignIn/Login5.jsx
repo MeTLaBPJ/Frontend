@@ -1,38 +1,26 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import '../LoginPage/Main.css';
 import { IoChevronBack } from "react-icons/io5";
 import male from '../LoginPage/boy.png';
 import female from '../LoginPage/girl.png';
-import axios from "axios";
 
 // 성별 선택 컴포넌트
-const Login5 = () => {
+const Login5 = ({ nextStep, prevStep, userData }) => {
   const [selectedGender, setSelectedGender] = useState(null);
-  const navigate = useNavigate();
 
   const handleGenderSelect = (gender) => {
     setSelectedGender(gender);
   };
 
-  const handleNext = async ({ nextStep, prevStep, userData }) => {
+  const handleNext = async () => {
     if (selectedGender) {
-      try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-gender`, { gender: selectedGender });
-        if (response.data.success) {
-          navigate("/Login6");
-        } else {
-          alert("성별 저장에 실패했습니다. 다시 시도해주세요.");
-        }
-      } catch (error) {
-        console.error("성별 저장 중 오류 발생:", error);
-        alert("성별 저장 중 오류가 발생했습니다. 다시 시도해주세요.");
-      }
+      userData(selectedGender);
+      nextStep();
     }
   };
 
   const handleBack = () => {
-    navigate(-1);
+    prevStep()
   };
 
   return (
