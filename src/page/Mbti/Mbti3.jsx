@@ -31,21 +31,21 @@ function Mbti3(){
   };
     const handleBack = () => {
         if (selectedAnswer === 1) {
-            updateMbti({  selectList: { ...Mbti.selectList, "3": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "3": false } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({  selectList: { ...Mbti.selectList, "3": false } });
+            updateMbti({  selectList: { ...Mbti.selectList, "3": true } });
         }
         navigate("/mbti2"); // 이전 페이지로 이동
       };
     const handleNext = () => {
         if (selectedAnswer === 1) {
-            updateMbti({ s: eVal, selectList: { ...Mbti.selectList, "3": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "3": false } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({ s: eVal+1, selectList: { ...Mbti.selectList, "3": false } });
+            updateMbti({  selectList: { ...Mbti.selectList, "3": true } });
         }
         navigate("/mbti4"); 
       };

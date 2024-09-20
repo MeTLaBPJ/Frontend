@@ -37,10 +37,6 @@ export const MbtiProvider = ({ children }) => {
 
     const resetMbti = () => {
         setMbti({
-            e:0,
-            s:0,
-            f:0,
-            p:0,
             selectList:{
                 "1":false,
                 "2":false,

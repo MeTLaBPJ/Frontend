@@ -11,7 +11,6 @@ function Mbti1(){
     const [isa2Checked,setIsa2Checked]=useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null); // 선택된 답변 상태
     const selectedValue1 = Mbti.selectList["1"];
-    const eVal = Mbti.e;
     const navigate = useNavigate(); 
     useEffect(() =>{
         if(selectedValue1){
@@ -43,11 +42,11 @@ function Mbti1(){
       };
     const handleNext = () => {
        if (selectedAnswer === 1) {
-            updateMbti({ e: eVal + 1, selectList: { ...Mbti.selectList, "1": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "1": true } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({ e: eVal, selectList: { ...Mbti.selectList, "1": false } });
+            updateMbti({ selectList: { ...Mbti.selectList, "1": false } });
         }
         navigate("/mbti2"); 
       };

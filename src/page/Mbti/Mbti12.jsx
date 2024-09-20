@@ -12,14 +12,30 @@ function Mbti12() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [mbtiChecked, setMbtiChecked] = useState('');
     const selectedValue1 = Mbti.selectList["12"];
-    const sVal = Mbti.s;
-    const eVal = Mbti.e;
-    const fVal = Mbti.f;
-    const pVal = Mbti.p;
+
+    // eVal는 selectList에서 1, 2, 5의 값이 true인 개수 계산
+    const eVal = () => {
+        return ["1", "2", "5"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
+    };
+
+    // sVal는 selectList에서 3, 8, 12의 값이 true인 개수 계산
+    const sVal = () => {
+        return ["3", "8", "12"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
+    };
+
+    // fVal는 selectList에서 6, 7, 11의 값이 true인 개수 계산
+    const fVal = () => {
+        return ["6", "7", "11"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
+    };
+
+    // pVal는 selectList에서 4, 9, 10의 값이 true인 개수 계산
+    const pVal = () => {
+        return ["4", "9", "10"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
+    };
+
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        console.log(Mbti);
         if (selectedValue1) {
             setIsa1Checked(true);
             setIsa2Checked(false);
@@ -30,50 +46,35 @@ function Mbti12() {
     }, [selectedValue1]);
 
     const mbtiHandler = () => {
-        console.log("mbtiHandler called");
-
         let mbti = '';
-        if (eVal >= 2) mbti += 'E';
+        if (eVal() >= 2) mbti += 'E';
         else mbti += 'I';
 
-        if (sVal >= 2) mbti += 'S';
+        if (sVal() >= 2) mbti += 'S';
         else mbti += 'N';
 
-        if (fVal >= 2) mbti += 'F';
+        if (fVal() >= 2) mbti += 'F';
         else mbti += 'T';
 
-        if (pVal >= 2) mbti += 'P';
+        if (pVal() >= 2) mbti += 'P';
         else mbti += 'J';
 
         setMbtiChecked(mbti);
-        console.log('Calculated MBTI:',mbti); // 디버깅 로그
+        console.log(Mbti,mbtiChecked);
     };
 
     const handleAnswerSelected = (answer) => {
         setSelectedAnswer(answer);
-    };
-
-    const handleBack = () => {
-        if (selectedAnswer === 1) {
-            updateMbti({  selectList: { ...Mbti.selectList, "12": true } });
-        } else if (selectedAnswer === 2) {
+        // 선택한 답변에 따라 MBTI 업데이트
+        if (answer === 1) {
+            updateMbti({ selectList: { ...Mbti.selectList, "12": true } });
+        } else {
             updateMbti({ selectList: { ...Mbti.selectList, "12": false } });
         }
-        navigate("/mbti11");
     };
 
-    const handleNext = () => {
-        // 선택한 답변에 따라 MBTI 업데이트
-        if (selectedAnswer === 1) {
-            updateMbti({ s: sVal + 1, selectList: { ...Mbti.selectList, "12": true } });
-        } else if (selectedAnswer === 2) {
-            updateMbti({ s: sVal, selectList: { ...Mbti.selectList, "12": false } });
-        }
-
-        // MBTI 타입 계산
-        mbtiHandler();
-
-        // mbtiChecked가 업데이트된 후 라우팅
+    // mbtiChecked가 변경될 때 라우팅을 수행
+    useEffect(() => {
         if (mbtiChecked) {
             switch (mbtiChecked) {
                 case 'ESTJ':
@@ -129,16 +130,16 @@ function Mbti12() {
                     break;
             }
         }
-    };
+    }, [mbtiChecked, navigate]);
 
-    useEffect(() => {
-        console.log('mbti:', mbtiChecked);
-    }, [mbtiChecked]); // mbtiChecked가 변경될 때마다 콘솔 로그
+    const handleNext = () => {
+        mbtiHandler(); // MBTI 값을 계산
+    };
 
     return (
         <div className="mbti">
             <header>
-                <button className="back-button" onClick={handleBack}>
+                <button className="back-button" onClick={() => navigate("/mbti11")}>
                     <IoChevronBack />  
                 </button>
                 <div className="progress-bar">
@@ -155,7 +156,7 @@ function Mbti12() {
             />
             <button 
                 className="bottom-Button" 
-                onClick={handleNext}
+                onClick={() => handleNext()}
             >
                 다음
             </button>

@@ -42,11 +42,11 @@ function Mbti6(){
       };
     const handleNext = () => {
         if (selectedAnswer === 1) {
-            updateMbti({ f: eVal + 1, selectList: { ...Mbti.selectList, "6": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "6": true } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({ f: eVal, selectList: { ...Mbti.selectList, "6": false } });
+            updateMbti({ selectList: { ...Mbti.selectList, "6": false } });
         }
         navigate("/mbti7"); 
       };
