@@ -256,13 +256,14 @@
 
   .code-inputs {
     /* 인증번호 입력 */
+    width: 300px;
     display: flex;
     justify-content: center;
     gap: 10px;
     /* 입력 필드 사이의 간격 */
     position: absolute;
     left: 50%;
-    top: 248px;
+    top: 300px;
     transform: translateX(-50%);
     /* 수평 중앙 정렬 */
   }

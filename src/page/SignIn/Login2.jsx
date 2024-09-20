@@ -5,18 +5,24 @@ import axios from 'axios';
 
 // 메일 인증 / 인증번호 입력 
 const Login2 = ({ nextStep, prevStep, userData }) => {
-  const [code, setCode] = useState(new Array(6).fill("")); // 6자리 코드 입력 관리
+  const [code, setCode] = useState(new Array(8).fill("")); // 8자리 코드 입력 관리
   const [error, setError] = useState(""); // 에러 상태 추가
   const userEmail = sessionStorage.getItem('userEmail');
 
   const handleInputChange = (element, index) => {
-    if (isNaN(element.value)) return; // 숫자가 아닌 경우 무시
+
+    const value = element.value;
+
+    // 영어 대소문자와 숫자만 허용
+    if (!/^[a-zA-Z0-9]*$/.test(value)) return;
+
+
     let newCode = [...code];
-    newCode[index] = element.value;
+    newCode[index] = value;
     setCode(newCode);
 
     // 다음 입력으로 포커스 이동
-    if (element.nextSibling && element.value) {
+    if (element.nextSibling && value) {
       element.nextSibling.focus();
     }
   };
@@ -40,8 +46,8 @@ const Login2 = ({ nextStep, prevStep, userData }) => {
 
   const handleSubmit = async () => {
     const enteredCode = code.join("");
-    if (enteredCode.length !== 6) {
-      setError("인증번호 6자리를 모두 입력해주세요.");
+    if (enteredCode.length !== 8) {
+      setError("인증번호 8자리를 모두 입력해주세요.");
       return;
     }
 
@@ -78,7 +84,7 @@ const Login2 = ({ nextStep, prevStep, userData }) => {
 
       <div>
         <h2 className="login-heading">인증 메일이 보내졌습니다</h2>
-        <p className="login-subtext">인증 번호 6자리를 입력해주세요</p>
+        <p className="login-subtext">인증 번호 8자리를 입력해주세요</p>
 
         <div className="code-inputs">
           {code.map((digit, index) => (
@@ -90,20 +96,25 @@ const Login2 = ({ nextStep, prevStep, userData }) => {
               value={digit}
               onChange={(e) => handleInputChange(e.target, index)}
               onFocus={(e) => e.target.select()}
+              style={{
+                display: 'inline-block',
+                width: '12.5%', // 8개의 입력 필드를 위해 100% / 8
+                marginBottom: '10px', // 아래로 내려갈 때 간격 조정
+              }}
             />
           ))}
         </div>
-        {error && <p className="error-message">{error}</p>} {/* 에러 메시지 표시 */}
-
-        <p className="resend">
-          메일을 못받으셨나요? &nbsp;
-          <span className="resend-link" onClick={handleResend}>다시 받기</span>
-        </p>
-
-        <button className="bottom-Button" onClick={handleSubmit}>
-          다음
-        </button>
       </div>
+      {error && <p className="error-message">{error}</p>} {/* 에러 메시지 표시 */}
+
+      <p className="resend">
+        메일을 못받으셨나요? &nbsp;
+        <span className="resend-link" onClick={handleResend}>다시 받기</span>
+      </p>
+
+      <button className="bottom-Button" onClick={handleSubmit}>
+        다음
+      </button>
     </div>
   );
 };
