@@ -25,11 +25,12 @@ const Login1 = ({ nextStep, userData }) => {
 
 
       try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { email });
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/sign-up/email?email=${email}`);
+        console.log(`Verification code sent to: ${email}`);
+        sessionStorage.setItem('userEmail', email);
+        navigate('/Login2');
         if (response.data.success) {
           console.log(`Verification code sent to: ${email}`);
-          sessionStorage.setItem('userEmail', email);
-          navigate('/Login2');
         } else {
           setError("서버에 문제가 발생했습니다. 다시 시도해주세요.");
         }
@@ -39,6 +40,7 @@ const Login1 = ({ nextStep, userData }) => {
       } finally {
         setIsLoading(false);
       }
+
     } else {
       setError("올바른 학교 이메일(@inu.ac.kr)을 입력해주세요.");
     }

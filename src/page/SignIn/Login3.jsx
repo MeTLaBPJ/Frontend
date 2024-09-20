@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { IoChevronBack } from "react-icons/io5"; // react-icons에서 아이콘 import
-import axios from "axios"; // axios import for API request
 import '../LoginPage/Main.css';
 
 

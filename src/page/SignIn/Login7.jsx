@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import axios from 'axios';
 import '../LoginPage/Main.css';
 
 // 생년월일 입력
-const Login7 = (nextStep, updateUserData, userData) => {
+const Login7 = ({ finalHandleSubmit, prevStep, userData }) => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(false);
-  const navigate = useNavigate(); // navigate 초기화
 
   useEffect(() => {
     const validateInput = () => {
@@ -77,31 +74,15 @@ const Login7 = (nextStep, updateUserData, userData) => {
     }
 
     console.log("생일:", `${year}-${month}-${day}`);
-    // 다음 페이지로 이동하는 코드 추가 필요
-    // navigate('/다음페이지', { state: { year, month, day, gender } });
 
     if (isValid) {
-      try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-birthdate`, {
-          birthdate: `${year}-${month}-${day}`
-        });
-        console.log("서버 응답:", response.data);
-
-        // 로컬 스토리지에 유저 닉네임 저장
-        localStorage.setItem('userNickname', response.data.nickname);
-
-        // 성공 시 다음 페이지로 이동
-        navigate('/');
-      } catch (error) {
-        navigate('/');
-        console.error("서버 요청 실패:", error);
-        setError("서버 요청 중 오류가 발생했습니다.");
-      }
+      userData(new Date(year, month - 1, day).toLocaleDateString())
+      finalHandleSubmit()
     }
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    prevStep()
   };
 
   return (
