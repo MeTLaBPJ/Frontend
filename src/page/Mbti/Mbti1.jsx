@@ -64,7 +64,7 @@ function Mbti1(){
         </header>  
       
         <Question 
-            question={"대망의 학기 첫 수업! \n강의실에 갔는데 나 빼고 다들 친해진 것 같아 보인다... \n나의 선택은?"} 
+            question={"대망의 학기 첫 수업! \n이미 나 빼고 다들 친해진 것 같아 보인다... \n나의 선택은?"} 
             answer1={"옆 자리 사람에게 말을 건다."}
             answer2={"누가 나한테 말 걸어줬으면 좋겠다ㅠㅠ"}
             a1Checked={isa1Checked}

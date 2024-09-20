@@ -69,9 +69,9 @@
       .question{
         margin: 16px;
         display: flex;
-        position: absolute;
         bottom: 240px;
-        margin-top: 140px;
+        position: absolute;
+        
         flex-direction: column;
         align-items: center;
         
@@ -140,7 +140,7 @@
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 19px;
         line-height: 20px;
         /* identical to box height, or 88% */
         display: flex;
@@ -148,8 +148,44 @@
 
 
         color: #3D3D3D;
-        margin-bottom: 130px;
+        margin-bottom: 100px;
 
 
       }
+      #mbti_main{
+        justify-content: center;
+      }
+      #mbti_title{
+        
+        background-image: url('../../asset/횃불이\ 테스트.png');
+        background-repeat: no-repeat;
+        width: 280px;
+        height: 50px;
+        margin-bottom: 30px;
+        margin-top:100px ;
+      }
+      #subTitle{
+        /* 당신의 횃불이 유형은? */
+        
+        width: 176px;
+        height: 14px;
+       
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 14px;
+        color: #777777;
+        margin-bottom: 45px;
+      }
+      #mbtiMain_img{
+         
+        width: 300px;
+        height: 300px;
+        background: #D9D9D9;
+
+       
+
+      }
+      
 }

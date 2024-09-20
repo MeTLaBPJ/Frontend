@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import "./App.css";
 import Main from "./page/Main/Main";
 import Mypage from "./page/Mypage/Mypage"
+import Mbti from "./page/Mbti/Mbti";
 import Mbti1 from "./page/Mbti/Mbti1";
 import Mbti2 from "./page/Mbti/Mbti2";
 import Mbti3 from "./page/Mbti/Mbti3";
@@ -32,11 +33,7 @@ import INTP from "./page/Mbti/Mbti_result/INTP";
 import INTJ from "./page/Mbti/Mbti_result/INTJ";
 
 import { MbtiProvider } from "./context/MbitContext";
-import Estj from "./page/Mbti/Mbti_result/ESTJ";
-import Entp from "./page/Mbti/Mbti_result/ENTP";
-import Intp from "./page/Mbti/Mbti_result/INTP";
-import Infj from "./page/Mbti/Mbti_result/INFJ";
-import Istp from "./page/Mbti/Mbti_result/ISTP";
+
 
 function App() {
  
@@ -49,6 +46,7 @@ function App() {
           
           <Route path="/" element={<Main />} />
           <Route path="/mypage" element={<Mypage/>}/>
+          <Route path="/mbti" element={<Mbti/>}/>
           <Route path="/mbti1" element={<Mbti1/>}/>
           <Route path="/mbti2" element={<Mbti2/>}/>
           <Route path="/mbti3" element={<Mbti3/>}/>

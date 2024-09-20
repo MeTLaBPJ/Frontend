@@ -63,7 +63,7 @@ function Mbti2(){
         </header>  
       
         <Question 
-            question={"친구가 꿀 교양을 알려줬다! 근데 토론을 한다고...?"} 
+            question={"친구가 꿀 교양을 알려줬다! \n근데 토론을 한다고...?"} 
             answer1={"토론은 좀 부담스러운데..."}
             answer2={"헉 완전 재밌겠다!! 당장 잡아야지!"}
             a1Checked={isa1Checked}

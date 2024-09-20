@@ -62,8 +62,8 @@ function Mbti10(){
         </header>  
       
         <Question 
-            question={"팀플 발표를 맡게 되었다! 발표 준비를 어떻게 할까?"} 
-            answer1={"철학자~ 니체~ 독일~ 키워드만 준비해도 되겠지~"}
+            question={"팀플 발표를 맡게 되었다!\n발표 준비를 어떻게 할까?"} 
+            answer1={"니체~ 독일~ 키워드만 준비해도 되겠지~"}
             answer2={"니체는 1844년 독일에서 태어나... \n 대본부터 리허설까지 철저하게 준비해야지"}
             a1Checked={isa1Checked}
             a2Checked={isa2Checked}

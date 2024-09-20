@@ -62,7 +62,7 @@ function Mbti11(){
         </header>  
       
         <Question 
-            question={"친구가 힘들어서 휴학을 고민 중이라고 한다 이때 당신의 반응은?"} 
+            question={"친구가 힘들어서 휴학을 고민 중이라고 한다 \n이때 당신의 반응은?"} 
             answer1={"뭐?? 휴학하고 뭐하게?"}
             answer2={"헉...무슨일이야?ㅜㅜ\n 많이 힘들어? "}
             a1Checked={isa1Checked}

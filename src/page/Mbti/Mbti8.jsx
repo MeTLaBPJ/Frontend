@@ -62,7 +62,7 @@ function Mbti8(){
         </header>  
       
         <Question 
-            question={"강아지는 야옹~, 고양이는 멍멍 \n 시험에 나오니까 외워~"} 
+            question={"강아지는 야옹~, 고양이는 멍멍 \n 시험에 나오니까 외워!"} 
             answer1={"엥? 왜그러지? 그렇지만 외워야겠다"}
             answer2={"도대체 왜!?!? 절대 이해할 수 없어.. 넘어갈 수가 없다!"}
             a1Checked={isa1Checked}

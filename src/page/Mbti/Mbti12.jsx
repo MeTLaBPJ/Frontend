@@ -147,7 +147,7 @@ function Mbti12() {
                 </div>
             </header>  
             <Question 
-                question={"교수님이 갑작스러운 공지사항을 올리셨다. \n “chat gpt를 사용해 과제한 학생은 \n자수하면 0점, \n 자수 없이 발각되면 F 처리 하겠습니다.”"} 
+                question={"교수님이 공지사항을 올리셨다. \n “chat gpt를 사용해 과제한 학생은 \n자수하면 0점, \n 자수 없이 발각되면 F 처리 하겠습니다.”"} 
                 answer1={"에이, 안걸리면 그만이야~"}
                 answer2={"설마 난가..? 지금이라도 자수할까??"}
                 a1Checked={isa1Checked}

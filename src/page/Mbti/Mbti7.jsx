@@ -62,7 +62,7 @@ function Mbti7(){
         </header>  
       
         <Question 
-            question={"친구가 시험을 망쳐서 속상하다고 말한다. 당신의 반응은?"} 
+            question={"친구가 시험을 망쳐서 속상하다고 말한다. \n당신의 반응은?"} 
             answer1={"그래도 고생했어, 다음에는 더 잘할 수 있을 거야"}
             answer2={"아 그래? 아쉬운 거지~"}
             a1Checked={isa1Checked}
