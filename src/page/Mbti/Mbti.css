@@ -189,5 +189,54 @@
        
 
       }
+
       
+      
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    max-width: 375px;
+    width: 300px;
+    z-index: 1000; /* 모달이 다른 요소들 위에 표시되도록 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -1px;
+    color: #000000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999; /* 모달 오버레이가 다른 요소들 위에 표시되도록 */
+}
+
+#img {
+    background-image: url('../../asset/loading.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; /* 이미지를 수평, 수직 중앙 정렬 */
+    max-width: 100%;
+    width: 30%;
+    height: 200px;
+    margin-bottom: 20px; /* 이미지 아래 여백 추가 */
+    display: block; /* img를 블록 요소로 변경 */
+    margin: 0 auto; /* 수평 가운데 정렬 */
 }

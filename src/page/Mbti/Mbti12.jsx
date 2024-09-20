@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { IoChevronBack } from "react-icons/io5";
 import Question from "./Question";
 import "./Mbti.css";
+import Modal from 'react-modal';
 import { useNavigate } from "react-router-dom";
 import { MbtiContext } from "../../context/MbitContext";
 
@@ -12,7 +13,7 @@ function Mbti12() {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [mbtiChecked, setMbtiChecked] = useState('');
     const selectedValue1 = Mbti.selectList["12"];
-
+    const [modalIsOpen, setModalIsOpen] = useState(false);
     // eVal는 selectList에서 1, 2, 5의 값이 true인 개수 계산
     const eVal = () => {
         return ["1", "2", "5"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
@@ -73,6 +74,18 @@ function Mbti12() {
         }
     };
 
+    const openModal = () => {
+        setModalIsOpen(true);
+        setTimeout(() => {
+          closeModal();
+          mbtiHandler(); // MBTI 값을 계산    
+        }, 3000); 
+      };
+    
+      const closeModal = () => {
+        setModalIsOpen(false);
+      };
+    
     // mbtiChecked가 변경될 때 라우팅을 수행
     useEffect(() => {
         if (mbtiChecked) {
@@ -133,7 +146,8 @@ function Mbti12() {
     }, [mbtiChecked, navigate]);
 
     const handleNext = () => {
-        mbtiHandler(); // MBTI 값을 계산
+        openModal();
+        
     };
 
     return (
@@ -160,6 +174,19 @@ function Mbti12() {
             >
                 다음
             </button>
+
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                contentLabel="Pop up Message"
+                ariaHideApp={false}
+                className="modal"
+                overlayClassName="overlay"
+            >
+                <div id="img"></div>
+                <div>횃불이 유형을 분석하고 있어요</div>
+                <div>잠시만 기다려주세요</div>
+            </Modal>
         </div>
     );
 }
