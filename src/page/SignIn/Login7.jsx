@@ -5,7 +5,7 @@ import axios from 'axios';
 import '../LoginPage/Main.css';
 
 // 생년월일 입력
-const Login7 = () => {
+const Login7 = (nextStep, updateUserData, userData) => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");

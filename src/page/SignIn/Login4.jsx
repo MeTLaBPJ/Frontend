@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../LoginPage/Main.css';
 import { IoChevronBack } from "react-icons/io5";
 
 // 닉네임 설정 
-const Login4 = () => {
+const Login4 = ({ nextStep, prevStep, userData }) => {
   const [nickname, setNickname] = useState("");
   const [isNicknameChecked, setIsNicknameChecked] = useState(false); // 중복 확인 완료 상태
   const [nicknameStatus, setNicknameStatus] = useState("");
-  const navigate = useNavigate();
 
   const handleCheckNickname = async () => {
     if (nickname.length >= 2 && nickname.length <= 20) {
@@ -35,24 +33,15 @@ const Login4 = () => {
 
   const handleNext = async () => {
     if (nickname.length >= 2 && nickname.length <= 20 && isNicknameChecked) {
-      try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-nickname`, { nickname });
-        if (response.data.success) {
-          navigate("/Login5", { state: { nickname } });
-        } else {
-          alert("닉네임 저장에 실패했습니다. 다시 시도해주세요.");
-        }
-      } catch (error) {
-        console.error("닉네임 저장 중 오류 발생:", error);
-        alert("닉네임 저장 중 오류가 발생했습니다. 다시 시도해주세요.");
-      }
+      userData(nickname)
+      nextStep()
     } else {
       alert("닉네임을 다시 확인해주세요.");
     }
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    prevStep()
   };
 
   return (

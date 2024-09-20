@@ -15,7 +15,7 @@ const Login5 = () => {
     setSelectedGender(gender);
   };
 
-  const handleNext = async () => {
+  const handleNext = async ({ nextStep, prevStep, userData }) => {
     if (selectedGender) {
       try {
         const response = await axios.post(`${process.env.REACT_APP_API_URL}/save-gender`, { gender: selectedGender });

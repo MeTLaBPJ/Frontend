@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
 import '../LoginPage/Main.css';
 import axios from 'axios';
 
 // 메일 인증 / 인증번호 입력 
-const Login2 = () => {
+const Login2 = ({ nextStep, prevStep, userData }) => {
   const [code, setCode] = useState(new Array(6).fill("")); // 6자리 코드 입력 관리
   const [error, setError] = useState(""); // 에러 상태 추가
-  const navigate = useNavigate();
   const userEmail = sessionStorage.getItem('userEmail');
 
   const handleInputChange = (element, index) => {
@@ -50,7 +48,7 @@ const Login2 = () => {
       const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { code });
 
       if (response.ok) {
-        navigate("/Login3");
+        nextStep();
       } else {
         setError("잘못된 인증번호입니다. 다시 확인해주세요.");
       }
@@ -61,7 +59,7 @@ const Login2 = () => {
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    prevStep()
   };
 
   return (
