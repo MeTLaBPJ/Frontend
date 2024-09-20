@@ -1,18 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5"; // react-icons에서 아이콘 import
 import axios from "axios"; // axios import for API request
 import '../LoginPage/Main.css';
 
 
 // 비밀번호 설정
-const Login3 = () => {
+const Login3 = ({ nextStep, prevStep, userData }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
 
-  const navigate = useNavigate(); // 페이지 이동을 위한 navigate 
 
   // 비밀번호 유효성 검사 함수
   const validatePassword = (value) => {
@@ -52,22 +50,14 @@ const Login3 = () => {
 
   // 뒤로 가기 함수
   const handleBack = () => {
-    navigate(-1); // 뒤로 가기 기능
+    prevStep() // 뒤로 가기 기능
   };
 
   // 제출 처리
   const handleSubmit = async () => {
     if (!passwordError && !confirmPasswordError && password && confirmPassword) {
-      try {
-        const response = await axios.post(`${process.env.REACT_APP_API_URL}/set-password`, {
-          password: password
-        });
-        console.log("비밀번호 설정 완료:", response.data);
-        navigate("/Login4"); // Login4 페이지로 이동
-      } catch (error) {
-        console.error("비밀번호 설정 오류:", error);
-        // 에러 처리 로직 추가 (예: 사용자에게 오류 메시지 표시)
-      }
+      nextStep()
+      userData(password)
     } else {
       console.log("비밀번호 설정 오류");
     }

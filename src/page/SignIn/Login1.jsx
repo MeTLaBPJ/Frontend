@@ -5,7 +5,7 @@ import '../LoginPage/Main.css';
 import axios from 'axios';
 
 
-const Login1 = () => {
+const Login1 = ({ nextStep, userData }) => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState(""); // 에러 메시지를 위한 상태 추가
   const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +20,10 @@ const Login1 = () => {
     e.preventDefault();
     if (email.endsWith("@inu.ac.kr")) {
       setIsLoading(true);
+      userData(email)
+      nextStep();
+
+
       try {
         const response = await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/send-email`, { email });
         if (response.data.success) {
