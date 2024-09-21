@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './ChatRoomInformation.css'
 import ExitDialog from '../../Dialog/ExitDialog'
 import UserIntroduceDialog from '../../Dialog/UserintroduceDialog'
@@ -8,7 +8,6 @@ import { format, parseISO, differenceInDays } from 'date-fns';
 
 
 function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
-    const navigate = useNavigate();
     const [exitDialog, setExitDialog] = useState(false);
 
     const goChatRoom = () => {
@@ -46,13 +45,12 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
 
 
     const [room, setRoom] = useState({
-        //id: 2,
         title: "프로그래밍 기초",
         members: [
-            { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-            { gender: "Female", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-            { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-            { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
+            { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
+            { gender: "여자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
         ],
         profileImage: '../../../../asset/ChatRoomPic1.png',
     })
@@ -178,7 +176,7 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
                     <div className="participant-group">
                         <div className="gender">남자</div>
                         <ul>
-                            {room.members.filter(member => member.gender === "Male").map((member, index) => (
+                            {room.members.filter(member => member.gender === "남자").map((member, index) => (
                                 <li key={index} className="user-list" onClick={() => dialogOpen(member.nickname)}>
                                     <img
                                         src={member.profileImage}
@@ -195,7 +193,7 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
                     <div className="participant-group">
                         <div className="gender">여자</div>
                         <ul>
-                            {room.members.filter(member => member.gender === "Female").map((member, index) => (
+                            {room.members.filter(member => member.gender === "여자").map((member, index) => (
                                 <li key={index} className="user-list" onClick={() => dialogOpen(member.nickname)}>
                                     <img
                                         src={member.profileImage}

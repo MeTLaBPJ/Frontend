@@ -26,7 +26,7 @@ function NoEnterCheckPage(props) {
     const [translateY, setTranslateY] = useState(0);
     const [isRefreshing, setIsRefreshing] = useState(false);
 
-    const [reload, setReload] = useState(false);
+
 
     const threshold = 80; // 새로고침을 트리거하는 기준 거리
 
@@ -120,14 +120,13 @@ function NoEnterCheckPage(props) {
         let maleCount = chatRoom.maleCount;
         let femaleCount = chatRoom.femaleCount;
 
-
-        // 유저가 남성일 때: 남성 인원이 절반보다 적으면 true
-        if (gender === "male" && maleCount < halfMaxMembers) {
+        // 유저가 남자일 때: 남성 인원이 절반보다 적으면 true
+        if (gender === "남자" && maleCount < halfMaxMembers) {
             return true;
         }
 
-        // 유저가 여성일 때: 여성 인원이 절반보다 적으면 true
-        if (gender === "female" && femaleCount < halfMaxMembers) {
+        // 유저가 여자일 때: 여성 인원이 절반보다 적으면 true
+        if (gender === "여자" && femaleCount < halfMaxMembers) {
             return true;
         }
 
@@ -206,7 +205,7 @@ function NoEnterCheckPage(props) {
                                             <div className="members-section male">
                                                 <h4 className="gender-text">남자</h4>
                                                 <ul>
-                                                    {room.members.filter(member => member.gender === "Male").map((member, index) => (
+                                                    {room.members.filter(member => member.gender === "남자").map((member, index) => (
                                                         <li key={index} className="user-list">
                                                             <img alt=""
                                                                 src={member.profileImage} />
@@ -220,7 +219,7 @@ function NoEnterCheckPage(props) {
                                             <div className="members-section female">
                                                 <h4 className="gender-text">여자</h4>
                                                 <ul>
-                                                    {room.members.filter(member => member.gender === "Female").map((member, index) => (
+                                                    {room.members.filter(member => member.gender === "여자").map((member, index) => (
                                                         <li key={index} className="user-list">
                                                             <img alt=""
                                                                 src={member.profileImage} />

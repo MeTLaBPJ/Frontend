@@ -12,12 +12,10 @@ function ChatStartPage() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
-    const [reload, setReload] = useState(false);
-
     const [isEnterCheck, setIsEnterClick] = useState(false);
     //유저의 정보를 가져와 성별,입장참여 횟수를 가져온다
     const [possibleEnterNumber, setPossibleEnterNumber] = useState(3);
-    const [gender, setGender] = useState("male");
+    const [gender, setGender] = useState("남자");
 
 
     const handleNavigation = (destination) => {
@@ -51,8 +49,8 @@ function ChatStartPage() {
 
             //나중에 서버로 부터 바는 member이기 때문에 삭제!
             members: [
-                { gender: "Male", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "../../../../asset/ChatRoomPic1.png" },
-                { gender: "Female", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "../../../../asset/ChatRoomPic2.png" }
+                { gender: "남자", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "../../../../asset/ChatRoomPic1.png" },
+                { gender: "여자", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "../../../../asset/ChatRoomPic2.png" }
             ],
             maxMembers: 2,
             //입장체크
@@ -68,10 +66,10 @@ function ChatStartPage() {
             title: "프로그래밍 기초",
             subTitle: "프로그래밍의 기초를 배워봅시다",
             members: [
-                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-                { gender: "Female", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-                { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-                { gender: "Male", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
+                { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
+                { gender: "여자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+                { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
+                { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
             ],
             maxMembers: 4,
             enterCheck: true,
@@ -86,9 +84,9 @@ function ChatStartPage() {
             title: "프로그래밍 기초",
             subTitle: "프로그래밍의 기초를 배워봅시다",
             members: [
-                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic4.png" },
-                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic5.png" },
-                { gender: "Male", major: "asd", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
+                { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic4.png" },
+                { gender: "남자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic5.png" },
+                { gender: "남자", major: "asd", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
 
             ],
             maxMembers: 6,
@@ -105,11 +103,11 @@ function ChatStartPage() {
             subTitle: "프로그래밍의 기초를 배워봅시다",
             //사진경로 절대경로로 수정
             members: [
-                { gender: "Female", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic2.png" },
-                { gender: "Female", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
-                { gender: "Male", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic1.png" },
-                { gender: "Female", major: "asd", studentId: "20210004", nickname: "한준서", profileImage: "../../../../asset/ChatRoomPic5.png" }
+                { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
+                { gender: "남자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic2.png" },
+                { gender: "여자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
+                { gender: "남자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic1.png" },
+                { gender: "여자", major: "asd", studentId: "20210004", nickname: "한준서", profileImage: "../../../../asset/ChatRoomPic5.png" }
             ],
             maxMembers: 6,
             enterCheck: false,
@@ -140,16 +138,6 @@ function ChatStartPage() {
         };
 
         fetchUserData();
-
-        // 소켓 관련 코드 (예시)
-        // const socket = io('http://localhost:3000');
-        // socket.on('userUpdate', (updatedUser) => {
-        //   setUser(updatedUser);
-        // });
-
-        // return () => {
-        //   socket.disconnect();
-        // };
     }, []);
 
 
@@ -167,7 +155,11 @@ function ChatStartPage() {
 
 
     if (loading) return (
-        <div className="refresh-indicator"><svg class="refresh-icon" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><path fill="#3D3D3D" d="M12 20q-3.35 0-5.675-2.325T4 12t2.325-5.675T12 4q1.725 0 3.3.712T18 6.75V5q0-.425.288-.712T19 4t.713.288T20 5v5q0 .425-.288.713T19 11h-5q-.425 0-.712-.288T13 10t.288-.712T14 9h3.2q-.8-1.4-2.187-2.2T12 6Q9.5 6 7.75 7.75T6 12t1.75 4.25T12 18q1.7 0 3.113-.862t2.187-2.313q.2-.35.563-.487t.737-.013q.4.125.575.525t-.025.75q-1.025 2-2.925 3.2T12 20" /></svg></div>
+        <div className="refresh-indicator">
+            <svg className="refresh-icon" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24" style={{ animation: 'spin 1s linear infinite' }}>
+                <path fill="#3D3D3D" d="M12 20q-3.35 0-5.675-2.325T4 12t2.325-5.675T12 4q1.725 0 3.3.712T18 6.75V5q0-.425.288-.712T19 4t.713.288T20 5v5q0 .425-.288.713T19 11h-5q-.425 0-.712-.288T13 10t.288-.712T14 9h3.2q-.8-1.4-2.187-2.2T12 6Q9.5 6 7.75 7.75T6 12t1.75 4.25T12 18q1.7 0 3.113-.862t2.187-2.313q.2-.35.563-.487t.737-.013q.4.125.575.525t-.025.75q-1.025 2-2.925 3.2T12 20" />
+            </svg>
+        </div>
     );
 
     return (

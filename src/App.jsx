@@ -45,6 +45,7 @@ import MakeChatRoom from "./page/Chat/MakeChatRoom/MakeChatRoom";
 import { MbtiProvider } from "./context/MbitContext";
 
 
+
 function App() {
   return (
 
@@ -91,11 +92,12 @@ function App() {
           <Route path="/isfp_result" element={<ISFP />} />
           <Route path="/enfp_result" element={<ENFP />} />
           <Route path="/infp_result" element={<INFP />} />
+
+
           <Route path="/ChatStartPage" element={<ChatStartPage />} />
           {/* <Route path="/chat/:roomId" element={<ChatRoom />} /> */}
           <Route path="/chat/2" element={<ChatRoom />} />
           <Route path="/makeChatRoom" element={<MakeChatRoom />} />
-
         </Routes>
       </Router>
     </MbtiProvider>

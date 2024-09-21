@@ -151,7 +151,7 @@ function EnterCheckPage(props) {
 
 
                                 {/* /사진수정/ */}
-                                <img className="bigCircle bigCircle-pink" src={room.profileImage}></img>
+                                <img className="bigCircle bigCircle-pink" src={room.profileImage} alt="profileImage"></img>
                                 <p className="room-title">{room.title}</p>
                                 <span className="gender-number">남: {maleCount} 여: {femaleCount}</span>
                                 <p className="room-subTitle">{room.subTitle}</p>
@@ -173,7 +173,7 @@ function EnterCheckPage(props) {
                                         <div className="members-section male">
                                             <h4 className="gender-text">남자</h4>
                                             <ul>
-                                                {room.members.filter(member => member.gender === "Male").map((member, index) => (
+                                                {room.members.filter(member => member.gender === "남자").map((member, index) => (
                                                     <li key={index} className="user-list">
                                                         <img alt=""
                                                             src={member.profileImage} />
@@ -187,7 +187,7 @@ function EnterCheckPage(props) {
                                         <div className="members-section female">
                                             <h4 className="gender-text">여자</h4>
                                             <ul>
-                                                {room.members.filter(member => member.gender === "Female").map((member, index) => (
+                                                {room.members.filter(member => member.gender === "여자").map((member, index) => (
                                                     <li key={index} className="user-list">
                                                         <img alt=""
                                                             src={member.profileImage} />

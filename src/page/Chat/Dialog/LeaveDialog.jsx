@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './dialog.css'
 import api from '../../../api/api';
 
-function LeaveDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
+function LeaveDialog({ isOpen, onClose }) {
     const navigate = useNavigate();
     if (!isOpen) return null;
 

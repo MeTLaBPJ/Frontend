@@ -85,11 +85,13 @@ function MakeChatRoom() {
             const numberOfMembers = count * 2;
 
             // Send the POST request using axios
-            const response = await api.post('/api/chat-room', {
+            const response = await api.post('api/chatroom', {
                 title: roomTitle,
                 subTitle: subTitle,
                 profileImage: profileImage,
-                membersCount: numberOfMembers,
+                maxMembers: numberOfMembers,
+                maleCount: count,
+                femaleCount: count
             });
 
             if (response.status !== 200) {
