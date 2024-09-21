@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
+import { UserContext } from "../../context/UserContext";
 import './Login.css'; 
 // 학번, 학과 입력
 const Login6 = () => {
+  const { User, updateUser } = useContext(UserContext);
   const [studentNumber, setStudentNumber] = useState("");
   const [division, setDivision] = useState("");
   const [department, setDepartment] = useState("");
@@ -29,6 +31,12 @@ const Login6 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (studentNumber && division && department) {
+      updateUser({
+        college:division,
+        studentId: studentNumber,
+        department:department
+      });
+      console.log('context updated:', User);
       navigate("/login7");
     } else {
       alert("모든 항목을 입력해 주세요.");

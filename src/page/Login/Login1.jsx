@@ -19,7 +19,7 @@ const Login1 = () => {
     e.preventDefault();
     if (email) {
       console.log(`Verification code sent to: ${email}`);
-      updateUser({ email: email });
+      updateUser({ schoolEmail: email });
       console.log("context updated");
 
       // 이메일을 세션 스토리지에 저장
@@ -34,7 +34,7 @@ const Login1 = () => {
     try {
       await postMail(email);
       console.log('email data posted successfully');
-      navigate('/login2', { state: { email: email } });
+      navigate('/login2');
     } catch (error) {
       console.error('Error posting email data:', error);
     }

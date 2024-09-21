@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { IoChevronBack } from "react-icons/io5"; 
+import { UserContext } from "../../context/UserContext";
 import './Login.css'; 
 // 비밀번호 설정
 const Login3 = () => {
+  const { User, updateUser } = useContext(UserContext);
   const [password, setPassword] = useState(""); 
   const [confirmPassword, setConfirmPassword] = useState(""); 
   const [passwordError, setPasswordError] = useState(""); 
@@ -55,7 +57,8 @@ const Login3 = () => {
   // 제출 처리
   const handleSubmit = () => {
     if (!passwordError && !confirmPasswordError && password && confirmPassword) {
-      console.log("비밀번호 설정 완료:", password);
+      updateUser({password:password});
+      console.log("비밀번호 설정 완료:", password, User);
       navigate("/login4"); // Login4 페이지로 이동
     } else {
       console.log("비밀번호 설정 오류");
