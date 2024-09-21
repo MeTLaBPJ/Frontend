@@ -25,7 +25,7 @@ const Login7 = () => {
     console.log("생일:", birthdate);
 
     // Login8 페이지로 이동하면서 state에 생년월일과 성별을 함께 전달
-    navigate('/Login8', { state: { birthdate, gender } });
+    navigate('/Login', { state: { birthdate, gender } });
   };
 
   const handleBack = () => {

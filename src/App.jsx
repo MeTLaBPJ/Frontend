@@ -8,6 +8,7 @@ import Login4 from './page/SingIn/Login4.jsx';
 import Login5 from './page/SingIn/Login5.jsx';
 import Login6 from './page/SingIn/Login6.jsx';
 import Login7 from './page/SingIn/Login7.jsx';
+import Login from './page/SingIn/Login.jsx';
 import Login8 from './page/SingIn/Login8.jsx';
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/Login5" element={<Login5 />} />
           <Route path="/Login6" element={<Login6 />} />
           <Route path="/Login7" element={<Login7 />} />
+          <Route path="/Login" element={<Login/>} />
           <Route path="/Login8" element={<Login8 />} />
         </Routes>
       </Router>
