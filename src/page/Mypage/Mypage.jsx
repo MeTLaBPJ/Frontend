@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Tabs from "./Tabs";
 import "./Mypage.css";
-import api from "../../utils/api"
+import api from "../../api/api"
 import { useNavigate } from "react-router-dom";
-import LeaveDialog from "../Main/ChatPage/Dialog/LeaveDialog";
+import LeaveDialog from "../Chat/Dialog/LeaveDialog";
 
 
 

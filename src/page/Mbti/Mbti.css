@@ -1,0 +1,242 @@
+.mbti{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #FFFFFF ;
+    width: 375px;
+    height: 100vh;
+
+    
+    header {
+        /* 상단 헤더 */
+       width: 100%;
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: flex-start;
+       margin-top: 15%;
+     }
+     
+     .back-button {
+       /* 왼쪽 꺽쇠 */
+       margin-left: 8px;
+       margin-right: 13px;
+       border: none;
+       background-color: transparent;
+       font-size: 24px;
+       cursor: pointer;
+     
+       width: 22px;
+       height: 22px;
+      
+     }
+   
+     /*  실행 단계 배경 CSS */
+     .progress-bar {
+    
+       width: 290px;
+       height: 10px;
+       background: #D9D9D9;
+       border-radius: 50px;
+   
+     }
+     
+     /* 실행 단계 CSS */
+     .progress {
+       height: 100%;
+       background-color: #ff7096;
+       border-radius: 10px;
+     }
+
+     .bottom-Button{
+        /* Rectangle 8 */
+       
+        width: 343px;
+        height: 50px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+       position: absolute;
+       bottom: 10%;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;
+      }
+      .question{
+        margin: 16px;
+        display: flex;
+        position: absolute;
+        bottom: 28%;
+
+        flex-direction: column;
+        align-items: center;
+        
+      }
+      .answer{
+                /* Rectangle 3470068 */
+
+        box-sizing: border-box;
+
+      
+        width: 343px;
+        height: 68px;
+
+        background: #FFFFFF;
+        border: 2px solid #FF7898;
+        border-radius: 49px;
+
+
+        white-space: pre-wrap;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        /* identical to box height, or 88% */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #3D3D3D;
+        margin-bottom: 20px;
+
+      }
+
+      .answerselected{
+        box-sizing: border-box;
+
+      
+        width: 343px;
+        height: 68px;
+
+        background: #FF7898;
+        border: 2px solid #FF7898;
+        border-radius: 49px;
+
+
+        white-space: pre-wrap;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 20px;
+        /* identical to box height, or 88% */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+      }
+      #Q{
+        white-space: pre-wrap;
+        width: auto;
+        height: auto;
+        text-align: center;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 19px;
+        line-height: 20px;
+        /* identical to box height, or 88% */
+        display: flex;
+        align-items: center;
+
+
+        color: #3D3D3D;
+        margin-bottom: 100px;
+
+
+      }
+      #mbti_main{
+        justify-content: center;
+      }
+      #mbti_title{
+        
+        background-image: url('../../asset/횃불이\ 테스트.png');
+        background-repeat: no-repeat;
+        width: 280px;
+        height: 50px;
+        margin-bottom: 30px;
+        margin-top:100px ;
+      }
+      #subTitle{
+        /* 당신의 횃불이 유형은? */
+        
+        width: 176px;
+        height: 14px;
+       
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 14px;
+        color: #777777;
+        margin-bottom: 45px;
+      }
+      #mbtiMain_img{
+         
+        width: 80%;
+        height: 300px;
+        background: #D9D9D9;
+        place-self: center center;
+
+       
+
+      }
+
+      
+      
+}
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    max-width: 375px;
+    width: 300px;
+    z-index: 1000; /* 모달이 다른 요소들 위에 표시되도록 */
+    text-align: center; /* 텍스트 가운데 정렬 */
+    background: #FFFFFF;
+    border-radius: 10px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -1px;
+    color: #000000;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999; /* 모달 오버레이가 다른 요소들 위에 표시되도록 */
+}
+
+#img {
+    background-image: url('../../asset/loading.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center; /* 이미지를 수평, 수직 중앙 정렬 */
+    max-width: 100%;
+    width: 30%;
+    height: 200px;
+    margin-bottom: 20px; /* 이미지 아래 여백 추가 */
+    display: block; /* img를 블록 요소로 변경 */
+    margin: 0 auto; /* 수평 가운데 정렬 */
+}
