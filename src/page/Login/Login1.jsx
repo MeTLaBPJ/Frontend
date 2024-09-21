@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
+import { postMail } from "../../api/postMail";
 import './Login.css';  
 
 // 메일 인증 / 작성
@@ -12,7 +13,7 @@ const Login1 = () => {
     setEmail(e.target.value);
   };
 
-  const handleButtonClick = (e) => {
+  const handleButtonClick = async (e) => {
     e.preventDefault();
     if (email) {
       console.log(`Verification code sent to: ${email}`);
@@ -20,6 +21,13 @@ const Login1 = () => {
     } else {
       console.log("Please enter a valid email");
     }
+
+    try {
+      await postMail(email);
+      console.log('email data posted successfully');
+  } catch (error) {
+      console.error('Error posting email data:', error);
+  }
   };
 
   const handleBack = () => {
