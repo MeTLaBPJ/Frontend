@@ -1,7 +1,28 @@
 import React from "react";
 import Tabs from "./Tabs";
 import "./Mypage.css";
+import { useNavigate } from "react-router-dom";
+
 function Mypage(){
+
+    const navigate = useNavigate();
+
+    
+    const handleNavigation = (destination) => {
+        switch (destination) {
+            case 'play':
+                navigate('/mbti');
+                break;
+            case 'talk':
+                navigate('/ChatStartPage');
+                break;
+            case 'my':               
+                window.location.reload(); // 페이지 새로고침 (필요에 따라 이 부분을 변경)
+                break;
+            default:
+                break;
+        }
+    };
     const UserInfo = {
         email:"metlab.inu.ac.kr",
         mbti:"ESFP",
@@ -120,10 +141,12 @@ function Mypage(){
                     </div>
                 </Tabs>
             </div>
-            <div id="navi">
-                <div id="play"></div>
-                <div id="talk"></div>
-                <div id="my"></div>
+            <div id="navi-con">
+                <div id="navi">
+                    <div id="play" onClick={() => handleNavigation('play')}></div>
+                    <div id="talk" onClick={() => handleNavigation('talk')}></div>
+                    <div id="my" onClick={() => handleNavigation('my')}></div>
+                </div>
             </div>
         </div>
     )

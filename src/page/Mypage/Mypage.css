@@ -404,30 +404,42 @@
 
 }
 
-#navi{
+
+#navi-con {
     position: fixed;
     width: 375px;
     height: 53px;
+    bottom: 0;
+}
+
+#navi {
+    padding-top: 5px;
+    background: #FFFFFF;
+    /* navi */
+    box-shadow: 0px -2px 3px rgba(0, 0, 0, 0.08);
+    border-radius: 20px 20px 0px 0px;
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    bottom: 0px;
 }
-#play{
-    
+
+#play {
+
     width: 34px;
     height: 48px;
-    background-image:url('../../asset/play.png');
+    background-image: url('../../asset/play.png');
 }
-#talk{
-    
+
+#talk {
+
     width: 32px;
     height: 46px;
-   background-image: url('../../asset/talk.png');
+    background-image: url('../../asset/talk.png');
 
 
 }
-#my{
+
+#my {
     width: 32px;
     height: 46px;
     background-image: url('../../asset/my.png');

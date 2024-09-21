@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+
 import { useState , useEffect} from "react";
-import { MbtiContext } from "../../context/MbitContext";
+
 
 function Question({question, answer1, answer2, a1Checked, a2Checked, onAnswerSelected}){
    

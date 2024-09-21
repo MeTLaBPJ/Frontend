@@ -11,7 +11,6 @@ function Mbti3(){
     const [isa2Checked,setIsa2Checked]=useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null); // 선택된 답변 상태
     const selectedValue1 = Mbti.selectList["3"];
-    const eVal = Mbti.s;
     const navigate = useNavigate(); 
     useEffect(() =>{
         if(selectedValue1){

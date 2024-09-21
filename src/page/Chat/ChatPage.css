@@ -1,0 +1,506 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css");
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+.chatStartPage {
+
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+
+    .margin-container {
+        margin: 0 16px;
+        height: 100%;
+    }
+
+    .logo {
+        width: 43px;
+        height: 20px;
+        margin-top: 50px;
+    }
+
+    .title-name {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .one-click {
+        border-bottom: 2px solid #FF7898;
+    }
+
+    .two-click {
+        border-bottom: none;
+    }
+
+
+    .enter {
+        /* 참여중인 채팅방 */
+        margin-top: 10px;
+        width: 50%;
+        height: 20px;
+        text-align: center;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        /* identical to box height, or 112% */
+        color: #000000;
+    }
+
+    .no-enter {
+        /* 참여중인 채팅방 */
+        text-align: center;
+        margin-top: 10px;
+
+        width: 50%;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        /* identical to box height, or 112% */
+        color: #000000;
+    }
+
+    .title {
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+
+    .title-span {
+        /* 최대 0개방까지 참여 가능합니다 */
+
+
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+
+
+        color: #696969;
+    }
+
+    .chatRoomLists {
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+        margin: 20px 0 0 0;
+        display: flex;
+        height: 575px;
+        justify-content: center;
+    }
+
+    .chatRoomList {
+        /* Rectangle 3470027 */
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        width: 343px;
+        background: #FFFFFF;
+    }
+
+    .chatRoomList-up {
+        border-width: 1px 1px 0px 1px;
+        border-style: solid;
+        border-color: #EAEAEA;
+        border-radius: 12px 12px 0px 0px;
+        height: 80px;
+        padding-bottom: 10px;
+        cursor: pointer;
+    }
+
+    .room-title {
+        /* 채팅방 메인 타이틀 */
+
+        position: relative;
+        width: 104px;
+        height: 16px;
+        top: -40px;
+        left: 60px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 16px;
+        /* identical to box height, or 114% */
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .bigCircle {
+        /* Ellipse 1447 */
+
+        position: relative;
+        width: 40px;
+        height: 40px;
+        left: 10px;
+        top: 5px;
+        border-radius: 50%;
+        background: #BDBDBD;
+
+    }
+
+    .bigCircle-pink {
+        background-color: #FF7898;
+    }
+
+    .pink-text {
+        color: #FF7898;
+    }
+
+    .bigCircle-name {
+        /* 참여 가능 */
+        color: #FFFFFF;
+        position: relative;
+        width: 25px;
+        height: 28px;
+        left: 8px;
+        top: 7px;
+        text-align: center;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 14px;
+        /* or 100% */
+        display: flex;
+        align-items: center;
+    }
+
+    .gender-number {
+
+        position: relative;
+        width: 50px;
+        height: 12px;
+        left: 180px;
+        top: -70px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 12px;
+        /* identical to box height, or 120% */
+        display: flex;
+        align-items: center;
+
+        color: #777777;
+    }
+
+
+
+    .room-subTitle {
+        /* 채팅방 한 줄 소개, 서브 타이틀 */
+        margin-top: 0;
+        position: relative;
+        width: 250px;
+        height: 14px;
+        left: 60px;
+        top: -60px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        word-wrap: break-word;
+        color: #5E5E5E;
+    }
+
+    .members {
+        cursor: pointer;
+        /* Rectangle 3470028 */
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+        flex-direction: column;
+
+
+        min-height: 34px;
+
+        background: #F5F5F5;
+
+
+        border-width: 1px 1px 0px 1px;
+        border-style: solid;
+        border-color: #EAEAEA;
+        border-radius: 0px 0px 12px 12px;
+    }
+
+    .members-see {
+        justify-content: center;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+        display: flex;
+        align-items: center;
+
+        color: #000000;
+    }
+
+    .expanded {
+        padding-top: 10px;
+    }
+
+    .members-list {
+        max-height: 0;
+        /* 기본적으로 숨김 상태 */
+        overflow: hidden;
+    }
+
+    .members-list.expanded {
+        max-height: 500px;
+        /* 충분히 큰 값으로 설정, 필요에 따라 조정 가능 */
+        padding: 10px 0;
+        /* 확장되면서 패딩 추가 */
+    }
+
+    .members-list.collapsed {
+        max-height: 0;
+        padding: 0;
+    }
+
+    .members-container {
+        display: flex;
+        align-items: flex-start;
+        max-height: 120px;
+        overflow-y: scroll;
+        scrollbar-width: none;
+        /* Firefox */
+        -ms-overflow-style: none;
+        /* Internet Explorer 10+ */
+    }
+
+    .members-section {
+        flex: 1;
+        padding: 0 10px;
+        word-wrap: break-word;
+        word-break: break-all;
+        overflow-wrap: break-word
+    }
+
+
+    .major {
+
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+        display: flex;
+        align-items: center;
+
+        color: #777777;
+    }
+
+    .nickName {
+
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+        display: flex;
+        align-items: center;
+
+        color: #3D3D3D;
+    }
+
+
+    .members-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .members-section li {
+        margin-bottom: 5px;
+    }
+
+    .gender-text {
+        margin-bottom: 5px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 12px;
+        /* identical to box height, or 120% */
+        display: flex;
+        align-items: center;
+
+        color: #777777;
+    }
+
+    .smallCircle {
+        width: 5px;
+        height: 5px;
+        position: relative;
+        top: 5px;
+        left: 320px;
+    }
+
+
+
+    .gender-contatiner {
+        /* 남녀현황 */
+        position: relative;
+        width: 40px;
+        height: 27px;
+        left: 290px;
+        top: -75px;
+    }
+
+    .gender-number-information {
+        /* 남 */
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        /* identical to box height, or 117% */
+        display: flex;
+        align-items: center;
+
+        color: #3D3D3D;
+    }
+
+    .make-chatRoom-button {
+
+        position: relative;
+        width: 343px;
+        height: 50px;
+        left: calc(50% - 343px / 2);
+        background: #FF7898;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .make-chatRoom-button.disabled {
+        background-color: #D9D9D9;
+        cursor: not-allowed;
+    }
+
+    .make-chatRoom-button span {
+        justify-content: center;
+        /* 채팅방 만들기 */
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+        /* identical to box height, or 111% */
+        display: flex;
+        align-items: center;
+        text-align: center;
+
+        color: #FFFFFF;
+    }
+
+    .refresh-indicator {
+        position: relative;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+
+
+
+    .refresh-icon {
+        animation: spin 1s linear infinite;
+    }
+
+
+    .user-list {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .user-list img {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin-left: 3px;
+        margin-right: 5px;
+    }
+
+    .user-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .startButton-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .startButton {
+        width: 282px;
+        height: 40px;
+        color: #FFFFFF;
+    }
+
+    .startButton button {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        border: 1px solid #bebebe;
+        background-color: #BDBDBD;
+        border-radius: 38px;
+    }
+
+    .startButton button.active {
+        border: none;
+        background-color: #FF7898;
+        /* 활성화되었을 때의 배경색 */
+        color: white;
+
+        /* 텍스트 색상 */
+        cursor: pointer;
+        /* 커서 스타일 */
+    }
+
+    .startButton span {
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #FFFFFF;
+        /* identical to box height, or 111% */
+    }
+
+
+}

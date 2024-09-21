@@ -4,10 +4,6 @@ export const MbtiContext = createContext();
 
 export const MbtiProvider = ({ children }) => {
     const [Mbti, setMbti] = useState({
-        e:0,
-        s:0,
-        f:0,
-        p:0,
         selectList:{
             "1":false,
             "2":false,
