@@ -22,9 +22,9 @@ const Login1 = () => {
       updateUser({ schoolEmail: email });
       console.log("context updated");
 
-      // 이메일을 세션 스토리지에 저장
-      sessionStorage.setItem('userEmail', email);
-      console.log("Email saved to sessionStorage");
+      // 이메일을 로컬 스토리지에 저장
+      localStorage.setItem('userEmail', email);
+      console.log("Email saved to localStorage");
 
     } else {
       console.log("Please enter a valid email");

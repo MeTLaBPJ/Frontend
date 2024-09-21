@@ -14,8 +14,8 @@ const Login2 = () => {
     const [email, setEmail] = useState(""); // 세션 스토리지에서 가져올 이메일 상태
 
     useEffect(() => {
-        // 세션 스토리지에서 이메일 값을 불러옵니다.
-        const storedEmail = sessionStorage.getItem('userEmail');
+        // 로컬 스토리지에서 이메일 값을 불러옵니다.
+        const storedEmail = localStorage.getItem('userEmail');
         if (storedEmail) {
             setEmail(storedEmail);
             if (User.email !== storedEmail) { // 이메일이 다를 경우에만 업데이트

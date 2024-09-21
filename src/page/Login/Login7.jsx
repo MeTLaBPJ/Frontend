@@ -66,7 +66,7 @@ const Login7 = () => {
     try {
       await postUser(User);
       console.log('user data posted successfully');
-     navigate('/ChatStartPage');
+     navigate('/login');
     } catch (error) {
       console.error('Error posting user data:', error);
     }

@@ -15,20 +15,28 @@ const Login4 = () => {
   const handleCheckNickname = async () => {
     if (nickname.length >= 2 && nickname.length <= 20) {
       try {
-        await getIsNickExist(nickname);
-        console.log('email data posted successfully');
-        setIsNicknameChecked(true); // 중복 확인 완료
-        alert("닉네임 확인 완료");
+        const response = await getIsNickExist(nickname);
+        
+        if (response.data === false) {
+          console.log('닉네임 중복 확인 완료');
+          setIsNicknameChecked(true); // 중복 확인 완료
+          alert("닉네임 확인 완료");
+        } else {
+          console.error('닉네임 중복 확인 실패:', response);
+          setIsNicknameChecked(false);
+          alert("닉네임이 이미 존재합니다.");
+        }
+        
       } catch (error) {
-        console.error('Error posting email data:', error);
-        setIsNicknameChecked(false);
+        console.error('Error posting nickname data:', error);
+        setIsNicknameChecked(false); // 중복 확인 실패 시 버튼 비활성화 유지
       }
-      
     } else {
       setIsNicknameChecked(false); // 중복 확인 실패 시 버튼 비활성화 유지
       alert("닉네임은 2자 이상, 20자 이하로 입력해주세요.");
     }
   };
+  
 
   const handleNext = () => {
     if (nickname.length >= 2 && nickname.length <= 20 && isNicknameChecked) {

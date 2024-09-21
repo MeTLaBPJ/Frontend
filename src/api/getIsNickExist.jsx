@@ -1,18 +1,18 @@
 import axios from 'axios';
 
-const BASE_URL ='http://localhost:8080';
+const BASE_URL = 'http://localhost:8080';
 
 /**
- * 특정 ID의 일기 데이터를 서버로부터 가져오는 함수
+ * @param {string} nickname - 닉네임
  * @returns {Promise<Object>} 서버 응답 데이터
  */
 export const getIsNickExist = async (nickname) => {
   try {
-    const response = await axios.get(`${BASE_URL}/isExist/${nickname}`,nickname);
+    const response = await axios.get(`${BASE_URL}/isExist/${nickname}`);
     console.log(response.data);
-    return response.data;
+    return response; // 전체 응답 객체를 반환
   } catch (error) {
-    console.error('Error fetching diary data:', error);
-    throw error;
+    console.error('Error fetching nickname data:', error);
+    throw error; // 에러를 호출자에게 전달
   }
 };
