@@ -9,8 +9,15 @@ import subLogo from '../../asset/sublogo.png';
 function Main() {
   const navigate = useNavigate();  // useNavigate 훅 사용
 
+
+  //로컬스토리지 확인후 로그인 페이지 혹은 회원가입 페이지로 이동
   const handleButtonClick = () => {
-    navigate('../Login1');  // '/next' 경로로 이동
+    if (localStorage.getItem('password')) {
+      navigate('../Login');  // '/next' 경로로 이동
+    } else {
+      navigate('../Login');  // '/next' 경로로 이동
+      //navigate('../SignUp');  // '/next' 경로로 이동
+    }
   };
 
 

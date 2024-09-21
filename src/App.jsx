@@ -38,7 +38,7 @@ import INFP from "./page/Mbti/Mbti_result/INFP";
 import INFJ from "./page/Mbti/Mbti_result/INFJ";
 import INTP from "./page/Mbti/Mbti_result/INTP";
 import INTJ from "./page/Mbti/Mbti_result/INTJ";
-
+import Login from "./page/Login/Login"
 import ChatStartPage from "./page/Chat/ChatStartPage"
 import ChatRoom from "./page/Chat/ChatRoom/ChatRoom"
 import MakeChatRoom from "./page/Chat/MakeChatRoom/MakeChatRoom";
@@ -53,6 +53,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={<Main />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/login1" element={<Login1 />} />
           <Route path="/login2" element={<Login2 />} />
           <Route path="/login3" element={<Login3 />} />
