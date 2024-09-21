@@ -43,11 +43,13 @@ import ChatStartPage from "./page/Chat/ChatStartPage"
 import ChatRoom from "./page/Chat/ChatRoom/ChatRoom"
 import MakeChatRoom from "./page/Chat/MakeChatRoom/MakeChatRoom";
 import { MbtiProvider } from "./context/MbitContext";
+import { UserProvider } from "./context/UserContext";
 
 
 function App() {
  
-  return (
+  return (  
+  <UserProvider>
 
     <MbtiProvider>
       
@@ -100,6 +102,7 @@ function App() {
         </Routes>
       </Router>
     </MbtiProvider>
+    </UserProvider>
   );
 }
 
