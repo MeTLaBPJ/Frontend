@@ -31,7 +31,7 @@ const Login = () => {
     };
 
     return (
-        <div className="Login1Page">
+        <div className="LoginPage">
             <div>
                 <header className="header">
                     <button className="back-button" onClick={handleBack}>
