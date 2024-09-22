@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './Result.css';
 import ENFPImage from '../../../asset/ENFP.png';
-import ISFPImage from '../../../asset/ISFP.png';
-import INTPImage from '../../../asset/INTP.png';
+import INFJImage from '../../../asset/INFJ.png';
+import ESTJImage from '../../../asset/ESTJ.png';
 
 function Enfp(){
     const navigate = useNavigate();
@@ -13,11 +13,11 @@ function Enfp(){
     };
 
     return (
-        <div className="ENFP">
+        <div className="Mbti_result">
             <h1 className="title"> 횃불이 테스트 결과 </h1>
             <p className="who"> 당신은 ... </p>
 
-            <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
+            <h2 className="subtitle"> 상상력이 가득한 자유로운 영혼!</h2>
             <h1 className="result-title"> 꽃밭 횃불이 </h1>
 
             <div className="profile">
@@ -29,24 +29,24 @@ function Enfp(){
             </div>
 
             <ul className="traits">
-                <li>★ 친구를 챙기며 학급 분위기를 화목하게 만듦</li>
-                <li>★ 발표나 팀 활동에서 조화와 협동을 중시</li>
-                <li>★ 친구의 고민 상담을 자주 받아주는 따뜻한 성격</li>
-                <li>★ 선생님과 동급생 모두에게 신뢰받는 존재</li>
-                <li>★ 학교 행사나 봉사활동에 자발적으로 참여</li>
+                <li>★ 창의적 아이디어로 학교 프로젝트에서 활약</li>
+                <li>★ 수업 시간에도 새로운 아이디어를 끊임없이 제안</li>
+                <li>★ 교우 관계에서 자발적으로 새로운 사람과 친해짐</li>
+                <li>★ 발표나 연극 같은 활동에서 특유의 열정과 유머를 발휘</li>
+                <li>★ 정형화된 틀보다는 자유로운 수업 방식을 선호</li>
             </ul>
 
             <div className="matches">
                 <div className="good-match">
                     <p>잘 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                    <img src={INFJImage} alt="잘 맞는 햇불이" />
                 </div>
 
                 <div className="bad-match">
                     <p>안 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={INTPImage} alt="안 맞는 햇불이" />
+                    <img src={ESTJImage} alt="안 맞는 햇불이" />
                 </div>
             </div>
 

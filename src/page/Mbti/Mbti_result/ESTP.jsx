@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './Result.css';
 import ESTPImage from '../../../asset/ESTP.png';
-import ISFPImage from '../../../asset/ISFP.png';
-import INTPImage from '../../../asset/INTP.png';
+import ISTPImage from '../../../asset/ISTP.png';
+import INFJImage from '../../../asset/INFJ.png';
 
 function Estp(){
     const navigate = useNavigate();
@@ -13,11 +13,11 @@ function Estp(){
     };
 
     return (
-        <div className="ESTP">
+        <div className="Mbti_result">
             <h1 className="title"> 횃불이 테스트 결과 </h1>
             <p className="who"> 당신은 ... </p>
 
-            <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
+            <h2 className="subtitle"> 도전이 없다면 재미도 없다!</h2>
             <h1 className="result-title"> 도전 횃불이 </h1>
 
             <div className="profile">
@@ -29,24 +29,24 @@ function Estp(){
             </div>
 
             <ul className="traits">
-                <li>★ 친구를 챙기며 학급 분위기를 화목하게 만듦</li>
-                <li>★ 발표나 팀 활동에서 조화와 협동을 중시</li>
-                <li>★ 친구의 고민 상담을 자주 받아주는 따뜻한 성격</li>
-                <li>★ 선생님과 동급생 모두에게 신뢰받는 존재</li>
-                <li>★ 학교 행사나 봉사활동에 자발적으로 참여</li>
+                <li>★ 문제 해결 능력이 뛰어나서 빠른 판단과 실행력</li>
+                <li>★ 수업 중 갑작스러운 질문이나 상황에도 즉각 대응</li>
+                <li>★ 운동이나 동아리 같은 다양한 활동에 도전하는 걸 즐김</li>
+                <li>★ 경쟁심이 강해서 성취감을 느끼는 일에 적극적</li>
+                <li>★ 실습과 실전에서 더 강한 모습을 보임</li>
             </ul>
 
             <div className="matches">
                 <div className="good-match">
                     <p>잘 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                    <img src={ ISTPImage} alt="잘 맞는 햇불이" />
                 </div>
 
                 <div className="bad-match">
                     <p>안 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={INTPImage} alt="안 맞는 햇불이" />
+                    <img src={INFJImage} alt="안 맞는 햇불이" />
                 </div>
             </div>
 

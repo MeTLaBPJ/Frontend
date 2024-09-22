@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './Result.css';
 import INTJImage from '../../../asset/INTJ.png';
-import ISFPImage from '../../../asset/ISFP.png';
-import INTPImage from '../../../asset/INTP.png';
+import ENTJImage from '../../../asset/ENTJ.png';
+import ESFPImage from '../../../asset/ESFP.png';
 
 function Intj(){
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ function Intj(){
     };
 
     return (
-        <div className="INTJ">
+        <div className="Mbti_result">
             <h1 className="title"> 횃불이 테스트 결과 </h1>
             <p className="who"> 당신은 ... </p>
 
@@ -29,24 +29,24 @@ function Intj(){
             </div>
 
             <ul className="traits">
-                <li>★ 친구를 챙기며 학급 분위기를 화목하게 만듦</li>
-                <li>★ 발표나 팀 활동에서 조화와 협동을 중시</li>
-                <li>★ 친구의 고민 상담을 자주 받아주는 따뜻한 성격</li>
-                <li>★ 선생님과 동급생 모두에게 신뢰받는 존재</li>
-                <li>★ 학교 행사나 봉사활동에 자발적으로 참여</li>
+                <li>★ 철저한 계획 아래 학업을 진행하고 목표를 설정함</li>
+                <li>★ 학업 성취도가 높으며 깊이 있는 학습을 선호함</li>
+                <li>★ 팀 프로젝트에서 전략적인 사고로 전체 방향을 설정함</li>
+                <li>★ 자신의 능력을 믿고 독립적으로 학업을 수행하는 스타일</li>
+                <li>★ 논리적이고 분석적인 수업에서 두각을 나타냄</li>
             </ul>
 
             <div className="matches">
                 <div className="good-match">
                     <p>잘 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                    <img src={ENTJImage} alt="잘 맞는 햇불이" />
                 </div>
 
                 <div className="bad-match">
                     <p>안 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={INTPImage} alt="안 맞는 햇불이" />
+                    <img src={ESFPImage} alt="안 맞는 햇불이" />
                 </div>
             </div>
 

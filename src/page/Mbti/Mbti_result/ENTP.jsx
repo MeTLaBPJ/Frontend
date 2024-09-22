@@ -2,8 +2,8 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './Result.css';
 import ENTPImage from '../../../asset/ENTP.png';
-import ISFPImage from '../../../asset/ISFP.png';
-import INTPImage from '../../../asset/INTP.png';
+import INFJImage from '../../../asset/INFJ.png';
+import ESTJImage from '../../../asset/ESTJ.png';
 
 function Entp(){
     const navigate = useNavigate();
@@ -13,11 +13,11 @@ function Entp(){
     };
 
     return (
-        <div className="ENTP">
+        <div className="Mbti_result">
             <h1 className="title"> 횃불이 테스트 결과 </h1>
             <p className="who"> 당신은 ... </p>
 
-            <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
+            <h2 className="subtitle"> 내 길은 내가 만든다!</h2>
             <h1 className="result-title"> 마이웨이 횃불이 </h1>
 
             <div className="profile">
@@ -29,24 +29,24 @@ function Entp(){
             </div>
 
             <ul className="traits">
-                <li>★ 친구를 챙기며 학급 분위기를 화목하게 만듦</li>
-                <li>★ 발표나 팀 활동에서 조화와 협동을 중시</li>
-                <li>★ 친구의 고민 상담을 자주 받아주는 따뜻한 성격</li>
-                <li>★ 선생님과 동급생 모두에게 신뢰받는 존재</li>
-                <li>★ 학교 행사나 봉사활동에 자발적으로 참여</li>
+                <li>★ 수업 중 새로운 아이디어로 토론을 리드</li>
+                <li>★ 독창적인 해결책으로 팀 프로젝트에서 창의적인 역할</li>
+                <li>★ 논쟁을 즐기며 다양한 관점을 탐구함</li>
+                <li>★ 교실에서는 규칙보다는 자유로운 사고를 중요시함</li>
+                <li>★ 학업보다는 실습과 창의력 발휘에 중점을 둠</li>
             </ul>
 
             <div className="matches">
                 <div className="good-match">
                     <p>잘 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                    <img src={INFJImage} alt="잘 맞는 햇불이" />
                 </div>
 
                 <div className="bad-match">
                     <p>안 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={INTPImage} alt="안 맞는 햇불이" />
+                    <img src={ESTJImage} alt="안 맞는 햇불이" />
                 </div>
             </div>
 

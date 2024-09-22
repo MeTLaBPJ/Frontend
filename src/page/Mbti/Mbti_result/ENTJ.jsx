@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './Result.css';
 import ENTJImage from '../../../asset/ENTJ.png';
 import ISFPImage from '../../../asset/ISFP.png';
-import INTPImage from '../../../asset/INTP.png';
+import INTJImage from '../../../asset/INTJ.png';
 
 function Entj(){
     const navigate = useNavigate();
@@ -13,11 +13,11 @@ function Entj(){
     };
 
     return (
-        <div className="ENTJ">
+        <div className="Mbti_result">
             <h1 className="title"> 횃불이 테스트 결과 </h1>
             <p className="who"> 당신은 ... </p>
 
-            <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
+            <h2 className="subtitle"> 안돼. 돌아가.</h2>
             <h1 className="result-title"> 단호 횃불이 </h1>
 
             <div className="profile">
@@ -29,24 +29,24 @@ function Entj(){
             </div>
 
             <ul className="traits">
-                <li>★ 친구를 챙기며 학급 분위기를 화목하게 만듦</li>
-                <li>★ 발표나 팀 활동에서 조화와 협동을 중시</li>
-                <li>★ 친구의 고민 상담을 자주 받아주는 따뜻한 성격</li>
-                <li>★ 선생님과 동급생 모두에게 신뢰받는 존재</li>
-                <li>★ 학교 행사나 봉사활동에 자발적으로 참여</li>
+                <li>★ 리더십이 강해 팀 프로젝트에서 주도적 역할</li>
+                <li>★ 목표 달성에 매우 집중하고 계획적</li>
+                <li>★ 토론 수업에서 설득력 있는 주장을 펼침</li>
+                <li>★ 친구들과도 경쟁적이지만 결과로 인정받고 싶어 함</li>
+                <li>★ 학교 활동에서 효율성 강조, 비효율적인 것에 불만</li>
             </ul>
 
             <div className="matches">
                 <div className="good-match">
                     <p>잘 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                    <img src={INTJImage} alt="잘 맞는 햇불이" />
                 </div>
 
                 <div className="bad-match">
                     <p>안 맞는 햇불이</p>
                     {/* import된 이미지 변수를 사용 */}
-                    <img src={INTPImage} alt="안 맞는 햇불이" />
+                    <img src={ISFPImage} alt="안 맞는 햇불이" />
                 </div>
             </div>
 

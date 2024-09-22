@@ -13,7 +13,7 @@ function Istj(){
     };
 
     return (
-        <div className="ISTJ">
+        <div className="Mbti_result">
             <h1 className="title"> 횃불이 테스트 결과 </h1>
             <p className="who"> 당신은 ... </p>
 
