@@ -23,8 +23,18 @@ const Login = () => {
             password:password
         }
         try {
-            await postLogin(logindata);
-            console.log('email data posted successfully');
+            const loginResponse = await postLogin(logindata);
+            console.log("로그인 응답:", loginResponse); // 전체 응답 출력
+                // 응답에서 액세스 토큰 추출
+            // 이곳에서 loginResponse.headers를 제대로 접근할 수 있는지 확인
+            const accessToken = loginResponse.headers?.authorization; // Optional chaining 추가
+            if (!accessToken) {
+                throw new Error("Access token not found in response headers");
+            }
+    
+            const token = accessToken.split(' ')[1]; // 'Bearer ' 제거
+    
+            localStorage.setItem('accessToken', token);
             navigate('/ChatStartPage');
           } catch (error) {
             console.error('Error posting email data:', error);
