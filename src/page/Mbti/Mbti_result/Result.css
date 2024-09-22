@@ -1,0 +1,2980 @@
+.ESFJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 130px/2);
+    top: 200px;
+    }
+    
+    .profile-image {
+        width: 135px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+    
+}
+
+.ENFJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    /* 사교 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 200px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+    
+}
+
+.ENFP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    /* 꽃밭 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 200px/2);
+    top: 200px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+    
+}
+
+.ENTJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    /* 단호 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 185px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        margin-top: -410px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+    
+}
+
+.ENTP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 210px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 200px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+    
+}
+
+.ESFP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    /* 단호 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 220px;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.ESTJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    /* 단호 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 220px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.ESTP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+
+
+    }
+    
+    .result-title {
+    /* 단호 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 220px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.INFJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 150px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.INFP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 180px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.INTJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 180px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.INTP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 220px;
+    }
+    
+    .profile-image {
+        width: 160px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.ISFJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 170px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.ISFP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 120px/2);
+    top: 220px;
+    }
+    
+    .profile-image {
+        width: 140px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.ISTJ{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 170px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 160px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
+
+.ISTP{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .title {
+    /* 횃불이 테스트 결과 */
+    position: absolute;
+    width: 330x;
+    height: 20px;
+    left: calc(50% - 240px/2);
+    top: 40px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .who {
+    /* 당신은 .. */
+    position: absolute;
+    width: 70px;
+    height: 14px;
+    left: calc(50% - 50px/2);
+    top: 100px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    /* identical to box height, or 88% */
+    display: flex;
+    align-items: center;
+
+    color: #A59797;
+
+    }
+    
+    .subtitle {
+    /* 모두가 행복해야 나도 행복해! */
+    position: absolute;
+    width: 250px;
+    height: 20px;
+    left: calc(50% - 230px/2);
+    top: 140px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 111% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+    }
+    
+    .result-title {
+    /* 낭만 횃불이 */
+
+    position: absolute;
+    width: 270px;
+    height: 20px;
+    left: calc(50% - 160px/2);
+    top: 170px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 20px;
+    /* identical to box height, or 50% */
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FF7898;
+    }
+    
+    .profile {
+    position: absolute;
+    width: 210px;
+    height: 311px;
+    left: calc(50% - 180px/2);
+    top: 210px;
+    }
+    
+    .profile-image {
+        width: 180px;
+        height: auto;
+    }
+    
+    .traits {
+        list-style-type: none;
+        padding: 0;
+        margin: 410px 0;
+        font-size: 14px;
+        position: relative; 
+        left: calc(50% - 280px/2);
+        align-items: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -410px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        margin: 0 -5px;
+    }
+    
+    .good-match img{
+        width: 110px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .bad-match img {
+        width: 120px;
+        height: auto;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #FF7898; /* 핑크색 테두리 */
+        border-radius: 10px; /* 둥근 모서리 */
+        background-color: white; /* 박스 안에 흰색 배경 */
+    }
+    
+    .good-match, .bad-match {
+        display: inline-block;
+        padding: 15px;
+        background-color: white; /* 박스 안 배경 */
+        position: relative;
+    }
+    
+    .good-match p, .bad-match p {
+        font-size: 14px;
+        position: absolute;
+        bottom: 153px; /* 텍스트를 박스의 하단에 배치 */
+        width: 100%;
+        left: 0;
+        text-align: center;
+    }
+
+    .home-button {
+        position: absolute;
+        width: 300px;
+        height: 50px;
+        left: calc(50% - 300px/2);
+        top: 750px;
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 5px;
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+          
+        border-radius: 8px;
+        border-color: white;  
+    }
+}
