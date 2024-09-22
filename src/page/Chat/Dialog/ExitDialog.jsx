@@ -1,27 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './dialog.css'
+import { leaveChatRoom } from '../../../api/chatRoom/leaveChatRoom';
+import { sendLeaveMessage, unsubscribeFromRoom } from '../../../api/chatRoom/socket/socketService';
 
 function ExitDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
     const navigate = useNavigate();
     if (!isOpen) return null;
 
-    const exitRoom = () => {
-        // 웹소켓을 통해 서버에 채팅방 나가기 메시지 전송
-        const leaveMessage = {
-            type: 'LEAVE',
-            chatroomId: roomId,
-        };
-        socket.send(`/pub/chat.leave/${roomId}`, {}, JSON.stringify(leaveMessage));
+    const exitRoom = async () => {
+        try {
+            await leaveChatRoom(roomId);
+            sendLeaveMessage(socket, roomId);
+            unsubscribeFromRoom(socket, roomId);
 
-        // 구독 해제
-        socket.unsubscribe(`/sub/${roomId}`);
-        // chatStartPage로 이동
-        navigate('/chatStartPage');
-        onClose();
-
-
+            navigate('/chatStartPage');
+            onClose();
+        } catch (error) {
+            console.error("채팅방 나가기 실패:", error);
+        }
     }
+
 
     return (
         <div className="dialog">

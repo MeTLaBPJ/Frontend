@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import api from '../../../api/api';
+import { fetchAnotherInformation } from '../../../api/chatRoom/fetchAnotherInformation';
 
-
-function UserIntroduceDialog({ isOpen, onClose, nickname }) {
+function UserIntroduceDialog({ isOpen, onClose, nickname, roomId }) {
     //유저의 정보를 받아오는 useEffect 사용
     const [profile, setProfile] = useState({
         profileImage: "",
@@ -20,20 +19,15 @@ function UserIntroduceDialog({ isOpen, onClose, nickname }) {
     useEffect(() => {
         const fetchIntroduceItems = async () => {
             try {
-                const response = await api.get(`/user/info/${nickname}`);
-                if (response.status === 200) {
-                    setProfile(response.data);
-                }
+                const userData = await fetchAnotherInformation(nickname, roomId);
+                setProfile(userData);
             } catch (error) {
-                console.error('Error fetching diary:', error);
+                console.error('Error fetching user info:', error);
             }
-            //  finally {
-            //     setLoading(false); // 비동기 작업이 완료되면 로딩 상태를 false로 설정
-            // }
         };
         fetchIntroduceItems();
+    }, [nickname, roomId]);
 
-    }, []);
 
 
 
