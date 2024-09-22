@@ -74,7 +74,7 @@ function NoEnterCheckPage(props) {
     //     if (expandedRoomIds.length > 0) {
     //         const fetchRoomDetails = async (roomId) => {
     //             try {
-    //                 const response = await api.get(`/api/chat-room/detail/${roomId}`);
+    //                 const response = await api.get(`/api/chatroom/participants/${roomId}`);
     //                 return response.data; // 서버로부터 members를 받아옴
     //             } catch (error) {
     //                 console.error(`Error fetching room details for roomId: ${roomId}`, error);
