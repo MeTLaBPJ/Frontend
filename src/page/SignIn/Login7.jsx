@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
+import { useLocation, useNavigate } from "react-router-dom";
 import '../LoginPage/Main.css';
 
 // 생년월일 입력
