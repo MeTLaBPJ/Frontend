@@ -1,57 +1,57 @@
 /* 시작 로그인 페이지 CSS */
-.MainPage{
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
-  
-    .img-subtitle{
-     /* 인천대에서 피어나다 */
-     position: absolute;
-     width: 184.2px;
-     height: 18.35px;
-     left: calc(50% - 45px/2 - 12px);
-     top: 456px;
-     background: url('../../asset/sublogo.png');
-   }
-  
-   .img-title{
+.MainPage {
+  height: 812px;
+  width: 375px;
+  margin: 0 auto;
+
+  .img-subtitle {
+    /* 인천대에서 피어나다 */
+    position: absolute;
+    width: 184.2px;
+    height: 18.35px;
+    left: calc(50% - 45px/2 - 12px);
+    top: 456px;
+    background: url('../../asset/sublogo.png');
+  }
+
+  .img-title {
     /* 인피 */
-     position: absolute;
-     width: 95px;
-     height: 45px;
-     left: calc(50% - 95px/2 - 92px);
-     top: 155px;
-     background: url('../../asset/logo.png');
-    }
-  
-    
-    .img-bg{
-      /* 대학생활상담소 횃불이_5 1 */
-      position: absolute;
-      width: 279px;
-      height: 201px;
-      left: calc(50% - 279px/2);
-      top: 200px;
-      background: url('../../asset/main.png');
-    }
-  
-    .bottom-Button{
-      /* Rectangle 8 */
-      position: absolute;
-      width: 300px;
-      height: 50px;
-      left: calc(50% - 300px/2);
-      top: 679px;
-      color: #F7F7F7;
-      background: #FF7898;
-      border-radius: 5px;
-  
-      font-family: 'Pretendard';
-      font-style: normal;
-      font-weight: 700;
-      font-size: 18px;
-      
-      border-radius: 8px;
-      border-color: white;  
-    }
-   }
+    position: absolute;
+    width: 95px;
+    height: 45px;
+    left: calc(50% - 95px/2 - 92px);
+    top: 155px;
+    background: url('../../asset/logo.png');
+  }
+
+
+  .img-bg {
+    /* 대학생활상담소 횃불이_5 1 */
+    position: absolute;
+    width: 279px;
+    height: 201px;
+    left: calc(50% - 279px/2);
+    top: 200px;
+    background: url('../../asset/main.png');
+  }
+
+  .bottom-Button {
+    /* Rectangle 8 */
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    left: calc(50% - 300px/2);
+    top: 679px;
+    color: #F7F7F7;
+    background: #FF7898;
+    border-radius: 5px;
+
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+
+    border-radius: 8px;
+    border-color: white;
+  }
+}

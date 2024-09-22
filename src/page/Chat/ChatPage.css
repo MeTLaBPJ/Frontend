@@ -432,7 +432,9 @@
         margin-bottom: 20px;
     }
 
-
+    .refresh-indicator.first {
+        transform: translateY(0);
+    }
 
 
     .refresh-icon {

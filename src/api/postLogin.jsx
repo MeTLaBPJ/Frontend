@@ -15,9 +15,10 @@ export const postLogin = async (loginData) => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
+            withCredentials: true,
         });
         console.log(response);
-        return response.data;
+        return response;
     } catch (error) {
         if (error.response) {
             const { status, data } = error.response;
