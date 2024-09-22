@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './ChatPage.css'
-import api from '../../api/api'
-
+import { roomStart } from '../../api/chatRoom/roomStart'
+import { fetchRoomParticipants } from '../../api/chatRoom/fetchRoomParticipants';
 
 function EnterCheckPage(props) {
     const { chatRooms, isEnterCheck } = props;
@@ -70,25 +70,55 @@ function EnterCheckPage(props) {
 
 
 
-    const goChatRoom = () => {
-        navigate(`/chat/2`); // 원하는 경로로 이동
+    const goChatRoom = (roomId) => {
+        navigate('/chat/2');
+        //navigate(`/chat/${roomId}`); // 원하는 경로로 이동
     }
 
-    // 시작하기 활성활 될때 클릭가능하게
-    const handleButtonClick = (event, room) => {
+    // 수정된 handleButtonClick 함수
+    const handleButtonClick = async (event, room) => {
         if (room.members.length < room.maxMembers) {
             event.stopPropagation(); // 이벤트 버블링을 막음
+        } else {
+            event.stopPropagation();
+            const started = await roomStart(room.id);
+            if (started) {
+                goChatRoom(room.id);
+            } else {
+                // 시작 실패 시 에러 처리 (예: 알림 표시)
+                console.error('Failed to start the room');
+            }
         }
-        else {
-            //서버에서 hasStarted true로 설정(api새로 써야됨)
-
-            goChatRoom(room);
-        }
-
     };
 
 
 
+
+    useEffect(() => {
+        if (expandedRoomIds.length > 0) {
+            const updateMembers = async () => {
+                const updatedRooms = await Promise.all(
+                    updatedChatRooms.map(async (room) => {
+                        if (room.id === expandedRoomIds[expandedRoomIds.length - 1]) {
+                            const updatedMembers = await fetchRoomParticipants(room.id);
+                            return {
+
+                                ...room,
+                                members: updatedMembers,
+                                maleCount: updatedMembers.filter(member => member.gender === "남자").length,
+                                femaleCount: updatedMembers.filter(member => member.gender === "여자").length
+                            };
+                        }
+                        return room;
+                    })
+                );
+
+                setUpdatedChatRooms(updatedRooms);
+            };
+
+            updateMembers();
+        }
+    }, [expandedRoomIds, isEnterCheck, chatRooms]);
 
     // // expandedRoomIds가 변경될 때마다 서버에서 members를 가져와 업데이트하는 useEffect
     // useEffect(() => {

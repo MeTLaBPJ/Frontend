@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 import './ChatRoomInformation.css'
 import ExitDialog from '../../Dialog/ExitDialog'
 import UserIntroduceDialog from '../../Dialog/UserintroduceDialog'
-import api from '../../../../api/api'
-import { format, parseISO, differenceInDays } from 'date-fns';
-
+import { fetchChatroomInformation } from '../../../../api/chatRoom/fetchChatroomInformation'
 
 function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
     const [exitDialog, setExitDialog] = useState(false);
@@ -62,20 +59,11 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
     useEffect(() => {
         const fetchRoomData = async () => {
             try {
-                const response = await api.get(`/api/chat-room/${roomId}`);
-                setRoom(response.data.room);
-                setPossibleEnterNumber(response.data.possibleEnterNumber);
-
-                // Parse the LOCALDATETIME and format it
-                const endDate = parseISO(response.data.remainingTime);
-                const formattedDate = format(endDate, 'yyyy년 MM월 dd일');
-                setRemainingTime(formattedDate);
-
-                // Calculate D-day
-                const today = new Date();
-                const daysLeft = differenceInDays(endDate, today);
-                setDDay(daysLeft);
-
+                const data = await fetchChatroomInformation(roomId);
+                setRoom(data.room);
+                setPossibleEnterNumber(data.possibleEnterNumber);
+                setRemainingTime(data.remainingTime);
+                setDDay(data.dDay);
             } catch (error) {
                 console.error("Error fetching room data:", error);
             }
@@ -97,7 +85,7 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
 
     return (
         <div className="chatRoomInformation">
-            <UserIntroduceDialog nickname={clickUser} isOpen={userIntroduceDialog} onClose={() => setUserIntroduceDialog(false)} />
+            <UserIntroduceDialog nickname={clickUser} isOpen={userIntroduceDialog} onClose={() => setUserIntroduceDialog(false)} roomId={roomId} />
             <ExitDialog isOpen={exitDialog} onClose={() => setExitDialog(false)} possibleEnterNumber={possibleEnterNumber} roomId={roomId} socket={socket} />
             <div className="margin-container">
                 <div className="title">

@@ -15,7 +15,7 @@ function Main() {
     if (localStorage.getItem('password')) {
       navigate('../Login');  // '/next' 경로로 이동
     } else {
-      navigate('../Login');  // '/next' 경로로 이동
+      navigate('../Login1');  // '/next' 경로로 이동
       //navigate('../SignUp');  // '/next' 경로로 이동
     }
   };

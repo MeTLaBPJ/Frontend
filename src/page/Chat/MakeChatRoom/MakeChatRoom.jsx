@@ -7,7 +7,7 @@ import Pic3 from '../../../asset/ChatRoomPic3.png'
 import Pic4 from '../../../asset/ChatRoomPic4.png'
 import Pic5 from '../../../asset/ChatRoomPic5.png'
 import Pic6 from '../../../asset/ChatRoomPic6.png'
-import api from '../../../api/api'
+import { makeChatRoom } from '../../../api/chatRoom/makeChatRoom';
 
 
 
@@ -81,29 +81,22 @@ function MakeChatRoom() {
         }
 
         try {
-            // Calculate the number of members
             const numberOfMembers = count * 2;
-
-            // Send the POST request using axios
-            const response = await api.post('api/chatroom', {
+            const roomData = {
                 title: roomTitle,
                 subTitle: subTitle,
                 profileImage: profileImage,
                 maxMembers: numberOfMembers,
                 maleCount: count,
                 femaleCount: count
-            });
+            };
 
-            if (response.status !== 200) {
-                throw new Error('채팅방 생성 실패');
-            }
-
-            // 성공적으로 채팅방이 생성되면 다음 페이지로 이동하거나 추가 작업 수행
+            await makeChatRoom(roomData);
             console.log("Room Created");
             navigate('/ChatStartPage');
             setError('');
         } catch (error) {
-            setError('채팅방 생성 중 오류가 발생했습니다.');
+            setError(error.message);
         }
     };
 

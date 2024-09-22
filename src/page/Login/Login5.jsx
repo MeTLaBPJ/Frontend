@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5";
 import './Login.css'; 
 import boyImage from '../../asset/boy.png';
 import girlImage from '../../asset/girl.png';
+import { UserContext } from "../../context/UserContext";
 
 // 성별 입력
 const Login5 = () => {
+  const { User, updateUser } = useContext(UserContext);
   const [selectedGender, setSelectedGender] = useState(null); 
   const navigate = useNavigate(); 
 
@@ -17,6 +19,8 @@ const Login5 = () => {
   const handleSubmit = () => {
     if (selectedGender) {
       console.log(`선택된 성별: ${selectedGender}`);
+      updateUser({gender:selectedGender});
+      console.log(User);
       navigate('/login6', { state: { gender: selectedGender } });
     }
   };

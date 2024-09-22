@@ -3,7 +3,7 @@ import './ChatPage.css'
 import OkayDialog from './Dialog/OkayDialog'
 import MaxMemberDialog from './Dialog/MaxMemberDialog'
 import MaxChanceDialog from './Dialog/MaxChanceDialog'
-import api from '../../api/api'
+import { fetchRoomParticipants } from "../../api/chatRoom/fetchRoomParticipants";
 
 function NoEnterCheckPage(props) {
     const { chatRooms, possibleEnterNumber, gender, isEnterCheck } = props;
@@ -67,8 +67,34 @@ function NoEnterCheckPage(props) {
     };
 
 
+    useEffect(() => {
+        if (expandedRoomIds.length > 0) {
+            const updateMembers = async () => {
+                const updatedRooms = await Promise.all(
+                    updatedChatRooms.map(async (room) => {
+                        if (room.id === expandedRoomIds[expandedRoomIds.length - 1]) {
+                            const updatedMembers = await fetchRoomParticipants(room.id);
+                            return {
 
-    //나중에 활성화
+                                ...room,
+                                members: updatedMembers,
+                                maleCount: updatedMembers.filter(member => member.gender === "남자").length,
+                                femaleCount: updatedMembers.filter(member => member.gender === "여자").length
+                            };
+                        }
+                        return room;
+                    })
+                );
+
+                setUpdatedChatRooms(updatedRooms);
+            };
+
+            updateMembers();
+        }
+    }, [expandedRoomIds, isEnterCheck, chatRooms]);
+
+
+    //전에꺼
     // // expandedRoomIds가 변경될 때마다 서버에서 members를 가져와 업데이트하는 useEffect
     // useEffect(() => {
     //     if (expandedRoomIds.length > 0) {

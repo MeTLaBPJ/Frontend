@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import './ChatRoom.css'
 import { useParams } from 'react-router-dom';
-import { Stomp } from '@stomp/stompjs';
-import SockJS from 'sockjs-client';
-import api from '../../../api/api'
 import ChatRoomInformation from "./ChatRoomInformation/ChatRoomInformation";
+import { fetchMessages } from "../../../api/chatRoom/fetchMessages";
 
+
+import { connectWebSocket, disconnectWebSocket, sendMessageHandler } from "../../../api/chatRoom/socket/socketService";
 
 function ChatRoom() {
 
@@ -55,76 +55,61 @@ function ChatRoom() {
     const [chatRoomInformation, setChatRoomInformation] = useState(false);
     const reconnectIntervalRef = useRef(null);
 
-
-
-
-
-    const connectWebSocket = useCallback(() => {
-        const socket = new SockJS('/ws');
-        const stompClient = Stomp.over(socket);
-        stompClientRef.current = stompClient;
-
-        stompClient.connect({}, (frame) => {
-            console.log('Connected: ' + frame);
-            stompClient.subscribe(`/sub/${chatroomId}`, (message) => {
-                const newMessage = JSON.parse(message.body);
-                setMessages((prevMessages) => [...prevMessages, newMessage]);
-            });
-
-            const joinMessage = {
-                content: 'User has joined the chat',
-                type: 'JOIN',
-            };
-            stompClient.send(`/pub/chat.join/${chatroomId}`, {}, JSON.stringify(joinMessage));
-            localStorage.setItem(`chatroom_${chatroomId}_connected`, 'true');
-        }, (error) => {
-            console.error('Connection error:', error);
-            localStorage.removeItem(`chatroom_${chatroomId}_connected`);
-        });
-    }, [chatroomId]);
+    const handleMessageReceived = useCallback((newMessage) => {
+        setMessages((prevMessages) => [...prevMessages, newMessage]);
+    }, []);
 
 
 
     useEffect(() => {
-        const fetchMessages = async () => {
+        const fetchDataMsg = async () => {
+            //메시지 받아오는 부분
             try {
-                const response = await api.get(`http://localhost:8080/api/chatroom/${chatroomId}/messages`);
-                setMessages(response.data.messages);
-                setSelectChatRoom(response.data.chatRoom);
-                setSelectUser(response.data.user);
-
+                const data = await fetchMessages(chatroomId);
+                setMessages(data.messages);
+                setSelectChatRoom(data.chatRoom);
+                setSelectUser(data.user);
             } catch (error) {
-                console.error("Failed to load previous messages", error);
+                console.error("Failed to load chat room data", error);
             }
         };
 
-        fetchMessages();
+        fetchDataMsg();
 
         const storedConnectionStatus = localStorage.getItem(`chatroom_${chatroomId}_connected`);
 
         if (storedConnectionStatus !== 'true') {
-            connectWebSocket();
+            stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
         }
 
         // Set up periodic connection check
         reconnectIntervalRef.current = setInterval(() => {
             if (stompClientRef.current && !stompClientRef.current.connected) {
                 console.log('Connection lost. Attempting to reconnect...');
-                connectWebSocket();
+                stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
             }
         }, 30000); // Check every 30 seconds
 
         return () => {
-            if (stompClientRef.current !== null) {
-                stompClientRef.current.disconnect(() => {
-                    console.log('Disconnected');
-                });
-            }
+            disconnectWebSocket();
             clearInterval(reconnectIntervalRef.current);
         };
-    }, [chatroomId, connectWebSocket]);
+    }, [chatroomId, handleMessageReceived]);;
 
 
+    const sendMessage = () => {
+        if (inputValue.trim()) {
+            const newMessage = {
+                nickname: selectUser.nickname,
+                text: inputValue,
+                time: new Date().toLocaleTimeString(),
+                profileImage: selectUser.profileImage
+            };
+
+            sendMessageHandler(chatroomId, newMessage);
+            setInputValue('');
+        }
+    };
 
 
 
@@ -134,6 +119,8 @@ function ChatRoom() {
     const extraProfilesCount = memberLength - maxVisibleProfiles;
 
     const memberLengthClassName = `member-length-${memberLength}`;
+
+
 
     // 컴포넌트가 처음 렌더링되거나 messages가 업데이트될 때 스크롤을 아래로 이동
     useEffect(() => {
@@ -150,33 +137,6 @@ function ChatRoom() {
     }
 
 
-    // 메시지 전송 함수
-    const sendMessage = () => {
-        if (inputValue.trim()) {
-            const newMessage = {
-                nickname: selectUser.nickname, // 현재 사용자
-                text: inputValue,
-                time: new Date().toLocaleTimeString(), // 현재 시간
-                profileImage: selectUser.profileImage // 현재 사용자의 프로필 이미지 경로
-            };
-
-
-            // WebSocket을 통해 메시지 전송
-            if (stompClientRef.current && stompClientRef.current.connected) {
-                stompClientRef.current.send(
-                    `/pub/chat.send/${chatroomId}`, // 백엔드의 @MessageMapping에 매핑된 URL
-                    {},
-                    JSON.stringify(newMessage) // 메시지 객체를 JSON으로 변환
-                );
-
-
-                setInputValue(''); // 입력 필드 비우기
-            } else {
-                setInputValue(''); // 입력 필드 비우기
-                console.error("WebSocket is not connected");
-            }
-        }
-    };
 
     // Enter 키를 누르면 메시지 전송
     const handleKeyPress = (event) => {

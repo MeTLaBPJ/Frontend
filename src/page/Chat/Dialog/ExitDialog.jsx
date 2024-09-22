@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './dialog.css'
-import api from '../../../api/api';
+import { leaveChatRoom } from '../../../api/chatRoom/leaveChatRoom';
+import { sendLeaveMessage, unsubscribeFromRoom } from '../../../api/chatRoom/socket/socketService';
 
 function ExitDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
     const navigate = useNavigate();
@@ -9,20 +10,10 @@ function ExitDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
 
     const exitRoom = async () => {
         try {
-            // 서버에 DELETE 요청 보내기
-            await api.delete(`/api/chatroom/${roomId}`);
+            await leaveChatRoom(roomId);
+            sendLeaveMessage(socket, roomId);
+            unsubscribeFromRoom(socket, roomId);
 
-            // 웹소켓을 통해 서버에 채팅방 나가기 메시지 전송
-            const leaveMessage = {
-                type: 'LEAVE',
-                chatroomId: roomId,
-            };
-            socket.send(`/pub/chat.leave/${roomId}`, {}, JSON.stringify(leaveMessage));
-
-            // 구독 해제
-            socket.unsubscribe(`/sub/${roomId}`);
-
-            // chatStartPage로 이동
             navigate('/chatStartPage');
             onClose();
         } catch (error) {

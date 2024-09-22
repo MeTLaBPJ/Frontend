@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Main from "./page/Main/Main";
+import Login from "./page/Login/Login";
 import Login1 from "./page/Login/Login1";
 import Login2 from "./page/Login/Login2";
 import Login3 from "./page/Login/Login3";
@@ -38,69 +39,72 @@ import INFP from "./page/Mbti/Mbti_result/INFP";
 import INFJ from "./page/Mbti/Mbti_result/INFJ";
 import INTP from "./page/Mbti/Mbti_result/INTP";
 import INTJ from "./page/Mbti/Mbti_result/INTJ";
-import Login from "./page/Login/Login"
 import ChatStartPage from "./page/Chat/ChatStartPage"
 import ChatRoom from "./page/Chat/ChatRoom/ChatRoom"
 import MakeChatRoom from "./page/Chat/MakeChatRoom/MakeChatRoom";
 import { MbtiProvider } from "./context/MbitContext";
+import { UserProvider } from "./context/UserContext";
 
 
 
 function App() {
+
   return (
+    <UserProvider>
 
-    <MbtiProvider>
-      <Router>
-        <Routes>
+      <MbtiProvider>
+        <Router>
+          <Routes>
 
-          <Route path="/" element={<Main />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login1" element={<Login1 />} />
-          <Route path="/login2" element={<Login2 />} />
-          <Route path="/login3" element={<Login3 />} />
-          <Route path="/login4" element={<Login4 />} />
-          <Route path="/login5" element={<Login5 />} />
-          <Route path="/login6" element={<Login6 />} />
-          <Route path="/login7" element={<Login7 />} />
-          <Route path="/mypage" element={<Mypage />} />
-          <Route path="/mbti" element={<Mbti />} />
-          <Route path="/mbti1" element={<Mbti1 />} />
-          <Route path="/mbti2" element={<Mbti2 />} />
-          <Route path="/mbti3" element={<Mbti3 />} />
-          <Route path="/mbti4" element={<Mbti4 />} />
-          <Route path="/mbti5" element={<Mbti5 />} />
-          <Route path="/mbti6" element={<Mbti6 />} />
-          <Route path="/mbti7" element={<Mbti7 />} />
-          <Route path="/mbti8" element={<Mbti8 />} />
-          <Route path="/mbti9" element={<Mbti9 />} />
-          <Route path="/mbti10" element={<Mbti10 />} />
-          <Route path="/mbti11" element={<Mbti11 />} />
-          <Route path="/mbti12" element={<Mbti12 />} />
-          <Route path="/estj_result" element={<ESTJ />} />
-          <Route path="/istj_result" element={<ISTJ />} />
-          <Route path="/entp_result" element={<ENTP />} />
-          <Route path="/intp_result" element={<INTP />} />
-          <Route path="/esfj_result" element={<ESFJ />} />
-          <Route path="/isfj_result" element={<ISFJ />} />
-          <Route path="/enfj_result" element={<ENFJ />} />
-          <Route path="/infj_result" element={<INFJ />} />
-          <Route path="/estp_result" element={<ESTP />} />
-          <Route path="/istp_result" element={<ISTP />} />
-          <Route path="/entj_result" element={<ENTJ />} />
-          <Route path="/intj_result" element={<INTJ />} />
-          <Route path="/esfp_result" element={<ESFP />} />
-          <Route path="/isfp_result" element={<ISFP />} />
-          <Route path="/enfp_result" element={<ENFP />} />
-          <Route path="/infp_result" element={<INFP />} />
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login1" element={<Login1 />} />
+            <Route path="/login2" element={<Login2 />} />
+            <Route path="/login3" element={<Login3 />} />
+            <Route path="/login4" element={<Login4 />} />
+            <Route path="/login5" element={<Login5 />} />
+            <Route path="/login6" element={<Login6 />} />
+            <Route path="/login7" element={<Login7 />} />
+            <Route path="/mypage" element={<Mypage />} />
+            <Route path="/mbti" element={<Mbti />} />
+            <Route path="/mbti1" element={<Mbti1 />} />
+            <Route path="/mbti2" element={<Mbti2 />} />
+            <Route path="/mbti3" element={<Mbti3 />} />
+            <Route path="/mbti4" element={<Mbti4 />} />
+            <Route path="/mbti5" element={<Mbti5 />} />
+            <Route path="/mbti6" element={<Mbti6 />} />
+            <Route path="/mbti7" element={<Mbti7 />} />
+            <Route path="/mbti8" element={<Mbti8 />} />
+            <Route path="/mbti9" element={<Mbti9 />} />
+            <Route path="/mbti10" element={<Mbti10 />} />
+            <Route path="/mbti11" element={<Mbti11 />} />
+            <Route path="/mbti12" element={<Mbti12 />} />
+            <Route path="/estj_result" element={<ESTJ />} />
+            <Route path="/istj_result" element={<ISTJ />} />
+            <Route path="/entp_result" element={<ENTP />} />
+            <Route path="/intp_result" element={<INTP />} />
+            <Route path="/esfj_result" element={<ESFJ />} />
+            <Route path="/isfj_result" element={<ISFJ />} />
+            <Route path="/enfj_result" element={<ENFJ />} />
+            <Route path="/infj_result" element={<INFJ />} />
+            <Route path="/estp_result" element={<ESTP />} />
+            <Route path="/istp_result" element={<ISTP />} />
+            <Route path="/entj_result" element={<ENTJ />} />
+            <Route path="/intj_result" element={<INTJ />} />
+            <Route path="/esfp_result" element={<ESFP />} />
+            <Route path="/isfp_result" element={<ISFP />} />
+            <Route path="/enfp_result" element={<ENFP />} />
+            <Route path="/infp_result" element={<INFP />} />
 
 
-          <Route path="/ChatStartPage" element={<ChatStartPage />} />
-          {/* <Route path="/chat/:roomId" element={<ChatRoom />} /> */}
-          <Route path="/chat/2" element={<ChatRoom />} />
-          <Route path="/makeChatRoom" element={<MakeChatRoom />} />
-        </Routes>
-      </Router>
-    </MbtiProvider>
+            <Route path="/ChatStartPage" element={<ChatStartPage />} />
+            {/* <Route path="/chat/:roomId" element={<ChatRoom />} /> */}
+            <Route path="/chat/2" element={<ChatRoom />} />
+            <Route path="/makeChatRoom" element={<MakeChatRoom />} />
+          </Routes>
+        </Router>
+      </MbtiProvider>
+    </UserProvider>
   );
 }
 

@@ -5,7 +5,7 @@ import NoEnterCheckPage from './NoEnterCheckPage'
 import { useNavigate } from 'react-router-dom';
 import api from '../../api/api'
 import logo from '../../asset/logo.png'
-
+import { fetchChatRoomFetch } from '../../api/chatRoom/fetchChatRoomFetch'
 
 function ChatStartPage() {
 
@@ -121,23 +121,20 @@ function ChatStartPage() {
 
 
     useEffect(() => {
-        const fetchUserData = async () => {
+        const fetchChatRooms = async () => {
             try {
-                const response = await api.get(`/api/chat-rooms`);
-                if (response.status === 200) {
-                    setChatRooms(response.data.rooms);
-                    setPossibleEnterNumber(response.data.possibleEnterNumber);
-                    setGender(response.data.gender)
-                }
+                const data = await fetchChatRoomFetch();
+                setChatRooms(data.rooms);
+                setPossibleEnterNumber(data.possibleEnterNumber);
+                setGender(data.gender);
             } catch (error) {
-                console.error('Error fetching diary:', error);
-            }
-            finally {
+                console.error('Error fetching chat rooms:', error);
+            } finally {
                 setLoading(false);
             }
         };
 
-        fetchUserData();
+        fetchChatRooms();
     }, []);
 
 
