@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from 'react-router-dom';
 import './dialog.css'
-import api from '../../../../utils/api';
+import { deleteUser } from '../../../api/deleteUser';
 
-function LeaveDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
+function LeaveDialog({ isOpen, onClose }) {
     const navigate = useNavigate();
     if (!isOpen) return null;
 
     const exitRoom = async () => {
         try {
-            const response = await api.delete('/api/user/delete');
-            if (response.status === 200) {
+            const result = await deleteUser();
+            if (result.success) {
                 console.log('User account deleted successfully');
                 // You can add a success message or redirect the user here
             } else {
@@ -24,8 +24,6 @@ function LeaveDialog({ isOpen, onClose, possibleEnterNumber, roomId, socket }) {
         //chatStartPage로 이동
         navigate('/');
         onClose();
-
-
     }
 
     return (

@@ -1,31 +1,33 @@
-.mypage{
+.mypage {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;  
-    background-color: #FFFFFF ;
+    align-items: flex-start;
+    background-color: #FFFFFF;
     width: 375px;
     height: 100vh;
 }
-.mypage{
-    #title{
-            
-            width: auto;
-            height: 18px;
-            margin-top: 58px;
-            margin-left: 16px;
 
-            font-family: 'Pretendard';
-            font-style: normal;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 18px;
-            display: flex;
-            align-items: flex-start;
+.mypage {
+    #title {
 
-            color: #3D3D3D;
+        width: auto;
+        height: 18px;
+        margin-top: 58px;
+        margin-left: 16px;
 
-        }
-    #profile{
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        display: flex;
+        align-items: flex-start;
+
+        color: #3D3D3D;
+
+    }
+
+    #profile {
         margin-top: 14px;
         width: 100%;
 
@@ -34,8 +36,9 @@
         align-items: center;
 
     }
-    #profile_img{
-             
+
+    #profile_img {
+
         width: 74px;
         height: 74px;
         top: 90px;
@@ -44,11 +47,12 @@
         background: #BABABA;
 
     }
-    #nickname{
-       
+
+    #nickname {
+
         width: auto;
         height: 16px;
-       margin-top: 10px ;
+        margin-top: 10px;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 600;
@@ -58,11 +62,12 @@
 
 
     }
-    #etc{
-            
+
+    #etc {
+
         width: auto;
         height: 16px;
-       margin-top: 4px;
+        margin-top: 4px;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 500;
@@ -73,43 +78,49 @@
 
 
     }
-    #divider{
-       margin-top: 18px;
+
+    #divider {
+        margin-top: 18px;
         width: 375px;
         height: 6px;
         border-top: 6px;
-        background-color:#F5F6F7 ;
+        background-color: #F5F6F7;
         margin-bottom: 12px;
     }
-    .tab-content{
+
+    .tab-content {
         display: flex;
         flex-direction: column;
         width: auto;
         height: auto;
         margin-top: 8px;
-        
+
         padding-right: 16px;
     }
-    #tabCont{
+
+    #tabCont {
         display: flex;
         flex-direction: row;
         justify-content: center;
         justify-self: flex-start;
         width: 339px;
-       padding-left: 16px;
+        padding-left: 16px;
     }
-    .tabs{
+
+    .tabs {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         width: 100%;
     }
-    #tabs_divider{
+
+    #tabs_divider {
         display: flex;
         flex-direction: row;
     }
-    .tab{
-      
+
+    .tab {
+
         width: auto;
         height: 18px;
         padding-left: 13px;
@@ -123,7 +134,8 @@
 
 
     }
-    .tabactive{
+
+    .tabactive {
         width: auto;
         height: 18px;
         font-family: 'Pretendard';
@@ -138,10 +150,10 @@
         border-bottom: 2px solid #FF7898;
     }
 
-    #profile_info{
-                /* 키워드 사이엔 쉼표(,)로 구분해주세요 */
+    #profile_info {
+        /* 키워드 사이엔 쉼표(,)로 구분해주세요 */
 
-        
+
         width: auto;
         height: 14px;
 
@@ -159,17 +171,17 @@
 
     }
 
-    #ment_cont{
+    #ment_cont {
         display: flex;
         flex-direction: column;
     }
 
-    #ment_title{
-                /* 나의 한 마디 */
+    #ment_title {
+        /* 나의 한 마디 */
 
         width: auto;
         height: 16px;
-        margin-top:22px ;
+        margin-top: 22px;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 600;
@@ -183,7 +195,7 @@
 
     }
 
-    #ment_input{
+    #ment_input {
         width: 343px;
         height: auto;
         display: flex;
@@ -192,17 +204,17 @@
         justify-content: flex-start;
     }
 
-   
 
-    #ment_btn{
-       
+
+    #ment_btn {
+
         width: 42px;
         height: 46px;
         border: none;
         margin-left: 4px;
         background: #F5F5F5;
         border-radius: 10px;
-        
+
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 400;
@@ -216,8 +228,8 @@
 
     }
 
-    #others{
-        margin-top: 31px;   
+    #others {
+        margin-top: 31px;
         width: 321px;
         height: 127px;
         display: flex;
@@ -225,15 +237,18 @@
         justify-content: space-around;
         background: #F5F5F5;
         border-radius: 10px;
-        padding:11px ;
+        padding: 11px;
 
     }
 
-    .option{
-   
+    .option {
+        display: flex;
+        /* text-align: center; */
+        justify-content: start;
+
         width: auto;
         height: 16px;
-    
+
 
         font-family: 'Pretendard';
         font-style: normal;
@@ -249,8 +264,34 @@
 
     }
 
-    .option_info{
-     
+    .mbti-test {
+        position: relative;
+        left: 79px;
+        height: 22px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -1.5px;
+        text-align: center;
+        border: none;
+        color: #FFFFFF;
+        background: #FF7898;
+        border-radius: 16px;
+    }
+
+    .mbti_input {
+        width: 150px;
+    }
+
+    #others .empty {
+        font-weight: 300;
+        color: #999;
+    }
+
+    .option_info {
+
         width: auto;
         height: 18px;
 
@@ -268,7 +309,26 @@
 
 
     }
-    #email{
+
+    .top {
+        height: 74px;
+    }
+
+    .edit-avatar {
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        left: 50px;
+        top: -25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #F5F5F5;
+    }
+
+    #email {
         margin-top: 14px;
         display: flex;
         flex-direction: column;
@@ -276,7 +336,8 @@
         height: auto;
         margin-left: 11px;
     }
-    #email_info{
+
+    #email_info {
         margin-top: 4px;
         margin-left: 11px;
         width: auto;
@@ -293,12 +354,13 @@
         color: #3D3D3D;
 
     }
-    #secession{
 
-      
+    #secession {
+
+
         width: auto;
         height: 30px;
-       margin-top: 21px;
+        margin-top: 21px;
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 400;
@@ -313,7 +375,8 @@
         background-color: #FFFFFF;
 
     }
-    input{
+
+    input {
         background-color: #F5F5F5;
         border: none;
         width: auto;
@@ -331,13 +394,15 @@
         color: #3D3D3D;
 
     }
-    input:focus{
+
+    input:focus {
         outline: none;
     }
-    .mTitle{
+
+    .mTitle {
         display: flex;
         justify-content: space-between;
-  
+
         font-family: 'Pretendard';
         font-weight: 900;
         font-size: 14px;
@@ -347,8 +412,9 @@
 
 
     }
-     #ment{
-           
+
+    #shortIntroduce {
+
         width: 278px;
         height: 46px;
         border: none;
@@ -358,16 +424,16 @@
         padding-left: 15px;
         margin: 0;
     }
-    
-    #submit{
-         
+
+    #submit {
+
         display: flex;
         justify-content: center;
         align-items: center;
-       
+
         width: 37px;
         height: 22px;
-        
+
 
         font-family: 'Pretendard';
         font-style: normal;
@@ -383,26 +449,10 @@
         border-radius: 16px;
 
     }
-    .banUserList{
-        
-    }
-    #banUser{
-
-    }
-    #listForm{
-
-    }
-    #ban_profile{
-
-    }
-    #ban_nickname{
-
-    }
-    #ban_userinfo{
-        
-    }
 
 }
+
+/* Rectangle 5199 */
 
 
 #navi-con {
