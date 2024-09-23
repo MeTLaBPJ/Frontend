@@ -3,7 +3,6 @@ import './ChatPage.css'
 import EnterCheckPage from './EnterCheckPage'
 import NoEnterCheckPage from './NoEnterCheckPage'
 import { useNavigate } from 'react-router-dom';
-import api from '../../api/api'
 import logo from '../../asset/logo.png'
 import { fetchChatRoomFetch } from '../../api/chatRoom/fetchChatRoomFetch'
 
@@ -59,7 +58,7 @@ function ChatStartPage() {
             maleCount: 1,
             femaleCount: 1,
             profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
+            status: "Waiting"
         },
         {
             id: 2,
@@ -77,7 +76,7 @@ function ChatStartPage() {
             maleCount: 2,
             femaleCount: 2,
             profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
+            status: "Waiting"
         },
         {
             id: 3,
@@ -95,7 +94,7 @@ function ChatStartPage() {
             maleCount: 2,
             femaleCount: 1,
             profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
+            status: "Waiting"
         },
         {
             id: 4,
@@ -115,7 +114,7 @@ function ChatStartPage() {
             maleCount: 2,
             femaleCount: 3,
             profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
+            status: "Waiting"
         }
     ]);
 

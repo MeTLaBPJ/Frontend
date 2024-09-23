@@ -120,37 +120,6 @@ function EnterCheckPage(props) {
         }
     }, [expandedRoomIds, isEnterCheck, chatRooms]);
 
-    // // expandedRoomIds가 변경될 때마다 서버에서 members를 가져와 업데이트하는 useEffect
-    // useEffect(() => {
-    //     if (expandedRoomIds.length > 0) {
-    //         const fetchRoomDetails = async (roomId) => {
-    //             try {
-    //                 const response = await api.get(`/api/chatroom/participants/${roomId}`);
-    //                 return response.data.members; // 서버로부터 members를 받아옴
-    //             } catch (error) {
-    //                 console.error(`Error fetching room details for roomId: ${roomId}`, error);
-    //                 return [];
-    //             }
-    //         };
-
-    //         const updateMembers = async () => {
-    //             const updatedRooms = await Promise.all(
-    //                 chatRooms.map(async (room) => {
-    //                     if (room.id === expandedRoomIds[expandedRoomIds.length - 1]) {
-    //                         const updatedMembers = await fetchRoomDetails(room.id);
-    //                         return { ...room, members: updatedMembers };
-    //                     }
-    //                     console.log(updatedChatRooms);
-    //                     return room;
-    //                 })
-    //             );
-
-    //             setUpdatedChatRooms(updatedRooms);
-    //         };
-
-    //         updateMembers();
-    //     }
-    // }, [expandedRoomIds,isEnterCheck]); // expandedRoomIds가 변경될 때 reload될 때 마다
 
 
     return (

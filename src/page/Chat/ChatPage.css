@@ -432,10 +432,6 @@
         margin-bottom: 20px;
     }
 
-    .refresh-indicator.first {
-        transform: translateY(0);
-    }
-
 
     .refresh-icon {
         animation: spin 1s linear infinite;
