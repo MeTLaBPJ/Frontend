@@ -2,7 +2,7 @@ import api from '../api';
 
 export const fetchAnotherInformation = async (nickname, chatroomId) => {
     try {
-        const response = await api.get(`/user/info/${nickname}/${chatroomId}`);
+        const response = await api.get(`/api/user/info/${nickname}/${chatroomId}`);
         if (response.status === 200) {
             return response.data;
         }
