@@ -46,7 +46,7 @@ function ChatStartPage() {
 
             //방아이디로 조회한다.
 
-            //나중에 서버로 부터 바는 member이기 때문에 삭제!
+            // //나중에 서버로 부터 바는 member이기 때문에 삭제!
             members: [
                 { gender: "남자", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "../../../../asset/ChatRoomPic1.png" },
                 { gender: "여자", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "../../../../asset/ChatRoomPic2.png" }
@@ -123,7 +123,12 @@ function ChatStartPage() {
         const fetchChatRooms = async () => {
             try {
                 const data = await fetchChatRoomFetch();
-                setChatRooms(data.rooms);
+                const roomsWithMembers = data.rooms.map(room => ({
+                    ...room,
+                    members: []
+                }));
+                setChatRooms(roomsWithMembers);
+
                 setPossibleEnterNumber(data.possibleEnterNumber);
                 setGender(data.gender);
             } catch (error) {
