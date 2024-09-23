@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: hsl(0, 0%, 100%) ;
+  justify-content: flex-start;
+  background-color: #FFFFFF ;
   width: 375px;
   height: 100vh;
 
