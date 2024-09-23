@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { IoChevronBack } from "react-icons/io5"; 
-import '../LoginPage/SignIn.css';  
+import './Login.css';  
 
 // 비밀번호 설정
 const Login3 = () => {
@@ -62,9 +62,8 @@ const Login3 = () => {
       console.log("비밀번호 설정 오류");
     }
   };
-
   return (
-    <div className = "Login3Page">
+    <div className="Login3Page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -74,7 +73,7 @@ const Login3 = () => {
         </div>
       </header>  
 
-      <div>
+      <div className="container">
         <h2 className="login-heading">비밀번호를 설정해주세요</h2>
         <p className="login-subtext1">영문, 숫자, 특수문자를 조합하여 8자 이상으로 설정해주세요</p>
 
@@ -86,9 +85,10 @@ const Login3 = () => {
             value={password}
             onChange={handlePasswordChange}
           />
-          {passwordError && (
-            <p className="error-message">{passwordError}</p>
-          )}
+          {/* 비밀번호 유효성 검사 에러 메시지 */}
+          <p className={`error-message ${passwordError ? 'visible' : ''}`}>
+            {passwordError}
+          </p>
         </div>
 
         <label className="login-subtext2">다시 한번 입력해주세요</label>
@@ -100,11 +100,12 @@ const Login3 = () => {
             value={confirmPassword}
             onChange={handleConfirmPasswordChange}
           />
-          {confirmPasswordError && (
-            <p className="error-message1">{confirmPasswordError}</p>
-          )}
+          {/* 비밀번호 확인 에러 메시지 */}
+          <p className={`error-message1 ${confirmPasswordError ? 'visible' : ''}`}>
+            {confirmPasswordError}
+          </p>
         </div>
-
+    
         <button
           className="bottom-Button"
           onClick={handleSubmit}

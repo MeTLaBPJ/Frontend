@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5"; // 아이콘 추가
-import '../LoginPage/SignIn.css';  
+import './Login.css';  
 
 // 메일 인증 / 작성
 const Login1 = () => {

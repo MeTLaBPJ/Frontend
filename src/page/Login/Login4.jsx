@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
-import '../LoginPage/SignIn.css';   
+import './Login.css';   
 import { IoChevronBack } from "react-icons/io5";
 
 // 닉네임 설정 
@@ -34,24 +34,16 @@ const Login4 = () => {
 
   return (
     <div className = "Login4Page">
-        <header>
+        <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "35%" }}></div>
         </div>
-      </header>  
-      <header>
-        <button className="back-button" onClick={handleBack}> 
-          <IoChevronBack />  
-        </button>
-        <div className="progress-bar">
-          <div className="progress" style={{ width: "30%" }}></div>
-        </div>
       </header>
 
-      <div>
+      <div className="container">
         <h2 className="login-heading">닉네임을 입력해주세요</h2>
         <p className="login-subtext">한글로만 2자 이상, 20자 이하로 가능해요</p>
         

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import '../LoginPage/SignIn.css';   
+import './Login.css';   
 
 // 학번, 학과 입력
 const Login6 = () => {
@@ -39,7 +39,6 @@ const Login6 = () => {
   const handleBack = () => {
     navigate(-1); // 이전 페이지로 이동
   };
-
   return (
     <div className = "Login6Page">
       <header className="header">
@@ -51,6 +50,7 @@ const Login6 = () => {
         </div>
       </header>
 
+      <div className="container">
       <h2 className="login-heading">춘식이님에 대해 알려주세요</h2>
       <p className="login-subtext">학번 9자리를 입력해주세요</p>
 
@@ -66,6 +66,7 @@ const Login6 = () => {
             className="input"
           />
         </div>
+     
 
         {/* 단과대 선택 */}
         <div className="select-container1">
@@ -88,26 +89,29 @@ const Login6 = () => {
 
         {/* 학과 선택 */}
         {division && (
-          <div className="select-container2">
-            <select
-              id="department"
-              value={department}
-              onChange={(e) => setDepartment(e.target.value)}
-              className="select-department"
-            >
-              <option value="">학과 선택하기</option>
-              {divisionsAndDepartments[division].map((dept, idx) => (
-                <option key={idx} value={dept}>{dept}</option>
-              ))}
-            </select>
-          </div>
-        )}
+  <div className="select-container2">
+    <select
+      id="department"
+      value={department}
+      onChange={(e) => setDepartment(e.target.value)}
+      className="select-department"
+    >
+      <option value="">학과 선택하기</option>
+      {divisionsAndDepartments[division].map((dept, idx) => (
+        <option key={idx} value={dept}>{dept}</option>
+      ))}
+    </select>
+  </div>
+)}
+
+
 
         <button type="submit" className="bottom-Button">
           다음
         </button>
       </form>
     </div>
+  </div>
   );
 };
 

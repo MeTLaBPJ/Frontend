@@ -1,0 +1,72 @@
+.MainPage {
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+  .img-title {
+  /* 인피 로고 */
+  width: 95px;
+  height: 45px;
+  background: url('../../asset/logo.png');
+  background-size: contain;
+  margin-top: 100px; /* 상단 여백 */
+  margin-bottom: 20px;
+  align-self: flex-start;
+  margin-right: 200px;
+  }
+
+  .img-bg {
+  /* 메인 이미지 */
+  width: 290px;
+  height: 211px;
+  background: url('../../asset/main.png');
+  background-size: contain;
+  margin-top: 10px; 
+  margin-bottom: 50px;
+  }
+
+  .img-subtitle {
+  /* 인천대에서 피어나다 */
+  width: 184.2px;
+  height: 18.35px;
+  background: url('../../asset/sublogo.png');
+
+  background-size: contain;
+  margin-top: 10px;
+  margin-bottom: 245px;
+
+  align-self: flex-start;
+  margin-left: 110px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Pretendard', sans-serif;
+  }
+
+  .bottom-Button {
+  /* 하단 버튼 */
+  width: 300px;
+  height: 50px;
+
+  color: #F7F7F7;
+  background: #FF7898;
+  border-radius: 8px;
+  border-color: rgb(255, 255, 255);
+
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+ 
+  margin-bottom: 40px; 
+  margin-left: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+}

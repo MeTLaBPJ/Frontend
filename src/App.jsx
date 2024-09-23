@@ -1,15 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import Main from './page/LoginPage/Main.jsx';
-import Login1 from './page/SingIn/Login1.jsx';
-import Login2 from './page/SingIn/Login2.jsx';
-import Login3 from './page/SingIn/Login3.jsx';
-import Login4 from './page/SingIn/Login4.jsx';
-import Login5 from './page/SingIn/Login5.jsx';
-import Login6 from './page/SingIn/Login6.jsx';
-import Login7 from './page/SingIn/Login7.jsx';
-import Login from './page/SingIn/Login.jsx';
-import Login8 from './page/SingIn/Login8.jsx';
+import Main from "./page/Main/Main";
+import Login from "./page/Login/Login";
+import Login1 from "./page/Login/Login1";
+import Login2 from "./page/Login/Login2";
+import Login3 from "./page/Login/Login3";
+import Login4 from "./page/Login/Login4";
+import Login5 from "./page/Login/Login5";
+import Login6 from "./page/Login/Login6";
+import Login7 from "./page/Login/Login7";
 
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
           <Route path="/Login6" element={<Login6 />} />
           <Route path="/Login7" element={<Login7 />} />
           <Route path="/Login" element={<Login/>} />
-          <Route path="/Login8" element={<Login8 />} />
         </Routes>
       </Router>
   );

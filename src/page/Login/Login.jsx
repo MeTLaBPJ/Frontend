@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5"; 
-import '../LoginPage/SignIn.css';  
+import './Login.css';  
 
 // 로그인
 const Login = () => {

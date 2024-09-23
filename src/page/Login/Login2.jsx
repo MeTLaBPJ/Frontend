@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { IoChevronBack } from "react-icons/io5"; 
-import '../LoginPage/SignIn.css';   
+import './Login.css';   
 
 // 메일 인증 / 인증번호 입력 
 const Login2 = () => {
@@ -43,7 +43,7 @@ const Login2 = () => {
         </button>
       </header>  
 
-      <div>
+      <div className = "container">
         <h2 className="login-heading">인증 메일이 보내졌습니다</h2>
         <p className="login-subtext">인증 번호 6자리를 입력해주세요</p>
 

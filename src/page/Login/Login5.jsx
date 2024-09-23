@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5";
-import '../LoginPage/SignIn.css';  
-import boyImage from '../LoginPage/boy.png';
-import girlImage from '../LoginPage/girl.png';
+import './Login.css';  
+import boyImage from '../../asset/boy.png';
+import girlImage from '../../asset/girl.png';
 
 // 성별 입력
 const Login5 = () => {
@@ -27,7 +27,7 @@ const Login5 = () => {
 
   return (
     <div className="Login5Page">
-      <header>
+       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
@@ -35,6 +35,8 @@ const Login5 = () => {
           <div className="progress" style={{ width: "50%" }}></div>
         </div>
       </header>  
+
+      <div className="container">
       <h2 className="login-heading">춘식이님의 성별을 알려주세요</h2>
       <div className="gender-options">
         <div
@@ -55,6 +57,7 @@ const Login5 = () => {
             <p className="girlplace">여성</p>
           </div>
         </div>
+      </div>
       </div>
       <button
         className="bottom-Button"
