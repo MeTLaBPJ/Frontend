@@ -26,14 +26,27 @@ const Login2 = () => {
 
     const handleInputChange = (element, index) => {
         let newCode = [...code];
-        newCode[index] = element.value;
+        const inputValue = element.value;
+    
+        // 사용자가 입력을 했을 때
+        newCode[index] = inputValue;
         setCode(newCode);
-
-        // 다음 입력으로 포커스 이동
-        if (element.nextSibling && element.value) {
+    
+        // 입력 후 다음 필드로 이동
+        if (inputValue && element.nextSibling) {
             element.nextSibling.focus();
         }
     };
+    
+    const handleKeyDown = (event, index) => {
+        // 백스페이스 키가 눌렸을 때
+        if (event.key === 'Backspace' && code[index] === "") {
+            if (event.target.previousSibling) {
+                event.target.previousSibling.focus(); // 이전 입력 필드로 포커스 이동
+            }
+        }
+    };
+    
 
     const handleResend = async () => {
         try {
@@ -68,30 +81,29 @@ const Login2 = () => {
                 <button className="back-button" onClick={handleBack}>
                     <IoChevronBack />  
                 </button>
-            </header>  
-
-            <div>
+            </header> 
+            <div className="container">
                 <h2 className="login-heading">인증 메일이 보내졌습니다</h2>
                 <p className="login-subtext">인증 번호 6자리를 입력해주세요</p>
 
-                <div className="code-inputs">
-                    {code.map((digit, index) => (
-                        <input
-                            key={index}
-                            type="text"
-                            maxLength="1"
-                            className="code-input"
-                            value={digit}
-                            onChange={(e) => handleInputChange(e.target, index)}
-                            onFocus={(e) => e.target.select()} 
-                        />
-                    ))}
-                </div>
-
-                <p className="resend">
-                    메일을 못받으셨나요? &nbsp;
-                    <span onClick={handleResend}>다시 받기</span>
-                </p>
+            <div className="code-inputs">
+                {code.map((digit, index) => (
+                <input
+                key={index}
+                type="text"
+                maxLength="1"
+                className="code-input"
+                value={digit}
+                onChange={(e) => handleInputChange(e.target, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}  // onKeyDown 이벤트 추가
+                onFocus={(e) => e.target.select()} 
+                 />
+                 ))}
+             </div>
+                    <p className="resend">
+                        메일을 못받으셨나요? &nbsp;
+                        <span onClick={handleResend}>다시 받기</span>
+                    </p>
 
                 <button className="bottom-Button" onClick={handleSubmit}>
                     다음

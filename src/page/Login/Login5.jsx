@@ -31,7 +31,7 @@ const Login5 = () => {
 
   return (
     <div className="Login5Page">
-      <header>
+       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
@@ -39,6 +39,7 @@ const Login5 = () => {
           <div className="progress" style={{ width: "50%" }}></div>
         </div>
       </header>  
+
       <h2 className="login-heading">춘식이님의 성별을 알려주세요</h2>
       <div className="gender-options">
         <div

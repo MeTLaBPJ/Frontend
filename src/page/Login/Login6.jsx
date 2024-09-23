@@ -95,20 +95,21 @@ const Login6 = () => {
 
         {/* 학과 선택 */}
         {division && (
-          <div className="select-container2">
-            <select
-              id="department"
-              value={department}
-              onChange={(e) => setDepartment(e.target.value)}
-              className="select-department"
-            >
-              <option value="">학과 선택하기</option>
-              {divisionsAndDepartments[division].map((dept, idx) => (
-                <option key={idx} value={dept}>{dept}</option>
-              ))}
-            </select>
-          </div>
-        )}
+  <div className="select-container2">
+    <select
+      id="department"
+      value={department}
+      onChange={(e) => setDepartment(e.target.value)}
+      className="select-department"
+    >
+      <option value="">학과 선택하기</option>
+      {divisionsAndDepartments[division].map((dept, idx) => (
+        <option key={idx} value={dept}>{dept}</option>
+      ))}
+    </select>
+  </div>
+)}
+
 
         <button type="submit" className="bottom-Button">
           다음

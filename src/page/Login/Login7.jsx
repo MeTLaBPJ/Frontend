@@ -84,10 +84,13 @@ const Login7 = () => {
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
+
         <div className="progress-bar">
           <div className="progress" style={{ width: "80%" }}></div>
         </div>
       </header>
+
+      <div className="container">
       <h2 className="login-heading">춘식이님의 생일을 알려주세요</h2>
       <form onSubmit={handleSubmit}>
         <div className="year-month-day-container">
@@ -116,11 +119,12 @@ const Login7 = () => {
             className="day-input"
           />
         </div>
-
+    
         <button type="submit" className="bottom-Button">
           다음
         </button>
       </form>
+      </div>
     </div>
   );
 };

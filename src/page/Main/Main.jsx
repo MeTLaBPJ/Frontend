@@ -24,16 +24,17 @@ function Main() {
   return (
     <div className="MainPage">
       <div>
-        <img className="img-subtitle" src={subLogo} alt="sublogo" />
-      </div>
-
-      <div>
         <img className="img-title" src={mainLogo} alt="mainlogo" />
       </div>
 
       <div>
         <img className="img-bg" src={mainImage} alt="Main Background" />
       </div>
+
+      <div>
+        <img className="img-subtitle" src={subLogo} alt="sublogo" />
+      </div>
+
 
       <div>
         <button className="bottom-Button" onClick={handleButtonClick}>
