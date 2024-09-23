@@ -7,9 +7,9 @@ const api = axios.create({
 
 // 요청 인터셉터를 추가하여 모든 요청에 Authorization 헤더를 추가
 api.interceptors.request.use(config => {
-    const token = localStorage.getItem('token');
-    if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+        config.headers.Authorization = `Bearer ${accessToken}`;
     }
     return config;
 }, error => {

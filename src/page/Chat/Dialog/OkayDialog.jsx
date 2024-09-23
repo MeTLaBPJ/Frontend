@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import './dialog.css'
 
@@ -20,7 +19,6 @@ function OkayDialog({ isOpen, onClose, selectChatRoom, possibleEnterNumber }) {
     const goChatRoom = () => {
         navigate(`/chat/2`); // 원하는 경로로 이동
         // navigate(`/chat/${selectChatRoom.id}`); // 원하는 경로로 이동
-        //소켓으로 업그레이드 하고 방으로 이동
         onClose();
     }
 

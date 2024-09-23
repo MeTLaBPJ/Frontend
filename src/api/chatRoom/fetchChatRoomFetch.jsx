@@ -2,7 +2,7 @@ import api from '../api';
 
 export const fetchChatRoomFetch = async () => {
     try {
-        const response = await api.get(`/api/chat-rooms`);
+        const response = await api.get(`/api/chatroom/list`);
         if (response.status === 200) {
             return {
                 rooms: response.data.rooms,
