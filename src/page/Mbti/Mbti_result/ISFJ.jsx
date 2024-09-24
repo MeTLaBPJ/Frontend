@@ -9,7 +9,7 @@ function Isfj(){
     const navigate = useNavigate();
 
     const handleBackToHome = () => {
-      navigate('./Login');
+      navigate('/ChatStartPage');
     };
 
     return (
