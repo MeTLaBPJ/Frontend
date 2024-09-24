@@ -5,6 +5,8 @@ import "./Mbti.css";
 import Modal from 'react-modal';
 import { useNavigate } from "react-router-dom";
 import { MbtiContext } from "../../context/MbitContext";
+import { getUser } from "../../api/getUser";
+import { putUser } from "../../api/putUser";
 
 function Mbti12() {
     const { Mbti, updateMbti } = useContext(MbtiContext);
@@ -14,22 +16,50 @@ function Mbti12() {
     const [mbtiChecked, setMbtiChecked] = useState('');
     const selectedValue1 = Mbti.selectList["12"];
     const [modalIsOpen, setModalIsOpen] = useState(false);
-    // eVal는 selectList에서 1, 2, 5의 값이 true인 개수 계산
+    const [token, setToken] = useState('');
+    const [data, setData] = useState({
+        nickname: "",
+        schoolEmail: 0,
+        studentId: "",
+        department: "",
+        college: "",
+        shortIntroduce: ""
+    });
+
+    useEffect(() => {
+        const storedToken = localStorage.getItem('accessToken');
+        if (storedToken) {
+            setToken(storedToken);
+        } 
+    }, []);
+
+    useEffect(() => {
+        const fetchMypageData = async () => {
+            if (!token) return;
+
+            try {
+                const mypageData = await getUser(token);
+                setData(mypageData);
+            } catch (error) {
+                console.error('Error fetching mypage data:', error);
+            }
+        };
+
+        fetchMypageData();
+    }, [token]);
+
     const eVal = () => {
         return ["1", "2", "5"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
     };
 
-    // sVal는 selectList에서 3, 8, 12의 값이 true인 개수 계산
     const sVal = () => {
         return ["3", "8", "12"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
     };
 
-    // fVal는 selectList에서 6, 7, 11의 값이 true인 개수 계산
     const fVal = () => {
         return ["6", "7", "11"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
     };
 
-    // pVal는 selectList에서 4, 9, 10의 값이 true인 개수 계산
     const pVal = () => {
         return ["4", "9", "10"].reduce((acc, key) => acc + (Mbti.selectList[key] ? 1 : 0), 0);
     };
@@ -37,117 +67,75 @@ function Mbti12() {
     const navigate = useNavigate(); 
 
     useEffect(() => {
-        if (selectedValue1) {
-            setIsa1Checked(true);
-            setIsa2Checked(false);
-        } else {
-            setIsa1Checked(false);
-            setIsa2Checked(true);
-        }
+        setIsa1Checked(selectedValue1);
+        setIsa2Checked(!selectedValue1);
     }, [selectedValue1]);
 
     const mbtiHandler = () => {
         let mbti = '';
-        if (eVal() >= 2) mbti += 'E';
-        else mbti += 'I';
-
-        if (sVal() >= 2) mbti += 'S';
-        else mbti += 'N';
-
-        if (fVal() >= 2) mbti += 'F';
-        else mbti += 'T';
-
-        if (pVal() >= 2) mbti += 'P';
-        else mbti += 'J';
-
-        setMbtiChecked(mbti);
-        console.log(Mbti,mbtiChecked);
+        mbti += eVal() >= 2 ? 'E' : 'I';
+        mbti += sVal() >= 2 ? 'S' : 'N';
+        mbti += fVal() >= 2 ? 'F' : 'T';
+        mbti += pVal() >= 2 ? 'P' : 'J';
+        return mbti;
     };
 
     const handleAnswerSelected = (answer) => {
         setSelectedAnswer(answer);
-        // 선택한 답변에 따라 MBTI 업데이트
-        if (answer === 1) {
-            updateMbti({ selectList: { ...Mbti.selectList, "12": true } });
-        } else {
-            updateMbti({ selectList: { ...Mbti.selectList, "12": false } });
-        }
+        updateMbti({ selectList: { ...Mbti.selectList, "12": answer === 1 } });
     };
 
     const openModal = () => {
         setModalIsOpen(true);
-        setTimeout(() => {
-          closeModal();
-          mbtiHandler(); // MBTI 값을 계산    
-        }, 3000); 
-      };
-    
-      const closeModal = () => {
+        setTimeout(closeModal, 3000);
+    };
+
+    const closeModal = () => {
         setModalIsOpen(false);
-      };
-    
-    // mbtiChecked가 변경될 때 라우팅을 수행
+    };
+
     useEffect(() => {
-        if (mbtiChecked) {
-            switch (mbtiChecked) {
-                case 'ESTJ':
-                    navigate("/estj_result");
-                    break;
-                case 'ISTJ':
-                    navigate("/istj_result");
-                    break;
-                case 'ENTP':
-                    navigate("/entp_result");
-                    break;
-                case 'INTP':
-                    navigate("/intp_result");
-                    break;
-                case 'ESFJ':
-                    navigate("/esfj_result");
-                    break;
-                case 'ISFJ':
-                    navigate("/isfj_result");
-                    break;
-                case 'ENFJ':
-                    navigate("/enfj_result");
-                    break;
-                case 'INFJ':
-                    navigate("/infj_result");
-                    break;
-                case 'ESTP':
-                    navigate("/estp_result");
-                    break;
-                case 'ISTP':
-                    navigate("/istp_result");
-                    break;
-                case 'ENTJ':
-                    navigate("/entj_result");
-                    break;
-                case 'INTJ':
-                    navigate("/intj_result");
-                    break;
-                case 'ESFP':
-                    navigate("/esfp_result");
-                    break;
-                case 'ISFP':
-                    navigate("/isfp_result");
-                    break;
-                case 'ENFP':
-                    navigate("/enfp_result");
-                    break;
-                case 'INFP':
-                    navigate("/infp_result");
-                    break;
-                default:
-                    navigate("/default_result"); // 일치하는 값이 없을 경우
-                    break;
+        const computeAndNavigate = async () => {
+            if (mbtiChecked) {
+                const computedMbti = mbtiHandler();
+                setMbtiChecked(computedMbti); // Update MBTI state
+
+                // Navigate based on computed MBTI
+                switch (computedMbti) {
+                    case 'ESTJ': navigate("/estj_result"); break;
+                    case 'ISTJ': navigate("/istj_result"); break;
+                    case 'ENTP': navigate("/entp_result"); break;
+                    case 'INTP': navigate("/intp_result"); break;
+                    case 'ESFJ': navigate("/esfj_result"); break;
+                    case 'ISFJ': navigate("/isfj_result"); break;
+                    case 'ENFJ': navigate("/enfj_result"); break;
+                    case 'INFJ': navigate("/infj_result"); break;
+                    case 'ESTP': navigate("/estp_result"); break;
+                    case 'ISTP': navigate("/istp_result"); break;
+                    case 'ENTJ': navigate("/entj_result"); break;
+                    case 'INTJ': navigate("/intj_result"); break;
+                    case 'ESFP': navigate("/esfp_result"); break;
+                    case 'ISFP': navigate("/isfp_result"); break;
+                    case 'ENFP': navigate("/enfp_result"); break;
+                    case 'INFP': navigate("/infp_result"); break;
+                    default: navigate("/default_result");
+                }
+
+                // Update user data with MBTI
+                try {
+                    await putUser(token, { ...data, mbti: computedMbti });
+                } catch (error) {
+                    console.error('Error updating user data:', error);
+                }
             }
-        }
-    }, [mbtiChecked, navigate]);
+        };
+        
+        computeAndNavigate();
+    }, [mbtiChecked, navigate, token, data]);
 
     const handleNext = () => {
         openModal();
-        
+        setMbtiChecked(mbtiHandler()); // Calculate MBTI when moving to the next question
     };
 
     return (
@@ -170,7 +158,7 @@ function Mbti12() {
             />
             <button 
                 className="bottom-Button" 
-                onClick={() => handleNext()}
+                onClick={handleNext}
             >
                 다음
             </button>
