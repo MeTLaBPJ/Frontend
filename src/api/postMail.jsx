@@ -9,7 +9,7 @@ const BASE_URL ='http://localhost:8080';
 export const postMail = async (email) => {
     console.log("전송 데이터",email);
     try {
-      const response = await axios.post(`${BASE_URL}/sign-up/email?email=${email}`, email );
+      const response = await axios.post(`${BASE_URL}/api/auth/sign-up/email?email=${email}`, email );
       console.log(response.data);
       return response.data;
     } catch (error) {

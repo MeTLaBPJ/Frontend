@@ -10,7 +10,7 @@ const BASE_URL ='http://localhost:8080';
 export const postMailCheck = async (email,key) => {
     console.log("전송 데이터",email,key);
     try {
-      const response = await axios.post(`${BASE_URL}/sign-up/email/check`, 
+      const response = await axios.post(`${BASE_URL}/api/auth/sign-up/check`, 
         {
             email:email,
             key:key

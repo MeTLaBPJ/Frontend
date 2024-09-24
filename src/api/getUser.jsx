@@ -5,7 +5,7 @@ const BASE_URL ='http://localhost:8080';
 export const getUser = async (token) => {
     console.log("전송 데이터",token);
     try {
-        const response = await axios.get(`${BASE_URL}/api/user`,{
+        const response = await axios.get(`${BASE_URL}/api/user/info`,{
             headers: {
               'Authorization': `Bearer ${token}`
             }

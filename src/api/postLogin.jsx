@@ -11,7 +11,7 @@ const BASE_URL = 'http://localhost:8080';
 export const postLogin = async (loginData) => {
     console.log("전송 데이터", loginData);
     try {
-        const response = await axios.post(`${BASE_URL}/api/users/login`, qs.stringify(loginData), {
+        const response = await axios.post(`${BASE_URL}/api/auth/login`, qs.stringify(loginData), {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
