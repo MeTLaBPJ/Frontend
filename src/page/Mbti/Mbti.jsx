@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import './Mbti.css';
+import MainMbti from '../../asset/MainMbti.png';
 
 
 
@@ -31,7 +32,10 @@ function Mbti (){
     <div className='mbti' id='mbti_main'>
         <div id='mbti_title'></div>
         <div id='subTitle'>당신의 횃불이 유형은?</div>
-        <div id='mbtiMain_img'></div>
+        
+        <div id='mbtiMain_img'>
+        <img  id="mbtiMain_img" src={MainMbti}/>
+        </div>
         <button 
         id='test_start'
         className="bottom-Button" 

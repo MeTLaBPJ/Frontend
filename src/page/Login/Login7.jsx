@@ -7,7 +7,7 @@ import './Login.css';
 
 // 생년월일 입력
 const Login7 = () => {
-  const { User, updateUser } = useContext(UserContext);
+  const { User, updcoateUser } = useContext(UserContext);
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
@@ -69,7 +69,6 @@ const Login7 = () => {
     if (!validateBirthdate(year, month, day)) {
       return;
     }
-    
    
     try {
       const randomImageIndex = Math.floor(Math.random() * 6);
