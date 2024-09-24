@@ -1,157 +1,67 @@
 import React, { useState, useEffect, useRef } from "react";
 import Tabs from "./Tabs";
 import "./Mypage.css";
-import api from "../../api/api"
 import { useNavigate } from "react-router-dom";
-import LeaveDialog from "../Chat/Dialog/LeaveDialog";
-
+import { getUser } from "../../api/getUser";
 
 
 
 function Mypage() {
-    const [shortIntroduce, setShortIntroduce] = useState("");
-    const [profileImage, setProfileImage] = useState(null);
-    const [nickName, setNickName] = useState("ㅁㄴㅇㄹ");
-    const [major, setMajor] = useState("컴공");
-    const [studentId, setStudentId] = useState("202000485");
+    const navigate = useNavigate();  
 
-    const [leaveDialog, setLeaveDialog] = useState(false);
-
-    const [userInfo, setUserInfo] = useState({
-        email: "kgs9843@naver.com",
-        mbti: null,
-        height: null,
-        drinking: null,
-        smoking: null
+    const [data, setData] = useState({
+        nickname: "",
+        schoolEmail: 0,
+        studentId: "",
+        department:"",
+        mbti:""
     });
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        setUserInfo(prevState => ({
-            ...prevState,
-            [id]: value
-        }));
-    };
-
-    const handleSubmit = async () => {
-        try {
-            const response = await api.put('/api/user/update', {
-                mbti: userInfo.mbti,
-                height: userInfo.height,
-                drinking: userInfo.drinking,
-                smoking: userInfo.smoking,
-            });
-
-            if (response.status === 200) {
-                console.log('Profile updated successfully');
-                // You can add a success message or update UI here
-            } else {
-                console.error('Failed to update profile');
-                // You can add an error message or handle the error here
-            }
-        } catch (error) {
-            console.error('Error updating profile:', error);
-            // You can add an error message or handle the error here
-        }
-    };
-
-
-
-
-    const fileInputRef = useRef(null);
-
-    const handleImageClick = () => {
-        fileInputRef.current.click();
-    };
-
-    const handleImageChange = async (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = async () => {
-                setProfileImage(reader.result);
-                await uploadProfileImage(file);
-            };
-            reader.readAsDataURL(file);
-        }
-    };
-    const uploadProfileImage = async (file) => {
-        try {
-            const formData = new FormData();
-            formData.append('profileImage', file);
-
-            const response = await api.put('/api/user/info', formData);
-
-            if (response.status === 200) {
-                console.log('Profile image updated successfully');
-                // You can add a success message or update UI here
-            } else {
-                console.error('Failed to update profile image');
-                // You can add an error message or handle the error here
-            }
-        } catch (error) {
-            console.error('Error updating profile image:', error);
-            // You can add an error message or handle the error here
-        }
-    };
-
-
+    const [token, setToken] = useState('');
+   
+    useEffect(() => {
+        // 로컬 스토리지에서 토큰 읽어오기
+        const storedToken = localStorage.getItem('accessToken');
+        console.log(storedToken);
+        if (storedToken) {
+            setToken(storedToken);
+        } 
+    }, []);
 
     useEffect(() => {
-        const fetchUserInfo = async () => {
+        if (!token) return; // 토큰이 없으면 데이터를 가져오지 않음
+
+        // 마이페이지 정보를 가져오는 함수 호출
+        const fetchMypageData = async () => {
             try {
-                const response = await api.get('/api/user/info');
-                if (response.status === 200) {
-                    setUserInfo(response.data);
-                } else {
-                    console.error('Failed to fetch user info');
-                }
+                const mypageData = await getUser(token);
+                setData(mypageData);
             } catch (error) {
-                console.error('Error fetching user info:', error);
+                console.error('Error fetching mypage data:', error);
             }
         };
 
-        fetchUserInfo();
-    }, []);
+        fetchMypageData();
+    }, [token]);
 
-    const handleMbtiTest = () => {
-        //수정필요
-        console.log("mbti test");
+    const handleInputChange=()=>{
+
     }
 
-    const handleShortIntroduceSubmit = async () => {
-        try {
-            const response = await api.put('/api/user/update', { subtitle: shortIntroduce });
-            if (response.status === 200) {
-                console.log('Subtitle updated successfully');
-                // You can add a success message or update UI here
-            } else {
-                console.error('Failed to update subtitle');
-                // You can add an error message or handle the error here
-            }
-        } catch (error) {
-            console.error('Error updating subtitle:', error);
-            // You can add an error message or handle the error here
-        }
-        setShortIntroduce("");
-    }
+    const handleSubmit=()=>{
 
-    const handleShortIntroduceChange = (e) => {
-        setShortIntroduce(e.target.value);
     }
+    const handleMbtiTest=()=>{
 
-    const handleSecession = () => {
-        setLeaveDialog(true);
     }
-
     return (
-        <>
-            <LeaveDialog isOpen={leaveDialog} onClose={() => setLeaveDialog(false)} />
+        
+           
             <div className="mypage">
                 <div id="title">
                     마이페이지
                 </div>
                 <div id="profile">
-                    <div className="top">
+                    {/* <div className="top">
 
                         <img alt="" id="profile_img"
                             src={profileImage} />
@@ -160,9 +70,9 @@ function Mypage() {
                             <path d="M9.5 5L7 2.5" stroke="#3D3D3D" stroke-width="0.5" />
                         </svg>
                         </div>
-                    </div>
-                    <div id="nickname">{nickName}</div>
-                    <div id="etc">{major} {studentId.substring(2, 4)}학번</div>
+                    </div> */}
+                    <div id="nickname">{data.nickname}</div>
+                    <div id="etc">{data.department} {data.studentId.substring(2, 4)}학번</div>
                 </div>
                 <div id="divider"></div>
                 <div id="tabCont">
@@ -174,43 +84,43 @@ function Mypage() {
                                 <div id="ment_input">
                                     <input
                                         id="shortIntroduce"
-                                        value={shortIntroduce}
-                                        onChange={handleShortIntroduceChange}
+                                        // value={shortIntroduce}
+                                        // onChange={handleShortIntroduceChange}
                                     ></input>
-                                    <button id="ment_btn" onClick={handleShortIntroduceSubmit}>수정</button>
+                                    <button id="ment_btn">수정</button>
                                 </div>
                             </div>
                             <div id="others">
                                 <div id="mbti" className="option">  · MBTI
-                                    <div className="option_info">{userInfo.mbti}</div>
+                                    <div className="option_info">{data.mbti}</div>
                                 </div>
                                 <div id="height" className="option"> · 키
-                                    <div className="option_info">{userInfo.height ? (
-                                        <div>{userInfo.height}cm</div>
+                                    <div className="option_info">{data.height ? (
+                                        <div>{data.height}cm</div>
                                     ) : (
                                         <div></div>
                                     )}</div>
                                 </div>
                                 <div id="drinking" className="option"> · 음주
-                                    <div className="option_info"> {userInfo.drinking}</div>
+                                    <div className="option_info"> {data.drinking}</div>
                                 </div>
                                 <div id="smoking" className="option"> · 흡연
-                                    <div className="option_info">{userInfo.smoking}</div>
+                                    <div className="option_info">{data.smoking}</div>
                                 </div>
 
                             </div>
                             <div id="email">
                                 <div className="option" >· 이메일 </div>
-                                <div id="email_info">{userInfo.email}</div>
+                                <div id="email_info">{data.schoolEmail}</div>
                             </div>
-                            <button id="secession" onClick={handleSecession}>탈퇴하기</button>
+                            <button id="secession" >탈퇴하기</button>
                         </div>
-                        <div label="내 정보">
+                             <div label="내 정보"> 
                             <div id="profile_info">키워드 사이엔 쉼표(,)로 구분해주세요</div>
 
                             <div id="email">
                                 <div className="option">· 이메일 </div>
-                                <div id="email_info">{userInfo.email}</div>
+                                <div id="email_info">{data.schoolEmail}</div>
                             </div>
 
                             <div id="others">
@@ -220,8 +130,8 @@ function Mypage() {
                                 <div id="mbti" className="option">  · MBTI
                                     <input
                                         id="mbti"
-                                        className={`mbti_input ${!userInfo.mbti ? 'empty' : ''}`}
-                                        value={userInfo.mbti}
+                                        className={`mbti_input ${!data.mbti ? 'empty' : ''}`}
+                                        value={data.mbti}
                                         onChange={handleInputChange}
                                         placeholder="MBTI를 입력하세요"
                                     />
@@ -230,8 +140,8 @@ function Mypage() {
                                 <div id="height" className="option"> · 키
                                     <input
                                         id="height"
-                                        className={`height_input ${!userInfo.height ? 'empty' : ''}`}
-                                        value={userInfo.height}
+                                        className={`height_input ${!data.height ? 'empty' : ''}`}
+                                        value={data.height}
                                         onChange={handleInputChange}
                                         placeholder="키를 입력하세요"
                                     />
@@ -239,8 +149,8 @@ function Mypage() {
                                 <div id="drinking" className="option"> · 음주
                                     <input
                                         id="drinking"
-                                        className={`drinking_input ${!userInfo.drinking ? 'empty' : ''}`}
-                                        value={userInfo.drinking}
+                                        className={`drinking_input ${!data.drinking ? 'empty' : ''}`}
+                                        value={data.drinking}
                                         onChange={handleInputChange}
                                         placeholder="음주 습관을 입력하세요"
                                     />
@@ -248,14 +158,14 @@ function Mypage() {
                                 <div id="smoking" className="option"> · 흡연
                                     <input
                                         id="smoking"
-                                        className={`smoking_input ${!userInfo.smoking ? 'empty' : ''}`}
-                                        value={userInfo.smoking}
+                                        className={`smoking_input ${!data.smoking ? 'empty' : ''}`}
+                                        value={data.smoking}
                                         onChange={handleInputChange}
                                         placeholder="흡연 여부를 입력하세요"
                                     />
                                 </div>
                             </div>
-                        </div>
+                     </div>
                     </Tabs>
                 </div>
                 <div id="navi-con">
@@ -265,15 +175,15 @@ function Mypage() {
                         <div id="my"></div>
                     </div>
                 </div>
-                <input
+                {/* <input
                     type="file"
                     ref={fileInputRef}
                     onChange={handleImageChange}
                     style={{ display: 'none' }}
                     accept="image/*"
-                />
+                /> */}
             </div>
-        </>
+       
     )
 }
 
