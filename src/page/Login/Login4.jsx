@@ -52,7 +52,9 @@ const Login4 = () => {
   };
 
   return (
-    <div className = "Login4Page">
+    <div className = "LoginPage">
+      <div className="container">
+
         <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -62,7 +64,7 @@ const Login4 = () => {
         </div>
       </header>
 
-      <div className="container">
+      
         <h2 className="login-heading">닉네임을 입력해주세요</h2>
         <p className="login-subtext">한글로만 2자 이상, 20자 이하로 가능해요</p>
         
@@ -81,6 +83,7 @@ const Login4 = () => {
           중복 확인하기
         </button>
 
+        <div className="botton-container">
         <button 
           className="bottom-Button" 
           disabled={nickname.length < 2 || !isNicknameChecked} // 중복 확인 완료 상태를 확인
@@ -88,6 +91,7 @@ const Login4 = () => {
         >
           다음
         </button>
+      </div>
       </div>
     </div>
   );

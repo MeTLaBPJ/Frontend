@@ -76,13 +76,15 @@ const Login2 = () => {
     };
 
     return (
-        <div className="Login2Page">
+        <div className="LoginPage">
+             <div className="container">
+
             <header className="header">
                 <button className="back-button" onClick={handleBack}>
                     <IoChevronBack />  
                 </button>
             </header> 
-            <div className="container">
+         
                 <h2 className="login-heading">인증 메일이 보내졌습니다</h2>
                 <p className="login-subtext">인증 번호 6자리를 입력해주세요</p>
 
@@ -104,10 +106,11 @@ const Login2 = () => {
                         메일을 못받으셨나요? &nbsp;
                         <span onClick={handleResend}>다시 받기</span>
                     </p>
-
+                <div className="botton-container">
                 <button className="bottom-Button" onClick={handleSubmit}>
                     다음
                 </button>
+                </div>
             </div>
         </div>
     );

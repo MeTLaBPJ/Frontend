@@ -66,7 +66,8 @@ const Login3 = () => {
     }
   };
   return (
-    <div className="Login3Page">
+    <div className="LoginPage">
+      <div className="container">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -76,11 +77,11 @@ const Login3 = () => {
         </div>
       </header>  
 
-      <div className="container">
+      
         <h2 className="login-heading">비밀번호를 설정해주세요</h2>
-        <p className="login-subtext1">영문, 숫자, 특수문자를 조합하여 8자 이상으로 설정해주세요</p>
+        <p className="login-subtext">영문, 숫자, 특수문자를 조합하여 8자 이상으로 설정해주세요</p>
 
-        <div className="input-container">
+       
           <input
             type="password"
             className="password-input"
@@ -92,10 +93,10 @@ const Login3 = () => {
           <p className={`error-message ${passwordError ? 'visible' : ''}`}>
             {passwordError}
           </p>
-        </div>
+        
 
-        <label className="login-subtext2">다시 한번 입력해주세요</label>
-        <div className="input-container">
+        <label className="login-subtext1">다시 한번 입력해주세요</label>
+      
           <input
             type="password"
             className="repassword-input"
@@ -107,8 +108,9 @@ const Login3 = () => {
           <p className={`error-message1 ${confirmPasswordError ? 'visible' : ''}`}>
             {confirmPasswordError}
           </p>
-        </div>
+       
     
+        <div className="botton-container">
         <button
           className="bottom-Button"
           onClick={handleSubmit}
@@ -116,6 +118,7 @@ const Login3 = () => {
         >
           다음
         </button>
+        </div>
       </div>
     </div>
   );

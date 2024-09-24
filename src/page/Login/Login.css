@@ -3,46 +3,40 @@
     width: 375px;
     margin: 0 auto;
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'Pretendard', sans-serif;
+      height: 100%;
+    }
+
     .login-heading {
       width: 300px;
       height: 24px;
-      margin-top: 50px; /* 상단 여백 */
-      margin-bottom: 10px;
-      align-self: flex-start; 
-      margin-left: 20px;
-  
+      margin-top: 50px;
+      margin-bottom: 5px;
       font-family: 'Pretendard';
       font-style: normal;
       font-weight: 600;
       font-size: 20px;
       line-height: 24px;
-  
       display: flex;
       align-items: center;
-  
       color: #3D3D3D;
-    }
+  }
   
     .login-subtext {
       /* 안전한 인피 활동을 위해 학교 인증이 필요해요 */
-      width: 330px;
-      height: 18px;
-      align-self: flex-start; 
-      margin-left: 20px;
-  
+      width: 300px;
+      height: 18px;  
       margin-bottom: 50px;
-      align-self: flex-start; 
-      margin-left: 20px;
-  
       font-family: 'Pretendard';
       font-style: normal;
       font-weight: 500;
       font-size: 16px;
-      line-height: 18px;
-  
       display: flex;
       align-items: center;
-  
       color: #3D3D3D;
     }
   
@@ -51,22 +45,9 @@
       width: 290px;
       height: 46px;
       margin-top: 1px; /* 상단 여백 */
-  
-      margin-left: 20px;
-      margin-bottom: 400px;
-  
       display: flex;
       justify-content: center;
       align-items: center;
-      
-    }
-  
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      font-family: 'Pretendard', sans-serif;
     }
   
     .header {
@@ -85,143 +66,15 @@
       cursor: pointer;
       width: 22px;
       height: 22px;
-  
       margin-top: 80px;
       align-self: flex-start; 
-      margin-left: 10px;
+    }
+
+    .botton-container{
+      margin-top:auto;
     }
   
     .bottom-Button {
-    width: 300px;
-    height: 50px;
-    color: #F7F7F7;
-    background: #FF7898;
-    border-radius: 8px;
-    border-color: rgb(255, 255, 255);
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    margin: 20px auto;
-    }
-    
-    .bottom-Button:disabled {
-      background-color: #dadada;
-      color: white;
-    }
-
-    .error-message {
-      color: red;
-      /* 빨간색 에러 메시지 */
-      font-size: 0.5em;
-    
-      width: 320px;
-      height: 14px;
-      
-    }
-
-}
-
-.Login1Page {
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
-
-  .login-heading {
-    width: 300px;
-    height: 24px;
-    margin-top: 50px; /* 상단 여백 */
-    margin-bottom: 10px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .login-subtext {
-    /* 안전한 인피 활동을 위해 학교 인증이 필요해요 */
-    width: 330px;
-    height: 18px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    margin-bottom: 50px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .email-input {
-    /* 이메일 입력창 */
-    width: 290px;
-    height: 46px;
-    margin-top: 1px; /* 상단 여백 */
-
-    margin-left: 10px;
-    margin-bottom: 400px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
-  .header {
-    /* 상단 헤더 */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-button {
-    /* 왼쪽 꺽쇠 */
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
-
-    margin-top: 80px;
-    align-self: flex-start; 
-    margin-left: 30px;
-  }
-
-  .bottom-Button {
       /* 하단 버튼 */
       width: 300px;
       height: 50px;
@@ -235,96 +88,39 @@
       font-style: normal;
       font-weight: 700;
       font-size: 18px;
-      
-      margin-left: 10px;
-      margin-bottom: 40px; 
+     
+      margin-bottom: 40px;
+      margin-top:auto;
     
       display: flex;
       justify-content: center;
       align-items: center;
       }
-  
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
-}
+    
+    .bottom-Button:disabled {
+      background-color: #dadada;
+      color: white;
+    }
 
-.Login2Page {
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
+    .error-message {
+      color: red;
+      font-size: 0.5em;
+    
+      width: 320px;
+      height: 14px;
+      
+    }
 
-  .login-heading {
-    width: 250px;
-    height: 24px;
-    margin-top: 50px; /* 상단 여백 */
-    margin-bottom: 10px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .login-subtext {
-    width: 300px;
-    height: 18px; 
-
-    margin-bottom: 50px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
-  .header {
-    /* 상단 헤더 */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-button {
-    /* 왼쪽 꺽쇠 */
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-   
-    width: 22px;
-    height: 22px;
-
-    margin-top: 80px;
-    align-self: flex-start; 
-    margin-left: 30px;
-  }
+    .email-input {
+      /* 이메일 입력창 */
+      width: 290px;
+      height: 46px;
+      margin-top: 1px; /* 상단 여백 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
 
   .code-inputs {
     /* 인증번호 입력 */
@@ -332,8 +128,6 @@
     justify-content: center;
     gap: 10px;
     /* 입력 필드 사이의 간격 */
-    margin-left: -10px;
-
   }
 
   .code-input {
@@ -370,111 +164,19 @@
     color: #8C8C8C;
   }
 
-  .bottom-Button {
-    /* 하단 버튼 */
-    width: 300px;
-    height: 50px;
-  
-    color: #F7F7F7;
-    background: #FF7898;
-    border-radius: 8px;
-    border-color: rgb(255, 255, 255);
-  
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    
-    margin-left: -10px;
-    margin-bottom: 40px; 
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
-
-}
-
-.Login3Page {
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
-
-  .login-heading {
-    width: 250px;
-    height: 24px;
-    margin-top: 50px; /* 상단 여백 */
-    margin-bottom: 10px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
   .login-subtext1 {
-    /* 안전한 인피 활동을 위해 학교 인증이 필요해요 */
-    width: 275px;
-    height: 18px;
-
-    margin-bottom: 50px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
+    width: 300px;
+    height: 18px;  
+    margin-bottom: 20px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
-    line-height: 18px;
-
     display: flex;
     align-items: center;
-
     color: #3D3D3D;
   }
-
-  .login-subtext2 {
-    /* 다시 한 번 입력해주세요 */
-    width: 180px;
-    height: 22px;
-
-    align-self: flex-start; 
-    margin-left: 20px;
-    margin-top: 80px;
-    margin-bottom: 10px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 22px;
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
+  
   .header {
     /* 상단 헤더 */
     width: 100%;
@@ -483,30 +185,13 @@
     justify-content: space-between;
   }
 
-  .back-button {
-    /* 왼쪽 꺽쇠 */
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    
-    width: 22px;
-    height: 22px;
-
-    margin-top: 80px;
-    align-self: flex-start; 
-    margin-left: 30px;
-  }
-
   /*  실행 단계 배경 CSS */
   .progress-bar {
     width: 240px;
     height: 10px;
-
     margin-top: 90px;
     align-self: flex-start; 
-    margin-right: 50px;
-
+    margin-right: 70px;
     background: #D9D9D9;
     border-radius: 50px;
   }
@@ -522,9 +207,7 @@
     /* 비밀번호 입력창 */
     width: 290px;
     height: 46px;
-
-    margin-left: 20px;
-
+    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -534,10 +217,6 @@
     /* 비밀번호 확인창 */
     width: 290px;
     height: 46px;
-
-    margin-left: 20px;
-    margin-bottom: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -557,140 +236,11 @@
   .error-message.visible, .error-message1.visible {
     visibility: visible; /* 에러가 있을 때만 보이도록 */
   }
-  
-
-  .bottom-Button {
-    /* 하단 버튼 */
-    width: 300px;
-    height: 50px;
-  
-    color: #F7F7F7;
-    background: #FF7898;
-    border-radius: 8px;
-    border-color: rgb(255, 255, 255);
-  
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    
-    margin-left: -2px;
-    margin-top: 150px; 
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
-}
-
-.Login4Page {
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
-
-  .login-heading {
-    /* 학교 이메일을 입력해 주세요 */
-    width: 250px;
-    height: 24px;
-    margin-top: 50px; /* 상단 여백 */
-    margin-bottom: 10px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .login-subtext {
-    /* 안전한 인피 활동을 위해 학교 인증이 필요해요 */
-    width: 300px;
-    height: 18px;
-
-    margin-bottom: 80px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
-  .header {
-    /* 상단 헤더 */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-button {
-    /* 왼쪽 꺽쇠 */
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    
-    width: 22px;
-    height: 22px;
-
-    margin-top: 80px;
-    align-self: flex-start; 
-    margin-left: 30px;
-  }
-
-  /*  실행 단계 배경 CSS */
-  .progress-bar {
-    width: 240px;
-    height: 10px;
-
-    margin-top: 90px;
-    align-self: flex-start; 
-    margin-right: 50px;
-
-    background: #D9D9D9;
-    border-radius: 50px;
-  }
-
-  /* 실행 단계 CSS */
-  .progress {
-    height: 100%;
-    background-color: #ff7096;
-    border-radius: 10px;
-  }
 
   .login4-input {
     /* 닉네임 입력창 */
     width: 295px;
     height: 50px;
-    margin-left: 20px;
     margin-bottom: 15px;
   }
 
@@ -698,123 +248,14 @@
     /* 중복 확인 버튼 */
     width: 300px;
     height: 50px;
-
-    margin-left: 20px;
     background: #FF7898;
     border-radius: 8px;
-
     color: #fff;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 10px;
-  }
-
-  .bottom-Button {
-   /* 하단 버튼 */
-   width: 300px;
-   height: 50px;
- 
-   color: #F7F7F7;
-   background: #FF7898;
-   border-radius: 8px;
-   border-color: rgb(255, 255, 255);
-   
- 
-   font-family: 'Pretendard';
-   font-style: normal;
-   font-weight: 700;
-   font-size: 18px; 
-   
-   margin-left: 30px;
-   margin-top: 300px; 
- 
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  }
-
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
-
-
-}
-
-.Login5Page {
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
-
-  .login-heading {
-    width: 300px;
-    height: 24px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
-  .header {
-    /* 상단 헤더 */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-button {
-    /* 왼쪽 꺽쇠 */
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
-
-    margin-top: 80px;
-    align-self: flex-start; 
-    margin-left: 30px;
-  }
-
-  /*  실행 단계 배경 CSS */
-  .progress-bar {
-    width: 240px;
-    height: 10px;
-
-    margin-top: 90px;
-    align-self: flex-start; 
-    margin-right: 50px;
-
-    background: #D9D9D9;
-    border-radius: 50px;
-  }
-  /* 실행 단계 CSS */
-  .progress {
-    height: 100%;
-    background-color: #ff7096;
-    border-radius: 10px;
   }
 
   .gender-options {
@@ -892,129 +333,19 @@
   color: #3D3D3D;
   }
 
-  .bottom-Button {
-    /* 하단 버튼 */
-    width: 300px;
-    height: 50px;
-  
-    color: #F7F7F7;
-    background: #FF7898;
-    border-radius: 8px;
-    border-color: rgb(255, 255, 255);
-  
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-
-    margin-left: 50px;
-    margin-top: 340px; 
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
-
-}
-
-.Login6Page {
-    height: 812px;
-    width: 375px;
-    margin: 0 auto;
-
-  .login-heading {
+  .login5-heading {
     width: 300px;
     height: 24px;
-    margin-top: 50px; /* 상단 여백 */
-    margin-bottom: 5px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
+    margin-top: 50px;
+    margin-bottom: 30px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
-
     display: flex;
     align-items: center;
-
     color: #3D3D3D;
-  }
-
-  .login-subtext {
-    /* 안전한 인피 활동을 위해 학교 인증이 필요해요 */
-    width: 300px;
-    height: 18px;
-
-    margin-bottom: 30px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
-  .header {
-    /* 상단 헤더 */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-button {
-    /* 왼쪽 꺽쇠 */
-    border: none;
-    background-color: transparent;
-    font-size: 24px;
-    cursor: pointer;
-    
-    width: 22px;
-    height: 22px;
-
-    margin-top: 80px;
-    align-self: flex-start; 
-    margin-left: 30px;
-  }
-
-  .progress-bar {
-    width: 240px;
-    height: 10px;
-
-    margin-top: 90px;
-    align-self: flex-start; 
-    margin-right: 50px;
-
-    background: #D9D9D9;
-    border-radius: 50px;
-  }
-
-  .progress {
-    height: 100%;
-    background-color: #ff7096;
-    border-radius: 10px;
   }
 
   /* 단과대 선택 */
@@ -1031,10 +362,7 @@
     /* 학번 입력창 */
     width: 290px;
     height: 46px;
-
-    margin-left: 10px;
     margin-bottom: 100px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1045,9 +373,7 @@
     /* 단과대 선택창 */
     width: 282px;
     height: 50px;
-    margin-left: 10px;
-    margin-bottom: 5px;
-
+    margin-bottom: 20px;
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 400;
@@ -1059,7 +385,6 @@
     /* 학과 선택창 */
     width: 282px;
     height: 50px;
-    margin-left: 10px;
     height: 20px;
   }
 
@@ -1071,161 +396,26 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-
-  .bottom-Button {
-    /* Rectangle 8 */
-    width: 300px;
-    height: 50px;
-  
-    color: #F7F7F7;
-    background: #FF7898;
-    border-radius: 8px;
-    border-color: rgb(255, 255, 255);
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    
-    margin-left: 10px;
-    margin-top: 250px;
-    margin-bottom: 40px; 
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
-
-}
-
-.Login7Page {
-  height: 812px;
-  width: 375px;
-  margin: 0 auto;
-
-  .login-heading {
-    width: 300px;
-    height: 24px;
-    margin-top: 50px; /* 상단 여백 */
-    margin-bottom: 80px;
-    align-self: flex-start; 
-    margin-left: 20px;
-
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-
-    display: flex;
-    align-items: center;
-
-    color: #3D3D3D;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: 'Pretendard', sans-serif;
-  }
-
-  .header {
-    /* 상단 헤더 */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .back-button {
-  /* 왼쪽 꺽쇠 */
-  border: none;
-  background-color: transparent;
-  font-size: 24px;
-  cursor: pointer;
-  
-  width: 22px;
-  height: 22px;
-
-  margin-top: 80px;
-  align-self: flex-start; 
-  margin-left: 30px;
-  }
-
-  /*  실행 단계 배경 CSS */
-  .progress-bar {
-    width: 240px;
-    height: 10px;
-
-    margin-top: 90px;
-    align-self: flex-start; 
-    margin-right: 50px;
-
-    background: #D9D9D9;
-    border-radius: 50px;
-  }
-
-  /* 실행 단계 CSS */
-  .progress {
-    height: 100%;
-    background-color: #ff7096;
-    border-radius: 10px;
-  }
   
   .year-month-day-container {
     display: flex;
     gap: 10px;
-    margin-left: 1cap;
     margin-bottom: 410px;
   }
 
   .year-input {
-    width: 80px;
+    width: 85px;
     height: 46px;
   }
 
   .month-input {
-    width: 80px;
+    width: 85px;
     height: 46px;
   }
 
   .day-input {
-    width: 80px;
+    width: 85px;
     height: 46px;
   }
-
-  .bottom-Button {
-    /* 하단 버튼 */
-    width: 300px;
-    height: 50px;
-  
-    color: #F7F7F7;
-    background: #FF7898;
-    border-radius: 8px;
-    border-color: rgb(255, 255, 255);
-  
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18px;
-    
-    margin-left: 10px;
-    margin-bottom: 40px; 
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-
-  .bottom-Button:disabled {
-    background-color: #dadada;
-    color: white;
-  }
 }
+

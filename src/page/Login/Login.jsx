@@ -48,13 +48,14 @@ const Login = () => {
 
     return (
         <div className="LoginPage">
-            <div>
+             <div className="container">
                 <header className="header">
                     <button className="back-button" onClick={handleBack}>
                         <IoChevronBack />
                     </button>
                 </header>
 
+               
                 <h2 className="login-heading">비밀번호를 입력해주세요</h2>
                 <p className="login-subtext">가입하실 때 설정한 비밀번호를 입력하세요</p>
 
@@ -72,6 +73,7 @@ const Login = () => {
                     <p className="error-message">{error}</p> // 에러 메시지 출력
                 )}
 
+                <div className="botton-container">
                 <button
                     className="bottom-Button"
                     disabled={password.trim() === ""}
@@ -79,8 +81,9 @@ const Login = () => {
                 >
                     로그인
                 </button>
+                </div>
+                </div>
             </div>
-        </div>
     );
 };
 

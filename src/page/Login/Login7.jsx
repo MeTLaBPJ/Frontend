@@ -75,7 +75,9 @@ const Login7 = () => {
   };
 
   return (
-    <div className="Login7Page">
+    <div className="LoginPage">
+      <div className="container">
+
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
@@ -86,8 +88,8 @@ const Login7 = () => {
         </div>
       </header>
 
-      <div className="container">
-      <h2 className="login-heading">춘식이님의 생일을 알려주세요</h2>
+     
+      <h2 className="login5-heading">춘식이님의 생일을 알려주세요</h2>
       <form onSubmit={handleSubmit}>
         <div className="year-month-day-container">
           <input
@@ -115,11 +117,14 @@ const Login7 = () => {
             className="day-input"
           />
         </div>
+        </form>
     
+        <div className="botton-container">
         <button type="submit" className="bottom-Button">
           다음
         </button>
-      </form>
+        </div>
+      
       </div>
     </div>
   );

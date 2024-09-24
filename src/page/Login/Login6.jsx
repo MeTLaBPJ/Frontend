@@ -48,7 +48,9 @@ const Login6 = () => {
   };
 
   return (
-    <div className = "Login6Page">
+    <div className = "LoginPage">
+      <div className="container">
+
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />
@@ -58,9 +60,8 @@ const Login6 = () => {
         </div>
       </header>
 
-      <div className="container">
       <h2 className="login-heading">춘식이님에 대해 알려주세요</h2>
-      <p className="loginsubtext">학번 9자리를 입력해주세요</p>
+      <p className="login-subtext">학번 9자리를 입력해주세요</p>
 
       <form onSubmit={handleSubmit}>
         <div className="student-id">
@@ -110,13 +111,17 @@ const Login6 = () => {
     </select>
   </div>
 )}
+ </form>
+   
 
+      <div className="botton-container">
         <button type="submit" className="bottom-Button">
           다음
         </button>
-      </form>
+        </div>
+        </div>
     </div>
-  </div>
+    
   );
 };
 

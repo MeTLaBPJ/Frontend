@@ -9,7 +9,6 @@ import subLogo from '../../asset/sublogo.png';
 function Main() {
   const navigate = useNavigate();  // useNavigate 훅 사용
 
-
   //로컬스토리지 확인후 로그인 페이지 혹은 회원가입 페이지로 이동
   const handleButtonClick = () => {
     if (localStorage.getItem('userEmail')) {
@@ -23,6 +22,7 @@ function Main() {
 
   return (
     <div className="MainPage">
+      <div className="container">
       <div>
         <img className="img-title" src={mainLogo} alt="mainlogo" />
       </div>
@@ -35,12 +35,12 @@ function Main() {
         <img className="img-subtitle" src={subLogo} alt="sublogo" />
       </div>
 
-
-      <div>
+      <div className="botton-container">
         <button className="bottom-Button" onClick={handleButtonClick}>
           시작하기
         </button>
       </div>
+    </div>
     </div>
   )
 }
