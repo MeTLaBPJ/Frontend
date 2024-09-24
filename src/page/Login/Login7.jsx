@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // useNavigate 추가
 import { IoChevronBack } from "react-icons/io5";
 import { UserContext } from "../../context/UserContext";
@@ -11,7 +11,17 @@ const Login7 = () => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
+  const [profile,setProfile]=useState("");
   const navigate = useNavigate(); // navigate 초기화
+  const [birthdate, setBirthdate]=useState("");
+
+  useEffect(() => {
+    if (setYear|setDay|setMonth) {
+    
+      console.log("Birthdate updated:", birthdate);
+     
+    }
+  }, [setYear,setDay,setMonth]); 
 
   const isLeapYear = (year) => {
     return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
@@ -22,6 +32,7 @@ const Login7 = () => {
       alert("생년월일을 정확히 입력해 주세요.");
       return false;
     }
+  
 
     // 형식 체크
     if (!/^\d{4}$/.test(year) || !/^\d{2}$/.test(month) || !/^\d{2}$/.test(day)) {
@@ -47,24 +58,21 @@ const Login7 = () => {
       return false;
     }
     const birthdate = `${year}-${month}-${day}`;
-    updateUser({ birthday:birthdate});
+    setBirthdate(birthdate);
     console.log("생일:", birthdate);
     return true;
   };
-
   const handleSubmit = async(e) => {
+
     e.preventDefault();
 
     if (!validateBirthdate(year, month, day)) {
       return;
     }
-    
-    
-    
-    
-
+   
     try {
-      await postUser(User);
+      const randomImageIndex = Math.floor(Math.random() * 6);
+      await postUser({...User,profile:`${randomImageIndex}`, birthday:birthdate});
       console.log('user data posted successfully');
      navigate('/login');
     } catch (error) {
