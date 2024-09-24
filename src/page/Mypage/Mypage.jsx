@@ -3,6 +3,7 @@ import Tabs from "./Tabs";
 import "./Mypage.css";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../api/getUser";
+import { putUser} from "../../api/putUser";
 
 
 
@@ -14,8 +15,20 @@ function Mypage() {
         schoolEmail: 0,
         studentId: "",
         department:"",
-        mbti:""
+        mbti:"",
+        college:""
     });
+
+    const [newData, setNewData] = useState({
+        college: data.college,
+        department: data.department,
+        drinking: "",
+        height: "",
+        mbti: "",
+        nickname: data.nickname,
+        schoolEmail: data.schoolEmail,
+        smoking: ""
+    })
     const [token, setToken] = useState('');
    
     useEffect(() => {
@@ -35,6 +48,7 @@ function Mypage() {
             try {
                 const mypageData = await getUser(token);
                 setData(mypageData);
+                setNewData(mypageData);
             } catch (error) {
                 console.error('Error fetching mypage data:', error);
             }
@@ -43,12 +57,20 @@ function Mypage() {
         fetchMypageData();
     }, [token]);
 
-    const handleInputChange=()=>{
+    const handleInputChange = (event) => {
+        const { id, value } = event.target;
+        setNewData((prevData) => ({
+          ...prevData,
+          [id]: value // 입력 필드의 name 속성에 따라 상태를 업데이트
+        }));
+      };
 
-    }
-
-    const handleSubmit=()=>{
-
+    const handleSubmit= async()=>{
+        try {
+            await putUser(token,newData);
+        } catch (error) {
+            console.error('Error fetching mypage data:', error);
+        }
     }
     const handleMbtiTest=()=>{
 
@@ -115,6 +137,8 @@ function Mypage() {
                             </div>
                             <button id="secession" >탈퇴하기</button>
                         </div>
+
+
                              <div label="내 정보"> 
                             <div id="profile_info">키워드 사이엔 쉼표(,)로 구분해주세요</div>
 
@@ -130,18 +154,20 @@ function Mypage() {
                                 <div id="mbti" className="option">  · MBTI
                                     <input
                                         id="mbti"
+                                       
                                         className={`mbti_input ${!data.mbti ? 'empty' : ''}`}
-                                        value={data.mbti}
+                                        value={newData.mbti}
                                         onChange={handleInputChange}
-                                        placeholder="MBTI를 입력하세요"
+                                        placeholder={data.mbti}
                                     />
                                     <button className="mbti-test" onClick={handleMbtiTest}>테스트</button>
                                 </div>
                                 <div id="height" className="option"> · 키
                                     <input
                                         id="height"
+            
                                         className={`height_input ${!data.height ? 'empty' : ''}`}
-                                        value={data.height}
+                                        value={newData.height}
                                         onChange={handleInputChange}
                                         placeholder="키를 입력하세요"
                                     />
@@ -150,7 +176,7 @@ function Mypage() {
                                     <input
                                         id="drinking"
                                         className={`drinking_input ${!data.drinking ? 'empty' : ''}`}
-                                        value={data.drinking}
+                                        value={newData.drinking}
                                         onChange={handleInputChange}
                                         placeholder="음주 습관을 입력하세요"
                                     />
@@ -159,7 +185,7 @@ function Mypage() {
                                     <input
                                         id="smoking"
                                         className={`smoking_input ${!data.smoking ? 'empty' : ''}`}
-                                        value={data.smoking}
+                                        value={newData.smoking}
                                         onChange={handleInputChange}
                                         placeholder="흡연 여부를 입력하세요"
                                     />
