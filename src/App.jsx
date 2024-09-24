@@ -45,13 +45,10 @@ import MakeChatRoom from "./page/Chat/MakeChatRoom/MakeChatRoom";
 import { MbtiProvider } from "./context/MbitContext";
 import { UserProvider } from "./context/UserContext";
 
-
-
 function App() {
 
   return (
     <UserProvider>
-
       <MbtiProvider>
         <Router>
           <Routes>

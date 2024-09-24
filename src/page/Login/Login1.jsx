@@ -41,18 +41,19 @@ const Login1 = () => {
   };
 
   const handleBack = () => {
-    navigate('/main'); // 이전 페이지로 이동
+    navigate('/'); // 이전 페이지로 이동
   };
 
   return (
-    <div className="Login1Page">
+    <div className="LoginPage">
+      <div className="container">
+
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
       </header>  
 
-      <div className="container">
         <h2 className="login-heading">학교 이메일을 입력해 주세요</h2>
         <p className="login-subtext">안전한 인피 활동을 위해 학교 인증이 필요해요</p>
 
@@ -65,12 +66,14 @@ const Login1 = () => {
             className="email-input"
             required // 이메일 입력 필수
           />
+          </form>
+          <div className="button-container">
           <button className="bottom-Button" type="submit">
             인증번호 보내기 
           </button>
-        </form>
+          </div>
       </div>
-    </div>
+      </div>
   );
 };
 

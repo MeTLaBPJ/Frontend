@@ -37,7 +37,6 @@ const Login4 = () => {
     }
   };
   
-
   const handleNext = () => {
     if (nickname.length >= 2 && nickname.length <= 20 && isNicknameChecked) {
       updateUser({nickname:nickname});
@@ -53,25 +52,19 @@ const Login4 = () => {
   };
 
   return (
-    <div className = "Login4Page">
-        <header>
+    <div className = "LoginPage">
+      <div className="container">
+
+        <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "35%" }}></div>
         </div>
-      </header>  
-      <header>
-        <button className="back-button" onClick={handleBack}> 
-          <IoChevronBack />  
-        </button>
-        <div className="progress-bar">
-          <div className="progress" style={{ width: "30%" }}></div>
-        </div>
       </header>
 
-      <div>
+      
         <h2 className="login-heading">닉네임을 입력해주세요</h2>
         <p className="login-subtext">한글로만 2자 이상, 20자 이하로 가능해요</p>
         
@@ -90,6 +83,7 @@ const Login4 = () => {
           중복 확인하기
         </button>
 
+        <div className="button-container">
         <button 
           className="bottom-Button" 
           disabled={nickname.length < 2 || !isNicknameChecked} // 중복 확인 완료 상태를 확인
@@ -97,6 +91,7 @@ const Login4 = () => {
         >
           다음
         </button>
+      </div>
       </div>
     </div>
   );

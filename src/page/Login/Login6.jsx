@@ -48,7 +48,9 @@ const Login6 = () => {
   };
 
   return (
-    <div className = "Login6Page">
+    <div className = "LoginPage">
+      <div className="container">
+
       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />
@@ -95,26 +97,30 @@ const Login6 = () => {
 
         {/* 학과 선택 */}
         {division && (
-          <div className="select-container2">
-            <select
-              id="department"
-              value={department}
-              onChange={(e) => setDepartment(e.target.value)}
-              className="select-department"
-            >
-              <option value="">학과 선택하기</option>
-              {divisionsAndDepartments[division].map((dept, idx) => (
-                <option key={idx} value={dept}>{dept}</option>
-              ))}
-            </select>
-          </div>
-        )}
-
+  <div className="select-container2">
+    <select
+      id="department"
+      value={department}
+      onChange={(e) => setDepartment(e.target.value)}
+      className="select-department"
+    >
+      <option value="">학과 선택하기</option>
+      {divisionsAndDepartments[division].map((dept, idx) => (
+        <option key={idx} value={dept}>{dept}</option>
+      ))}
+    </select>
+  </div>
+)}
+ </form>
+  
+      <div className="button-container">
         <button type="submit" className="bottom-Button">
           다음
         </button>
-      </form>
+        </div>
+        </div>
     </div>
+    
   );
 };
 

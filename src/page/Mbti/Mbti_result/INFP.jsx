@@ -14,19 +14,17 @@ function Infp(){
 
     return (
         <div className="Mbti_result">
-            <h1 className="title"> 횃불이 테스트 결과 </h1>
-            <p className="who"> 당신은 ... </p>
-
+            <div className="container">
             <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
-            <h1 className="result-title"> 내향 횃불이 </h1>
+            <h1 className="title"> 내향 횃불이과 </h1>
 
-            <div className="profile">
+           
                 <img
                     className="profile-image"
                     src={INFPImage}
                     alt="내향 햇불이"
                 />
-            </div>
+           
 
             <ul className="traits">
                 <li>★ 자유롭고 창의적인 환경에서 아이디어를 발산하는 것을 좋아함</li>
@@ -37,22 +35,27 @@ function Infp(){
             </ul>
 
             <div className="matches">
-                <div className="good-match">
-                    <p>잘 맞는 햇불이</p>
-                    {/* import된 이미지 변수를 사용 */}
-                    <img src={ENFJImage} alt="잘 맞는 햇불이" />
+                <div className="good-bad-match">
+                    <div className="good-match">
+                        <p className="combination">잘 맞는 햇불이</p>
+                         <img src={ENFJImage} alt="잘 맞는 햇불이" />
+                        <p className="nickname">사교 햇불이</p>
                 </div>
 
                 <div className="bad-match">
-                    <p>안 맞는 햇불이</p>
-                    {/* import된 이미지 변수를 사용 */}
+                    <p className = "combination">안 맞는 햇불이</p>
                     <img src={ESTJImage} alt="안 맞는 햇불이" />
+                     <p className="nickname">모범 햇불이</p>
+                 </div>
                 </div>
             </div>
 
-            <button className="home-button" onClick={handleBackToHome}>
+            <div className="button-container">
+            <button className="bottom-Button" onClick={handleBackToHome}>
                 홈 화면으로 돌아가기
             </button>
+            </div>
+        </div>
         </div>
     );
 };

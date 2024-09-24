@@ -30,8 +30,10 @@ const Login5 = () => {
   };
 
   return (
-    <div className="Login5Page">
-      <header>
+    <div className="LoginPage">
+        <div className="container">
+
+       <header className="header">
         <button className="back-button" onClick={handleBack}>
           <IoChevronBack />  
         </button>
@@ -39,7 +41,8 @@ const Login5 = () => {
           <div className="progress" style={{ width: "50%" }}></div>
         </div>
       </header>  
-      <h2 className="login-heading">춘식이님의 성별을 알려주세요</h2>
+
+      <h2 className="login5-heading">춘식이님의 성별을 알려주세요</h2>
       <div className="gender-options">
         <div
           className={`rectangle ${selectedGender === '남성' ? 'selected' : ''}`} 
@@ -60,6 +63,7 @@ const Login5 = () => {
           </div>
         </div>
       </div>
+      <div className="button-container">
       <button
         className="bottom-Button"
         onClick={handleSubmit} // 버튼 클릭 시 제출
@@ -68,6 +72,8 @@ const Login5 = () => {
       >
         다음
       </button>
+    </div>
+    </div>
     </div>
   );
 };

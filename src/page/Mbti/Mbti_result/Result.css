@@ -1,103 +1,63 @@
 .Mbti_result{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #FFFFFF ;
+    height: 812px;
     width: 375px;
-    height: 100vh;
+    margin: 0 auto;
 
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+    
     .title {
     /* 횃불이 테스트 결과 */
-   
-    width: 330x;
-    height: 20px;
-    
     font-family: 'Pretendard';
     font-style: normal;
     font-weight: 700;
     font-size: 30px;
-    line-height: 20px;
-    /* identical to box height, or 50% */
-    display: flex;
     align-items: center;
-    text-align: center;
-
     color: #FF7898;
-    }
-    
-    .who {
- 
-    width: 70px;
-    height: 14px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 14px;
-    /* identical to box height, or 88% */
-    display: flex;
-    align-items: center;
-
-    color: #A59797;
-
-    }
+    };
     
     .subtitle {
- 
-    width: 250px;
-    height: 20px;
-    display: flex;
+    margin-top: 30px;
+    margin-bottom: -15px;
     flex-direction: row;
-    justify-content: center;
     font-family: 'Pretendard';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 18px;
     line-height: 20px;
-    /* identical to box height, or 111% */
-    display: flex;
-    align-items: center;
     text-align: center;
-
     color: #000000;
-    }
-    
-    .result-title {
-  
-    width: 270px;
-    height: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 20px;
-    /* identical to box height, or 50% */
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: #FF7898;
-    }
-    
-    .profile {
-   
     }
     
     .profile-image {
         width: 300px;
+        margin-top: -20px;
+        margin-bottom: 10px;
         height: auto;
     }
     
     .traits {
-        margin-top: -50px;
+        margin-top: -55px;
         list-style-type: none;
         padding: 0;
         font-size: 16px;
         font-family: 'Pretendard';
         align-items: center;
+        justify-content: center;
+    }
+
+    .traits1 {
+        margin-top: -35px;
+        list-style-type: none;
+        padding: 0;
+        font-size: 16px;
+        font-family: 'Pretendard';
+        align-items: center;
+        justify-content: center;
     }
     
     .traits li {
@@ -108,63 +68,70 @@
         display: flex;
         justify-content: center;
         align-items: center;
-      
+    }
+    
+    .good-bad-match {
+        text-align: center;
+        border-radius: 10px; /* 박스 둥글게 */
+        display: flex;
+        gap: 30px; /* 두 항목 간 간격 조정 */
+        margin-bottom: 20px;
     }
     
     .good-match, .bad-match {
         text-align: center;
-        margin: 0 -5px;
-    }
-    
-    .good-match img{
-        width: 110px;
-        height: auto;
-        margin-bottom: 10px;
-        padding: 10px;
-        border: 2px solid #FF7898; /* 핑크색 테두리 */
-        border-radius: 10px; /* 둥근 모서리 */
-        background-color: white; /* 박스 안에 흰색 배경 */
-    }
-    
-    .bad-match img {
-        width: 120px;
-        height: auto;
-        margin-bottom: 10px;
-        padding: 10px;
-        border: 2px solid #FF7898; /* 핑크색 테두리 */
-        border-radius: 10px; /* 둥근 모서리 */
-        background-color: white; /* 박스 안에 흰색 배경 */
-    }
-    
-    .good-match, .bad-match {
-        display: inline-block;
-        padding: 15px;
-        background-color: white; /* 박스 안 배경 */
+        border: 2px solid #FF7898; 
+        border-radius: 10px;
         position: relative;
     }
     
-    .good-match p, .bad-match p {
-        font-size: 14px;
-
-   
-        width: 100%;
-        text-align: center;
+    .good-match img, .bad-match img {
+        margin-top: -20px;
+        width: 130px;
+        height: auto;
+        position: relative;
+        z-index: 1; /* 낮은 z-index 값으로 뒤로 보냄 */
+       
     }
-
-    .home-button {
-     
+   
+    .combination{
+        font-size: 15px;
+        margin-top: 8px;
+        position: relative;
+        z-index: 2;
+    }
+    .nickname{
+        font-size: 15px;
+        position: relative;
+        z-index: 2;
+        margin-top: -20px;
+        
+    }
+    
+    .button-container{
+        margin-top:auto;
+      }
+    
+      .bottom-Button {
+        /* 하단 버튼 */
         width: 300px;
         height: 50px;
+      
         color: #F7F7F7;
         background: #FF7898;
-        border-radius: 5px;
+        border-radius: 8px;
+        border-color: rgb(255, 255, 255);
       
         font-family: 'Pretendard';
         font-style: normal;
         font-weight: 700;
         font-size: 18px;
-          
-        border-radius: 8px;
-        border-color: white;  
-    }
+       
+        margin-bottom: 40px;
+        margin-top:auto;
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
 }
