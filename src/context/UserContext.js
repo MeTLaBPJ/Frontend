@@ -11,7 +11,8 @@ export const UserProvider = ({ children }) => {
         studentId:"",
         college:"",
         department:"",
-        birthday:""  
+        birthday:"" 
+     
         
     });
 
@@ -34,6 +35,7 @@ export const UserProvider = ({ children }) => {
             college:"",
             department:"",
             birthday:""  
+          
         });
     };
     return (

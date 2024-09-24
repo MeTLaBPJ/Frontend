@@ -4,12 +4,24 @@ import "./Mypage.css";
 import { useNavigate } from "react-router-dom";
 import { getUser } from "../../api/getUser";
 import { putUser} from "../../api/putUser";
-import profileImage from "../../asset/ChatRoomPic1.png"
+import profileImage1 from "../../asset/ChatRoomPic1.png"
+import profileImage2 from "../../asset/ChatRoomPic2.png"
+import profileImage3 from "../../asset/ChatRoomPic3.png"
+import profileImage4 from "../../asset/ChatRoomPic4.png"
+import profileImage5 from "../../asset/ChatRoomPic5.png"
+import profileImage6 from "../../asset/ChatRoomPic6.png"
 
 
 function Mypage() {
     const navigate = useNavigate();  
-
+    const profileImages =[
+        profileImage1,
+        profileImage2,
+        profileImage3,
+        profileImage4,
+        profileImage5,
+        profileImage6
+    ]
     const [data, setData] = useState({
         nickname: "",
         schoolEmail: 0,
@@ -17,7 +29,8 @@ function Mypage() {
         department:"",
         mbti:"",
         college:"",
-        shortIntroduce:""
+        shortIntroduce:"",
+        profile:""
     });
 
     const [newData, setNewData] = useState({
@@ -29,7 +42,8 @@ function Mypage() {
         nickname: data.nickname,
         schoolEmail: data.schoolEmail,
         smoking: "",
-        shortIntroduce:""
+        shortIntroduce:"",
+        profile:""
     })
     const [token, setToken] = useState('');
    
@@ -110,7 +124,7 @@ function Mypage() {
                   <div className="top">
 
                         <img alt="" id="profile_img"
-                            src={profileImage} />
+                            src={profileImages[data.profile]}/>
                     </div>
                     <div id="nickname">{data.nickname}</div>
                     <div id="etc">{data.department} {data.studentId.substring(2, 4)}학번</div>
