@@ -9,7 +9,7 @@ function Istp(){
     const navigate = useNavigate();
 
     const handleBackToHome = () => {
-      navigate('./Login');
+      navigate('/ChatStartPage');
     };
 
     return (

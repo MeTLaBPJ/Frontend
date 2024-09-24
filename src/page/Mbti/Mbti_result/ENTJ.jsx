@@ -9,7 +9,7 @@ function Entj(){
     const navigate = useNavigate();
 
     const handleBackToHome = () => {
-      navigate('./Login');
+      navigate('/ChatStartPage');
     };
 
     return (
