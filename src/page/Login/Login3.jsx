@@ -110,7 +110,7 @@ const Login3 = () => {
           </p>
        
     
-        <div className="botton-container">
+        <div className="button-container">
         <button
           className="bottom-Button"
           onClick={handleSubmit}

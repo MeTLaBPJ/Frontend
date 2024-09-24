@@ -83,7 +83,7 @@ const Login4 = () => {
           중복 확인하기
         </button>
 
-        <div className="botton-container">
+        <div className="button-container">
         <button 
           className="bottom-Button" 
           disabled={nickname.length < 2 || !isNicknameChecked} // 중복 확인 완료 상태를 확인

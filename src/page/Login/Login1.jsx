@@ -67,7 +67,7 @@ const Login1 = () => {
             required // 이메일 입력 필수
           />
           </form>
-          <div className="botton-container">
+          <div className="button-container">
           <button className="bottom-Button" type="submit">
             인증번호 보내기 
           </button>

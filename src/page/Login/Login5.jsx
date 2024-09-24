@@ -63,7 +63,7 @@ const Login5 = () => {
           </div>
         </div>
       </div>
-      <div className="botton-container">
+      <div className="button-container">
       <button
         className="bottom-Button"
         onClick={handleSubmit} // 버튼 클릭 시 제출
