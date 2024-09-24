@@ -165,6 +165,7 @@
   .login-subtext1 {
     width: 300px;
     height: 18px;  
+    margin-top: 30px;
     margin-bottom: 20px;
     font-family: 'Pretendard';
     font-style: normal;
@@ -205,7 +206,6 @@
     /* 비밀번호 입력창 */
     width: 290px;
     height: 46px;
-    margin-bottom: 30px;
     display: flex;
     justify-content: center;
     align-items: center;

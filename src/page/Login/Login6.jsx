@@ -112,8 +112,7 @@ const Login6 = () => {
   </div>
 )}
  </form>
-   
-
+  
       <div className="button-container">
         <button type="submit" className="bottom-Button">
           다음
