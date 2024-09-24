@@ -8,7 +8,7 @@ const BASE_URL = 'http://localhost:8080';
  */
 export const getIsNickExist = async (nickname) => {
   try {
-    const response = await axios.get(`${BASE_URL}/api/auth/isExist/${nickname}`);
+    const response = await axios.get(`${BASE_URL}/api/users/isExist/${nickname}`);
     console.log(response.data);
     return response; // 전체 응답 객체를 반환
   } catch (error) {
