@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { IoChevronBack } from "react-icons/io5";
-import './Login.css';   
-
+import { UserContext } from "../../context/UserContext";
+import './Login.css'; 
 // 학번, 학과 입력
 const Login6 = () => {
+  const { User, updateUser } = useContext(UserContext);
   const [studentNumber, setStudentNumber] = useState("");
   const [division, setDivision] = useState("");
   const [department, setDepartment] = useState("");
@@ -30,15 +31,22 @@ const Login6 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (studentNumber && division && department) {
-      navigate("/Login7");
+      updateUser({
+        college:division,
+        studentId: studentNumber,
+        department:department
+      });
+      console.log('context updated:', User);
+      navigate("/login7");
     } else {
       alert("모든 항목을 입력해 주세요.");
     }
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    navigate('/login5'); // 이전 페이지로 이동
   };
+
   return (
     <div className = "Login6Page">
       <header className="header">
@@ -52,7 +60,7 @@ const Login6 = () => {
 
       <div className="container">
       <h2 className="login-heading">춘식이님에 대해 알려주세요</h2>
-      <p className="login-subtext">학번 9자리를 입력해주세요</p>
+      <p className="loginsubtext">학번 9자리를 입력해주세요</p>
 
       <form onSubmit={handleSubmit}>
         <div className="student-id">
@@ -66,7 +74,6 @@ const Login6 = () => {
             className="input"
           />
         </div>
-     
 
         {/* 단과대 선택 */}
         <div className="select-container1">
@@ -103,8 +110,6 @@ const Login6 = () => {
     </select>
   </div>
 )}
-
-
 
         <button type="submit" className="bottom-Button">
           다음

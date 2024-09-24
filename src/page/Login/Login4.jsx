@@ -1,35 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom"; 
-import './Login.css';   
+import './Login.css'; 
 import { IoChevronBack } from "react-icons/io5";
+import { UserContext } from "../../context/UserContext";
+import { getIsNickExist } from "../../api/getIsNickExist";
 
 // 닉네임 설정 
 const Login4 = () => {
+  const { User, updateUser } = useContext(UserContext);
   const [nickname, setNickname] = useState("");
   const [isNicknameChecked, setIsNicknameChecked] = useState(false); // 중복 확인 완료 상태
   const navigate = useNavigate(); 
 
-  const handleCheckNickname = () => {
+  const handleCheckNickname = async () => {
     if (nickname.length >= 2 && nickname.length <= 20) {
-      // 닉네임 중복 확인 로직이 들어가는 부분
-      setIsNicknameChecked(true); // 중복 확인 완료
-      alert("닉네임 확인 완료");
+      try {
+        const response = await getIsNickExist(nickname);
+        
+        if (response.data === false) {
+          console.log('닉네임 중복 확인 완료');
+          setIsNicknameChecked(true); // 중복 확인 완료
+          alert("닉네임 확인 완료");
+        } else {
+          console.error('닉네임 중복 확인 실패:', response);
+          setIsNicknameChecked(false);
+          alert("닉네임이 이미 존재합니다.");
+        }
+        
+      } catch (error) {
+        console.error('Error posting nickname data:', error);
+        setIsNicknameChecked(false); // 중복 확인 실패 시 버튼 비활성화 유지
+      }
     } else {
       setIsNicknameChecked(false); // 중복 확인 실패 시 버튼 비활성화 유지
       alert("닉네임은 2자 이상, 20자 이하로 입력해주세요.");
     }
   };
-
+  
   const handleNext = () => {
     if (nickname.length >= 2 && nickname.length <= 20 && isNicknameChecked) {
-      navigate("/Login5", { state: { nickname } });
+      updateUser({nickname:nickname});
+      console.log(User);
+      navigate("/login5", { state: { nickname } });
     } else {
       alert("닉네임을 다시 확인해주세요.");
     }
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    navigate('/login3'); // 이전 페이지로 이동
   };
 
   return (

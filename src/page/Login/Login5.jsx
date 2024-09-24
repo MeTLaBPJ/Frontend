@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import { IoChevronBack } from "react-icons/io5";
-import './Login.css';  
+import './Login.css'; 
 import boyImage from '../../asset/boy.png';
 import girlImage from '../../asset/girl.png';
+import { UserContext } from "../../context/UserContext";
 
 // 성별 입력
 const Login5 = () => {
+  const { User, updateUser } = useContext(UserContext);
   const [selectedGender, setSelectedGender] = useState(null); 
   const navigate = useNavigate(); 
 
@@ -17,12 +19,14 @@ const Login5 = () => {
   const handleSubmit = () => {
     if (selectedGender) {
       console.log(`선택된 성별: ${selectedGender}`);
-      navigate('/Login6', { state: { gender: selectedGender } });
+      updateUser({gender:selectedGender});
+      console.log(User);
+      navigate('/login6', { state: { gender: selectedGender } });
     }
   };
 
   const handleBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    navigate('/login4'); // 이전 페이지로 이동
   };
 
   return (
@@ -36,7 +40,6 @@ const Login5 = () => {
         </div>
       </header>  
 
-      <div className="container">
       <h2 className="login-heading">춘식이님의 성별을 알려주세요</h2>
       <div className="gender-options">
         <div
@@ -57,7 +60,6 @@ const Login5 = () => {
             <p className="girlplace">여성</p>
           </div>
         </div>
-      </div>
       </div>
       <button
         className="bottom-Button"
