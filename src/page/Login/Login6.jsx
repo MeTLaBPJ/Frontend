@@ -114,7 +114,7 @@ const Login6 = () => {
  </form>
    
 
-      <div className="botton-container">
+      <div className="button-container">
         <button type="submit" className="bottom-Button">
           다음
         </button>

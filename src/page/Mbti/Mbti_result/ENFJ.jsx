@@ -14,19 +14,17 @@ function Enfj(){
 
     return (
         <div className="Mbti_result">
-            <h1 className="title"> 횃불이 테스트 결과 </h1>
-            <p className="who"> 당신은 ... </p>
-
+            <div className="container">
             <h2 className="subtitle"> 모두가 함께 성장할 수 있어!</h2>
-            <h1 className="result-title"> 사교 횃불이 </h1>
-
-            <div className="profile">
+            <h1 className="title"> 사교 횃불이 </h1>
+        
+            
                 <img
                     className="profile-image"
                     src={ENFJImage}
                     alt="사교 햇불이"
                 />
-            </div>
+           
 
             <ul className="traits">
                 <li>★ 친구들을 잘 이끌며 학교 내 분위기 메이커</li>
@@ -37,22 +35,28 @@ function Enfj(){
             </ul>
 
             <div className="matches">
-                <div className="good-match">
-                    <p>잘 맞는 횃불이</p>
-                    {/* import된 이미지 변수를 사용 */}
-                    <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                <div className="good-bad-match">
+                    <div className="good-match">
+                        <p className="combination">잘 맞는 햇불이</p>
+                         <img src={ISFPImage} alt="잘 맞는 햇불이" />
+                        <p className="nickname">귀찮 햇불이</p>
                 </div>
 
                 <div className="bad-match">
-                    <p>안 맞는 횃불이</p>
-                    {/* import된 이미지 변수를 사용 */}
+                    <p className = "combination">안 맞는 햇불이</p>
                     <img src={INTJImage} alt="안 맞는 햇불이" />
+                     <p className="nickname">분석 햇불이</p>
+                 </div>
                 </div>
             </div>
 
-            <button className="home-button" onClick={handleBackToHome}>
+
+            <div className="button-container">
+            <button className="bottom-Button" onClick={handleBackToHome}>
                 홈 화면으로 돌아가기
             </button>
+            </div>
+        </div>
         </div>
     );
 };

@@ -106,7 +106,7 @@ const Login2 = () => {
                         메일을 못받으셨나요? &nbsp;
                         <span onClick={handleResend}>다시 받기</span>
                     </p>
-                <div className="botton-container">
+                <div className="button-container">
                 <button className="bottom-Button" onClick={handleSubmit}>
                     다음
                 </button>

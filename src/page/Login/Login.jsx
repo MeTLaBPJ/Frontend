@@ -73,7 +73,7 @@ const Login = () => {
                     <p className="error-message">{error}</p> // 에러 메시지 출력
                 )}
 
-                <div className="botton-container">
+                <div className="button-container">
                 <button
                     className="bottom-Button"
                     disabled={password.trim() === ""}
