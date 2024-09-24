@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"; // useNavigate 추가
 import { IoChevronBack } from "react-icons/io5";
 import { UserContext } from "../../context/UserContext";
 import { postUser } from "../../api/postUser";
-import './Login.css'; 
+import './Login.css';
 
 // 생년월일 입력
 const Login7 = () => {
@@ -41,36 +41,37 @@ const Login7 = () => {
 
     // 각 월에 따라 최대 일수 체크
     const daysInMonth = [31, (isLeapYear(yearNum) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    
+
     if (dayNum < 1 || dayNum > daysInMonth[monthNum - 1]) {
       alert("입력한 날짜는 유효하지 않습니다.");
       return false;
     }
     const birthdate = `${year}-${month}-${day}`;
-    updateUser({ birthday:birthdate});
+    updateUser({ birthday: birthdate });
     console.log("생일:", birthdate);
     return true;
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!validateBirthdate(year, month, day)) {
       return;
     }
-    
-    
-    
-    
+
+
+
+
 
     try {
       await postUser(User);
       console.log('user data posted successfully');
-     navigate('/login');
+      localStorage.setItem('nickname', User.nickname);
+      navigate('/login');
     } catch (error) {
       console.error('Error posting user data:', error);
     }
-    
+
 
   };
 
@@ -82,7 +83,7 @@ const Login7 = () => {
     <div className="Login7Page">
       <header className="header">
         <button className="back-button" onClick={handleBack}>
-          <IoChevronBack />  
+          <IoChevronBack />
         </button>
         <div className="progress-bar">
           <div className="progress" style={{ width: "80%" }}></div>
