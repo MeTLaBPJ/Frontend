@@ -63,6 +63,8 @@ function ChatRoom() {
 
     useEffect(() => {
         const fetchDataMsg = async () => {
+            console.log("ddsdfsdfsdafjlasdjfkldsajlfasdjlfjasdljflasjdlf")
+            console.log(chatroomId)
             //메시지 받아오는 부분
             try {
                 const data = await fetchMessages(chatroomId);
@@ -78,22 +80,22 @@ function ChatRoom() {
 
         const storedConnectionStatus = localStorage.getItem(`chatroom_${chatroomId}_connected`);
 
-        if (storedConnectionStatus !== 'true') {
-            stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
-        }
+        // if (storedConnectionStatus !== 'true') {
+        //     stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
+        // }
 
-        // Set up periodic connection check
-        reconnectIntervalRef.current = setInterval(() => {
-            if (stompClientRef.current && !stompClientRef.current.connected) {
-                console.log('Connection lost. Attempting to reconnect...');
-                stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
-            }
-        }, 30000); // Check every 30 seconds
+        // // Set up periodic connection check
+        // reconnectIntervalRef.current = setInterval(() => {
+        //     if (stompClientRef.current && !stompClientRef.current.connected) {
+        //         console.log('Connection lost. Attempting to reconnect...');
+        //         stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
+        //     }
+        // }, 30000); // Check every 30 seconds
 
-        return () => {
-            disconnectWebSocket();
-            clearInterval(reconnectIntervalRef.current);
-        };
+        // return () => {
+        //     disconnectWebSocket();
+        //     clearInterval(reconnectIntervalRef.current);
+        // };
     }, [chatroomId, handleMessageReceived]);;
 
 

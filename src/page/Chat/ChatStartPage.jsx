@@ -76,7 +76,7 @@ function ChatStartPage() {
             maleCount: 2,
             femaleCount: 2,
             profileImage: '../../../../asset/ChatRoomPic1.png',
-            status: "Waiting"
+            status: "active"
         },
         {
             id: 3,

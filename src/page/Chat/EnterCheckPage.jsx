@@ -71,12 +71,15 @@ function EnterCheckPage(props) {
 
 
     const goChatRoom = (roomId) => {
-        navigate('/chat/2');
+        console.log(roomId)
+        navigate(`/chat/${roomId}`);
         //navigate(`/chat/${roomId}`); // 원하는 경로로 이동
     }
 
     // 수정된 handleButtonClick 함수
     const handleButtonClick = async (event, room) => {
+       // console.log(room)
+        //console.log("sdafdddddddddddffdfdfsdfsdfdsfsdfdsfsdfsdfsdfsdf")
         if (room.members.length < room.maxMembers) {
             event.stopPropagation(); // 이벤트 버블링을 막음
         } else {
@@ -141,7 +144,7 @@ function EnterCheckPage(props) {
                     const isExpanded = expandedRoomIds.includes(room.id); // 현재 방이 확장되었는지 확인
                     return (
                         <div key={room.id} className="chatRoomList">
-                            <div className="chatRoomList-up" onClick={goChatRoom}>
+                            <div className="chatRoomList-up" onClick={() => goChatRoom(room.id)}>
                                 <div className="smallCircle">
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="4" cy="4" r="4" fill={room.members.length === room.maxMembers ? "#FF7898" : "#D9D9D9"} />

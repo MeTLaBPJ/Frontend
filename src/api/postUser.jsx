@@ -9,7 +9,7 @@ const BASE_URL ='http://localhost:8080';
 export const postUser = async (userData) => {
     console.log("전송 데이터",userData);
     try {
-      const response = await axios.post(`${BASE_URL}/api/users/join`, userData );
+      const response = await axios.post(`${BASE_URL}/api/auth/join`, userData );
       console.log(response.data);
       return response.data;
     } catch (error) {
