@@ -15,7 +15,7 @@ function Isfp(){
     return (
         <div className="Mbti_result">
             <div className="container">
-            <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
+            <h2 className="subtitle"> 아 귀차나~</h2>
             <h1 className="title"> 귀찮 횃불이 </h1>
     
          

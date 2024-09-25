@@ -42,12 +42,12 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
 
 
     const [room, setRoom] = useState({
-        title: "프로그래밍 기초",
+        title: "심리학과 MT 같이 갈 사람?",
         members: [
-            { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-            { gender: "여자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
+            { gender: "여자", major: "심리학과", studentId: "20190228", nickname: "마음읽기", profileImage: "../../../../asset/ChatRoomPic3.png" },
+            { gender: "여자", major: "심리학과", studentId: "20200517", nickname: "프로이트", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "심리학과", studentId: "20210405", nickname: "융학도", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "심리학과", studentId: "20220112", nickname: "심리학도사", profileImage: "../../../../asset/ChatRoomPic4.png" }
         ],
         profileImage: '../../../../asset/ChatRoomPic1.png',
     })
@@ -152,7 +152,7 @@ function ChatRoomInformation({ roomId, socket, chatRoomInformation }) {
                 {/* 채팅방 종료 시간 */}
                 <div className="chat-room-timer">
                     <span>
-                        {remainingTime}에 채팅방이 종료됩니다 <span style={{ fontWeight: 'bold' }}>D-{dDay}</span>
+                        {remainingTime}에 채팅방이 종료됩니다 <span style={{ fontWeight: 'bold' }}>D-s</span>
                     </span>
                 </div>
 

@@ -4,15 +4,17 @@ import { fetchAnotherInformation } from '../../../api/chatRoom/fetchAnotherInfor
 function UserIntroduceDialog({ isOpen, onClose, nickname, roomId }) {
     //유저의 정보를 받아오는 useEffect 사용
     const [profile, setProfile] = useState({
-        profileImage: "",
-        nickname: "아아",
-        department: "컴공",
-        studentId: "202001485",
+        profileImage: "../../../../asset/ChatRoomPic4.png",
+        nickname: "융학도",
+        department: "심리학과",
+        studentId: "20210405",
         shortIntroduce: "안녕하세요",
         mbti: "INFJ",
         height: "180",
         drinking: "소주3병마심",
-        smoking: "1갑"
+        smoking: "1갑",
+        gender: "남자",
+        major: "심리학과"
     });
 
 
@@ -43,9 +45,8 @@ function UserIntroduceDialog({ isOpen, onClose, nickname, roomId }) {
                 <div className="dialog-container">
                     <div className="profile-image-container">
                         <img
-                            src="https://via.placeholder.com/100"
-                            // {profile.profileImage}
-                            alt="Profile"
+                            src={profile.profileImage}
+                            alt={`${profile.nickname}'s profile`}
                             className="profile-image"
                         />
                     </div>

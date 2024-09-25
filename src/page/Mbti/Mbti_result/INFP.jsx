@@ -15,7 +15,7 @@ function Infp(){
     return (
         <div className="Mbti_result">
             <div className="container">
-            <h2 className="subtitle"> 모두가 행복해야 나도 행복해!</h2>
+            <h2 className="subtitle"> 집이 제일 좋아!</h2>
             <h1 className="title"> 내향 횃불이과 </h1>
 
            

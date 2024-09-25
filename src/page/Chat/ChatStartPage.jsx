@@ -38,86 +38,77 @@ function ChatStartPage() {
     // 채팅방 정보를 저장하는 state(예시 백에서 받아와야함)
     //나중에 역순으로 할거?
     const [chatRooms, setChatRooms] = useState([
-        {
-            id: 1,
-            //제목 길이 20자 제한
-            title: "채팅방 메인 타이틀아아아아f",
-            //서브제목 길이 30자 제한
-            subTitle: "dddddddddddddddddddddddddddddddddddddddddddddddddd",
-
-            //방아이디로 조회한다.
-
-            //나중에 서버로 부터 바는 member이기 때문에 삭제!
-            members: [
-                { gender: "남자", major: "Computer Science", studentId: "20210001", nickname: "John", profileImage: "../../../../asset/ChatRoomPic1.png" },
-                { gender: "여자", major: "Design", studentId: "20210002", nickname: "Jane", profileImage: "../../../../asset/ChatRoomPic2.png" }
-            ],
-            maxMembers: 2,
-            //입장체크
-            enterCheck: false,
-            host: "asdfasdf1234346",
-            maleCount: 1,
-            femaleCount: 1,
-            profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
-        },
-        {
-            id: 2,
-            title: "프로그래밍 기초",
-            subTitle: "프로그래밍의 기초를 배워봅시다",
-            members: [
-                { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-                { gender: "여자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-                { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-                { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" }
-            ],
-            maxMembers: 4,
-            enterCheck: true,
-            host: "asdfasdf1234346",
-            maleCount: 2,
-            femaleCount: 2,
-            profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
-        },
-        {
-            id: 3,
-            title: "프로그래밍 기초",
-            subTitle: "프로그래밍의 기초를 배워봅시다",
-            members: [
-                { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic4.png" },
-                { gender: "남자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic5.png" },
-                { gender: "남자", major: "asd", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
-
-            ],
-            maxMembers: 6,
-            enterCheck: false,
-            host: "asdfasdf1234346",
-            maleCount: 2,
-            femaleCount: 1,
-            profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
-        },
-        {
-            id: 4,
-            title: "프로그래밍 기초",
-            subTitle: "프로그래밍의 기초를 배워봅시다",
-            //사진경로 절대경로로 수정
-            members: [
-                { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-                { gender: "남자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic2.png" },
-                { gender: "여자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic6.png" },
-                { gender: "남자", major: "Mathematics", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic1.png" },
-                { gender: "여자", major: "asd", studentId: "20210004", nickname: "한준서", profileImage: "../../../../asset/ChatRoomPic5.png" }
-            ],
-            maxMembers: 6,
-            enterCheck: false,
-            host: "asdfasdf1234346",
-            maleCount: 2,
-            femaleCount: 3,
-            profileImage: '../../../../asset/ChatRoomPic1.png',
-            hasStarted: false
-        }
-    ]);
+    {
+        id: 1,
+        title: "경영 vs 컴공 과팅해요!",
+        subTitle: "2:2로 만나서 치맥 어때요?",
+        members: [
+            { gender: "남자", major: "컴퓨터공학과", studentId: "20210103", nickname: "코딩왕", profileImage: "../../../../asset/ChatRoomPic1.png" },
+            { gender: "여자", major: "경영학과", studentId: "20220415", nickname: "경영이", profileImage: "../../../../asset/ChatRoomPic2.png" }
+        ],
+        maxMembers: 4,
+        enterCheck: false,
+        host: "코딩왕",
+        maleCount: 2,
+        femaleCount: 2,
+        profileImage: '../../../../asset/ChatRoomPic1.png',
+        hasStarted: false
+    },
+    {
+        id: 2,
+        title: "심리학과 MT 같이 갈 사람?",
+        subTitle: "다음 주 금요일 MT 갑니다!",
+        members: [
+            { gender: "여자", major: "심리학과", studentId: "20190228", nickname: "마음읽기", profileImage: "../../../../asset/ChatRoomPic3.png" },
+            { gender: "여자", major: "심리학과", studentId: "20200517", nickname: "프로이트", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "심리학과", studentId: "20210405", nickname: "융학도", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "심리학과", studentId: "20220112", nickname: "심리학도사", profileImage: "../../../../asset/ChatRoomPic4.png" }
+        ],
+        maxMembers: 4,
+        enterCheck: true,
+        host: "마음읽기",
+        maleCount: 2,
+        femaleCount: 2,
+        profileImage: '../../../../asset/ChatRoomPic1.png',
+        hasStarted: true
+    },
+    {
+        id: 3,
+        title: "영문학과 독서모임",
+        subTitle: "이번 주 주제: 셰익스피어",
+        members: [
+            { gender: "여자", major: "영어영문학과", studentId: "20180923", nickname: "햄릿", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "영어영문학과", studentId: "20200708", nickname: "맥베스", profileImage: "../../../../asset/ChatRoomPic5.png" },
+            { gender: "남자", major: "영어영문학과", studentId: "20210830", nickname: "오셀로", profileImage: "../../../../asset/ChatRoomPic6.png" },
+        ],
+        maxMembers: 6,
+        enterCheck: false,
+        host: "햄릿",
+        maleCount: 3,
+        femaleCount: 3,
+        profileImage: '../../../../asset/ChatRoomPic1.png',
+        hasStarted: false
+    },
+    {
+        id: 4,
+        title: "공대생 vs 문과생 미팅",
+        subTitle: "서로 다른 매력 발견하기!",
+        members: [
+            { gender: "여자", major: "국어국문학과", studentId: "20190112", nickname: "시조새", profileImage: "../../../../asset/ChatRoomPic3.png" },
+            { gender: "남자", major: "기계공학과", studentId: "20200304", nickname: "로봇맨", profileImage: "../../../../asset/ChatRoomPic2.png" },
+            { gender: "여자", major: "화학공학과", studentId: "20210709", nickname: "원소의요정", profileImage: "../../../../asset/ChatRoomPic6.png" },
+            { gender: "남자", major: "철학과", studentId: "20180518", nickname: "소크라테스", profileImage: "../../../../asset/ChatRoomPic1.png" },
+            { gender: "여자", major: "경제학과", studentId: "20220225", nickname: "주식왕", profileImage: "../../../../asset/ChatRoomPic5.png" }
+        ],
+        maxMembers: 6,
+        enterCheck: false,
+        host: "시조새",
+        maleCount: 3,
+        femaleCount: 3,
+        profileImage: '../../../../asset/ChatRoomPic1.png',
+        hasStarted: false
+    }
+]);
 
 
     useEffect(() => {

@@ -12,21 +12,21 @@ function ChatRoom() {
 
 
     const [selectChatRoom, setSelectChatRoom] = useState({
-        title: "프로그래밍 기초",
+        id: 2,
+        title: "심리학과 MT 같이 갈 사람?",
         members: [
-            { gender: "여자", major: "Physics", studentId: "20210003", nickname: "Alice", profileImage: "../../../../asset/ChatRoomPic3.png" },
-            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "Bob", profileImage: "../../../../asset/ChatRoomPic4.png" },
-            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "키키", profileImage: "../../../../asset/ChatRoomPic2.png" },
-            { gender: "남자", major: "Mathematicasdfasdfdassdfsssadfsdf", studentId: "20210004", nickname: "한준서", profileImage: "../../../../asset/ChatRoomPic1.png" }
+            { gender: "여자", major: "심리학과", studentId: "20190228", nickname: "마음읽기", profileImage: "../../../../asset/ChatRoomPic3.png" },
+            { gender: "여자", major: "심리학과", studentId: "20200517", nickname: "프로이트", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "심리학과", studentId: "20210405", nickname: "융학도", profileImage: "../../../../asset/ChatRoomPic4.png" },
+            { gender: "남자", major: "심리학과", studentId: "20220112", nickname: "심리학도사", profileImage: "../../../../asset/ChatRoomPic4.png" }
         ],
-        //시작여부
-        hasStarted: true,
+        hasStarted: true
     })
 
     // 현재 유저
     const [selectUser, setSelectUser] = useState({
-        nickname: "Alice",
-        profileImage: "../../../../asset/ChatRoomPic3.png"
+        nickname: "융학도",
+        profileImage: "../../../../asset/ChatRoomPic4.png"
     })
 
 
@@ -34,20 +34,19 @@ function ChatRoom() {
     const [inputValue, setInputValue] = useState(''); // 입력된 메시지 저장
 
     const [messages, setMessages] = useState([
-        { nickname: "Alice", text: "안녕하세요, 모두들! 오늘 회의 시작해볼까요? 지난 주에 논의했던 프로젝트 진행 상황에 대해 이야기 나누면 좋을 것 같아요.", time: "13:57", profileImage: "../../../../asset/ChatRoomPic3.png" },
-        { nickname: "Alice", text: "각자 맡은 부분에 대해 간단히 공유해주시면 감사하겠습니다. 특히 어려움을 겪고 있는 부분이 있다면 함께 해결방안을 모색해보면 좋겠어요.", time: "13:57", profileImage: "../../../../asset/ChatRoomPic3.png" },
-        { nickname: "Bob", text: "네, 좋습니다. 먼저 지난 주 진행 상황부터 공유해볼까요? 저는 프론트엔드 부분을 맡아 작업 중인데, 반응형 디자인 구현에 약간의 어려움을 겪고 있습니다.", time: "13:58", profileImage: "../../../../asset/ChatRoomPic4.png" },
-        { nickname: "키키", text: "저는 데이터베이스 설계를 완료했습니다. ERD 공유드릴게요. 테이블 간의 관계를 최적화하는 데 시간이 좀 걸렸지만, 효율적인 구조를 만들었다고 생각합니다.", time: "13:59", profileImage: "../../../../asset/ChatRoomPic2.png" },
-        { nickname: "한준서", text: "와, 키키님 빠르네요! 저는 UI 디자인 초안을 만들었어요. 사용자 경험을 최우선으로 고려했고, 색상 팔레트와 아이콘 세트도 선정했습니다. 피드백 주시면 감사하겠습니다.", time: "14:00", profileImage: "../../../../asset/ChatRoomPic1.png" },
-        { nickname: "Alice", text: "모두 열심히 하고 계시네요. 저는 API 문서 작성 중입니다. RESTful 원칙을 따르면서도 우리 프로젝트에 최적화된 엔드포인트를 설계하고 있어요.", time: "14:01", profileImage: "../../../../asset/ChatRoomPic3.png" },
-        { nickname: "Bob", text: "좋습니다. 그럼 이번 주 목표를 정해볼까요? 저는 반응형 디자인 문제를 해결하고, 주요 페이지의 레이아웃을 완성하는 것이 목표입니다.", time: "14:02", profileImage: "../../../../asset/ChatRoomPic4.png" },
-        { nickname: "키키", text: "네, 저는 이번 주에 백엔드 코딩을 시작하려고 합니다. 주요 API 엔드포인트 구현과 데이터베이스 연동을 목표로 하고 있어요.", time: "14:03", profileImage: "../../../../asset/ChatRoomPic2.png" },
-        { nickname: "한준서", text: "저는 UI 디자인 피드백 받고 수정할 예정이에요. 그리고 나서 프로토타입 제작을 시작해 사용자 테스트를 준비하려고 합니다.", time: "14:04", profileImage: "../../../../asset/ChatRoomPic1.png" },
-        { nickname: "Alice", text: "API 개발도 이번 주부터 본격적으로 시작하겠습니다. 인증 시스템 구현과 주요 데이터 처리 로직 작성이 이번 주 목표예요.", time: "14:05", profileImage: "../../../../asset/ChatRoomPic3.png" },
-        { nickname: "Bob", text: "다들 계획이 구체적이네요. 좋습니다! 서로 진행 상황을 공유하면서 협업하면 더 효율적으로 프로젝트를 진행할 수 있을 것 같아요.", time: "14:06", profileImage: "../../../../asset/ChatRoomPic4.png" },
-        { nickname: "키키", text: "그러고 보니 다음 주 중간 발표 준비도 해야 할 것 같아요. 지금까지의 진행 상황을 정리하고 앞으로의 계획도 간략하게 준비해야겠네요.", time: "14:07", profileImage: "../../../../asset/ChatRoomPic2.png" },
-        { nickname: "한준서", text: "맞아요. 발표 자료는 제가 만들어볼게요. 각자 맡은 부분에 대한 간단한 요약을 주시면 그걸 바탕으로 발표 자료를 구성하겠습니다.", time: "14:08", profileImage: "../../../../asset/ChatRoomPic1.png" },
-        { nickname: "Alice", text: "좋은 생각이에요. 모두 수고 많으셨습니다. 다음 회의는 금요일에 하는 걸로 할까요? 그때까지 각자 목표한 바를 진행하고, 중간 발표 준비도 함께 점검해보면 좋겠어요.", time: "14:09", profileImage: "../../../../asset/ChatRoomPic3.png" },
+        { nickname: "마음읽기", text: "안녕하세요, 여러분! 다음 주 금요일 MT에 대해 이야기 나눠볼까요?", time: "13:57", profileImage: "../../../../asset/ChatRoomPic3.png" },
+        { nickname: "프로이트", text: "네, 좋습니다. MT 장소는 어디로 정했나요?", time: "13:58", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "융학도", text: "저는 계곡이 있는 곳으로 가면 좋을 것 같아요. 자연 속에서 힐링할 수 있잖아요.", time: "13:59", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "심리학도사", text: "좋은 생각이에요! 계곡 근처 펜션은 어떨까요? 바비큐도 할 수 있고요.", time: "14:00", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "마음읽기", text: "다들 좋은 의견 감사합니다. 제가 몇 군데 알아본 곳이 있는데, 링크 공유해드릴게요.", time: "14:01", profileImage: "../../../../asset/ChatRoomPic3.png" },
+        { nickname: "프로이트", text: "감사합니다! 그리고 MT 프로그램은 어떻게 구성할까요?", time: "14:02", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "융학도", text: "심리학과니까 심리 게임이나 활동을 해보는 건 어떨까요? 서로를 더 잘 이해할 수 있을 것 같아요.", time: "14:03", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "심리학도사", text: "오, 그거 재밌겠어요! 제가 몇 가지 아이디어를 준비해올게요.", time: "14:04", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "마음읽기", text: "좋습니다! 그럼 장소는 제가 공유한 링크 중에서 골라보고, 프로그램은 심리학도사님이 아이디어 주시면 함께 구체화해보는 걸로 할까요?", time: "14:05", profileImage: "../../../../asset/ChatRoomPic3.png" },
+        { nickname: "프로이트", text: "네, 좋아요. 그리고 음식은 어떻게 준비할까요? 각자 조금씩 나눠서 준비할까요, 아니면 다 같이 장 보러 갈까요?", time: "14:06", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "융학도", text: "다 같이 장 보러 가는 것도 재밌을 것 같아요! 준비하는 과정부터 추억을 만들 수 있잖아요.", time: "14:07", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "심리학도사", text: "동의합니다! 장 보러 갈 때 역할 분담해서 효율적으로 준비해봐요.", time: "14:08", profileImage: "../../../../asset/ChatRoomPic4.png" },
+        { nickname: "마음읽기", text: "모두 좋은 의견 감사합니다. 그럼 정리해볼게요. 1) 장소는 제가 공유한 링크에서 선택, 2) 프로그램은 심리학도사님 아이디어 바탕으로 구체화, 3) 음식은 다 같이 장 보기. 이렇게 하면 될까요?", time: "14:09", profileImage: "../../../../asset/ChatRoomPic3.png" },
     ]);
     // 메시지 리스트 저장
     const stompClientRef = useRef(null);
@@ -61,40 +60,40 @@ function ChatRoom() {
 
 
 
-    useEffect(() => {
-        const fetchDataMsg = async () => {
-            //메시지 받아오는 부분
-            try {
-                const data = await fetchMessages(chatroomId);
-                setMessages(data.messages);
-                setSelectChatRoom(data.chatRoom);
-                setSelectUser(data.user);
-            } catch (error) {
-                console.error("Failed to load chat room data", error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchDataMsg = async () => {
+    //         //메시지 받아오는 부분
+    //         try {
+    //             const data = await fetchMessages(chatroomId);
+    //             setMessages(data.messages);
+    //             setSelectChatRoom(data.chatRoom);
+    //             setSelectUser(data.user);
+    //         } catch (error) {
+    //             console.error("Failed to load chat room data", error);
+    //         }
+    //     };
 
-        fetchDataMsg();
+    //     fetchDataMsg();
 
-        const storedConnectionStatus = localStorage.getItem(`chatroom_${chatroomId}_connected`);
+    //     const storedConnectionStatus = localStorage.getItem(`chatroom_${chatroomId}_connected`);
 
-        if (storedConnectionStatus !== 'true') {
-            stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
-        }
+    //     if (storedConnectionStatus !== 'true') {
+    //         stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
+    //     }
 
-        // Set up periodic connection check
-        reconnectIntervalRef.current = setInterval(() => {
-            if (stompClientRef.current && !stompClientRef.current.connected) {
-                console.log('Connection lost. Attempting to reconnect...');
-                stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
-            }
-        }, 30000); // Check every 30 seconds
+    //     // Set up periodic connection check
+    //     reconnectIntervalRef.current = setInterval(() => {
+    //         if (stompClientRef.current && !stompClientRef.current.connected) {
+    //             console.log('Connection lost. Attempting to reconnect...');
+    //             stompClientRef.current = connectWebSocket(chatroomId, handleMessageReceived);
+    //         }
+    //     }, 30000); // Check every 30 seconds
 
-        return () => {
-            disconnectWebSocket();
-            clearInterval(reconnectIntervalRef.current);
-        };
-    }, [chatroomId, handleMessageReceived]);;
+    //     return () => {
+    //         disconnectWebSocket();
+    //         clearInterval(reconnectIntervalRef.current);
+    //     };
+    // }, [chatroomId, handleMessageReceived]);;
 
 
     const sendMessage = () => {
@@ -102,11 +101,12 @@ function ChatRoom() {
             const newMessage = {
                 nickname: selectUser.nickname,
                 text: inputValue,
-                time: new Date().toLocaleTimeString(),
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false }),
                 profileImage: selectUser.profileImage
             };
 
-            sendMessageHandler(chatroomId, newMessage);
+            setMessages(prevMessages => [...prevMessages, newMessage]);
+            // sendMessageHandler(chatroomId, newMessage);
             setInputValue('');
         }
     };
@@ -149,7 +149,7 @@ function ChatRoom() {
     const formatMessages = (messages) => {
         return messages.map((message, index) => {
             // 현재 유저를 받는 로직 추가 해야됨
-            const isCurrentUser = message.nickname === "Alice";
+            const isCurrentUser = message.nickname === selectUser.nickname;
 
             // 프로필 이미지와 닉네임을 표시할지 여부 결정
             const showProfile = !isCurrentUser &&

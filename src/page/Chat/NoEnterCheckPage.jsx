@@ -67,31 +67,31 @@ function NoEnterCheckPage(props) {
     };
 
 
-    useEffect(() => {
-        if (expandedRoomIds.length > 0) {
-            const updateMembers = async () => {
-                const updatedRooms = await Promise.all(
-                    updatedChatRooms.map(async (room) => {
-                        if (room.id === expandedRoomIds[expandedRoomIds.length - 1]) {
-                            const updatedMembers = await fetchRoomParticipants(room.id);
-                            return {
+    // useEffect(() => {
+    //     if (expandedRoomIds.length > 0) {
+    //         const updateMembers = async () => {
+    //             const updatedRooms = await Promise.all(
+    //                 updatedChatRooms.map(async (room) => {
+    //                     if (room.id === expandedRoomIds[expandedRoomIds.length - 1]) {
+    //                         const updatedMembers = await fetchRoomParticipants(room.id);
+    //                         return {
 
-                                ...room,
-                                members: updatedMembers,
-                                maleCount: updatedMembers.filter(member => member.gender === "남자").length,
-                                femaleCount: updatedMembers.filter(member => member.gender === "여자").length
-                            };
-                        }
-                        return room;
-                    })
-                );
+    //                             ...room,
+    //                             members: updatedMembers,
+    //                             maleCount: updatedMembers.filter(member => member.gender === "남자").length,
+    //                             femaleCount: updatedMembers.filter(member => member.gender === "여자").length
+    //                         };
+    //                     }
+    //                     return room;
+    //                 })
+    //             );
 
-                setUpdatedChatRooms(updatedRooms);
-            };
+    //             setUpdatedChatRooms(updatedRooms);
+    //         };
 
-            updateMembers();
-        }
-    }, [expandedRoomIds, isEnterCheck, chatRooms]);
+    //         updateMembers();
+    //     }
+    // }, [expandedRoomIds, isEnterCheck, chatRooms]);
 
 
     //전에꺼
