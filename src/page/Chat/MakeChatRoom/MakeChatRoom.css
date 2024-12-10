@@ -1,0 +1,255 @@
+.makeChatRoom {
+
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .margin-container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        margin: 0 10px;
+    }
+
+    .title {
+        width: 100%;
+        height: 46px;
+        margin-top: 50px;
+        background: #ffffff;
+        display: flex;
+        text-align: center;
+        margin-left: 6px;
+        justify-content: space-between;
+    }
+
+    .title-name {
+        /* 채팅방 이름 */
+
+        padding-top: 15px;
+        width: 120px;
+        height: 18px;
+
+        cursor: pointer;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        /* identical to box height, or 112% */
+        display: flex;
+        align-items: center;
+
+        color: #3D3D3D;
+
+
+    }
+
+    .small-title {
+        /* 채팅방 정보 */
+        margin-top: 20px;
+        width: 73px;
+        height: 18px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+
+        color: #3D3D3D;
+
+    }
+
+    .top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        height: 80px;
+        margin-bottom: 20px;
+        justify-content: space-between;
+
+    }
+
+
+    .chat-room-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 5px;
+    }
+
+
+
+    .top img {
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        width: 80px;
+        height: 100%;
+        /* background-color: none; */
+    }
+
+
+    .edit-avatar {
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        left: -110px;
+        top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #F5F5F5;
+    }
+
+    .chat-room-name {
+
+
+        width: 230px;
+        background: #F5F5F5;
+        border-radius: 10px;
+        margin: auto 0px;
+        height: 50px;
+        border: 1px solid #ccc;
+        padding: 0 10px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #777777;
+    }
+
+    .chat-room-description {
+
+        width: 335px;
+        height: 100px;
+
+        background: #F5F5F5;
+        border-radius: 10px;
+
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        font-size: 14px;
+
+
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        padding: 10px;
+        color: #777777;
+    }
+
+    .members-settings {
+        margin-top: 50px;
+        margin-bottom: 20px;
+    }
+
+    .small-title2 {
+        width: 73px;
+        height: 18px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 30px;
+        color: #3D3D3D;
+    }
+
+    .gender-settings {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+
+    .gender-settings div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .gender-settings span {
+
+        width: 25px;
+        height: 16px;
+
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+
+
+        color: #3D3D3D;
+    }
+
+
+
+    .count-button {
+
+        padding: 5px 15px;
+        border-radius: 20px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    .count-button.active {
+        background-color: #FF7898;
+        border-color: #ccc;
+        color: #F5F5F5;
+    }
+
+
+
+    .note {
+        margin-top: 50px;
+        font-size: 12px;
+        color: #888;
+        margin-bottom: 20px;
+    }
+
+    .create-room-button {
+        /* Rectangle 13 */
+        margin: 5px auto;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 20px;
+        color: #FFFFFF;
+        background: #FF7898;
+        width: 343px;
+        height: 50px;
+        background: #FF7898;
+        border-radius: 5px;
+        border: none;
+    }
+
+    .create-room-button:hover {
+        background-color: #FF7898;
+    }
+
+    .error {
+        margin-left: 7px;
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        display: flex;
+        align-items: center;
+        color: #FF3131;
+    }
+
+}

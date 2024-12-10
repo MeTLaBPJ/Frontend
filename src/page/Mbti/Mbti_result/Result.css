@@ -1,0 +1,137 @@
+.Mbti_result{
+    height: 812px;
+    width: 375px;
+    margin: 0 auto;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+    
+    .title {
+    /* 횃불이 테스트 결과 */
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    align-items: center;
+    color: #FF7898;
+    };
+    
+    .subtitle {
+    margin-top: 30px;
+    margin-bottom: -15px;
+    flex-direction: row;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    text-align: center;
+    color: #000000;
+    }
+    
+    .profile-image {
+        width: 300px;
+        margin-top: -20px;
+        margin-bottom: 10px;
+        height: auto;
+    }
+    
+    .traits {
+        margin-top: -55px;
+        list-style-type: none;
+        padding: 0;
+        font-size: 16px;
+        font-family: 'Pretendard';
+        align-items: center;
+        justify-content: center;
+    }
+
+    .traits1 {
+        margin-top: -35px;
+        list-style-type: none;
+        padding: 0;
+        font-size: 16px;
+        font-family: 'Pretendard';
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .traits li {
+        margin-bottom: 8px;
+    }
+    
+    .matches {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .good-bad-match {
+        text-align: center;
+        border-radius: 10px; /* 박스 둥글게 */
+        display: flex;
+        gap: 30px; /* 두 항목 간 간격 조정 */
+        margin-bottom: 20px;
+    }
+    
+    .good-match, .bad-match {
+        text-align: center;
+        border: 2px solid #FF7898; 
+        border-radius: 10px;
+        position: relative;
+    }
+    
+    .good-match img, .bad-match img {
+        margin-top: -20px;
+        width: 130px;
+        height: auto;
+        position: relative;
+        z-index: 1; /* 낮은 z-index 값으로 뒤로 보냄 */
+       
+    }
+   
+    .combination{
+        font-size: 15px;
+        margin-top: 8px;
+        position: relative;
+        z-index: 2;
+    }
+    .nickname{
+        font-size: 15px;
+        position: relative;
+        z-index: 2;
+        margin-top: -20px;
+        
+    }
+    
+    .button-container{
+        margin-top:auto;
+      }
+    
+      .bottom-Button {
+        /* 하단 버튼 */
+        width: 300px;
+        height: 50px;
+      
+        color: #F7F7F7;
+        background: #FF7898;
+        border-radius: 8px;
+        border-color: rgb(255, 255, 255);
+      
+        font-family: 'Pretendard';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+       
+        margin-bottom: 40px;
+        margin-top:auto;
+      
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+}

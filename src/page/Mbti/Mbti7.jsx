@@ -12,7 +12,7 @@ function Mbti7(){
     const [isa2Checked,setIsa2Checked]=useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null); // 선택된 답변 상태
     const selectedValue1 = Mbti.selectList["7"];
-    const eVal = Mbti.f;
+
     const navigate = useNavigate(); 
     useEffect(() =>{
         if(selectedValue1){
@@ -42,11 +42,11 @@ function Mbti7(){
       };
     const handleNext = () => {
         if (selectedAnswer === 1) {
-            updateMbti({ f: eVal + 1, selectList: { ...Mbti.selectList, "7": true } });
+            updateMbti({ selectList: { ...Mbti.selectList, "7": true } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({ f: eVal, selectList: { ...Mbti.selectList, "7": false } });
+            updateMbti({  selectList: { ...Mbti.selectList, "7": false } });
         }
         navigate("/mbti8"); 
       };
@@ -62,7 +62,7 @@ function Mbti7(){
         </header>  
       
         <Question 
-            question={"친구가 시험을 망쳐서 속상하다고 말한다. 당신의 반응은?"} 
+            question={"친구가 시험을 망쳐서 속상하다고 말한다. \n당신의 반응은?"} 
             answer1={"그래도 고생했어, 다음에는 더 잘할 수 있을 거야"}
             answer2={"아 그래? 아쉬운 거지~"}
             a1Checked={isa1Checked}
