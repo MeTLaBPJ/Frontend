@@ -11,14 +11,14 @@ const Tabs = ({ children }) => {
   return (
     <div className="tabs">
       <div id='tabs_divider'>
-      {children.map((child) => (
-        <Tab
-          key={child.props.label}
-          label={child.props.label}
-          onClick={handleTabClick}
-          activeTab={activeTab}
-        />
-      ))} 
+        {children.map((child) => (
+          <Tab
+            key={child.props.label}
+            label={child.props.label}
+            onClick={handleTabClick}
+            activeTab={activeTab}
+          />
+        ))}
       </div>
 
       <div className="tab-content">
@@ -26,7 +26,7 @@ const Tabs = ({ children }) => {
           child.props.label === activeTab ? child.props.children : null
         )}
       </div>
-     
+
     </div>
   );
 };

@@ -12,7 +12,7 @@ function Mbti10(){
     const [isa2Checked,setIsa2Checked]=useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null); // 선택된 답변 상태
     const selectedValue1 = Mbti.selectList["10"];
-    const eVal = Mbti.p;
+
     const navigate = useNavigate(); 
     useEffect(() =>{
         if(selectedValue1){
@@ -42,11 +42,11 @@ function Mbti10(){
       };
     const handleNext = () => {
         if (selectedAnswer === 1) {
-            updateMbti({ p: eVal + 1, selectList: { ...Mbti.selectList, "10": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "10": true } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({ p: eVal, selectList: { ...Mbti.selectList, "10": false } });
+            updateMbti({  selectList: { ...Mbti.selectList, "10": false } });
         }
         navigate("/mbti11"); 
       };
@@ -62,8 +62,8 @@ function Mbti10(){
         </header>  
       
         <Question 
-            question={"팀플 발표를 맡게 되었다! 발표 준비를 어떻게 할까?"} 
-            answer1={"철학자~ 니체~ 독일~ 키워드만 준비해도 되겠지~"}
+            question={"팀플 발표를 맡게 되었다!\n발표 준비를 어떻게 할까?"} 
+            answer1={"니체~ 독일~ 키워드만 준비해도 되겠지~"}
             answer2={"니체는 1844년 독일에서 태어나... \n 대본부터 리허설까지 철저하게 준비해야지"}
             a1Checked={isa1Checked}
             a2Checked={isa2Checked}

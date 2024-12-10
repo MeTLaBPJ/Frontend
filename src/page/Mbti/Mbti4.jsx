@@ -11,7 +11,7 @@ function Mbti4(){
     const [isa2Checked,setIsa2Checked]=useState(false);
     const [selectedAnswer, setSelectedAnswer] = useState(null); // 선택된 답변 상태
     const selectedValue1 = Mbti.selectList["4"];
-    const eVal = Mbti.p;
+
     const navigate = useNavigate(); 
     useEffect(() =>{
         if(selectedValue1){
@@ -31,21 +31,21 @@ function Mbti4(){
   };
     const handleBack = () => {
         if (selectedAnswer === 1) {
-            updateMbti({  selectList: { ...Mbti.selectList, "4": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "4": false } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({  selectList: { ...Mbti.selectList, "4": false } });
+            updateMbti({  selectList: { ...Mbti.selectList, "4": true } });
         }
         navigate("/mbti3"); // 이전 페이지로 이동
       };
     const handleNext = () => {
         if (selectedAnswer === 1) {
-            updateMbti({ p: eVal, selectList: { ...Mbti.selectList, "4": true } });
+            updateMbti({  selectList: { ...Mbti.selectList, "4": false } });
             console.log("Context updated:");
           
         } else if (selectedAnswer === 2) {
-            updateMbti({ p: eVal + 1, selectList: { ...Mbti.selectList, "4": false } });
+            updateMbti({  selectList: { ...Mbti.selectList, "4": true } });
         }
         navigate("/mbti5"); 
       };

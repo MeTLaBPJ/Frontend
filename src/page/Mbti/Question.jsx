@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+
 import { useState , useEffect} from "react";
-import { MbtiContext } from "../../context/MbitContext";
+
 
 function Question({question, answer1, answer2, a1Checked, a2Checked, onAnswerSelected}){
    
    
-    const [selectedAnswer1, setSelectedAnswer1] = useState(false);
-    const [selectedAnswer2, setSelectedAnswer2] = useState(false);
+    const [selectedAnswer1, setSelectedAnswer1] = useState();
+    const [selectedAnswer2, setSelectedAnswer2] = useState();
  useEffect(()=>{
         if(a1Checked){
             setSelectedAnswer1(true);
